@@ -2,7 +2,7 @@
   <div>
     <AppHeader />
 
-    Index Page
+    IndexPage
   </div>
 </template>
 
