@@ -871,6 +871,7 @@ export default {
     margin-bottom: 30px;
 
   }
+  
 
   .deal__left {
     display: flex;
