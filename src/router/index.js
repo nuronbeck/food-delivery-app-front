@@ -7,6 +7,7 @@ import AuthLayout from '../layouts/AuthLayout'
 // Pages
 import IndexPage from '../pages/IndexPage'
 import LoginPage from '../pages/Auth/LoginPage'
+import ForgotPage from '../pages/Auth/ForgotPage'
 import ProfilePage from '../pages/ProfilePage'
 
 Vue.use(VueRouter)
@@ -20,6 +21,10 @@ const routes = [
       {
         path: 'login',
         component: LoginPage
+      },
+      {
+        path: 'forgot',
+        component: ForgotPage
       }
     ]
   },

@@ -21,8 +21,14 @@
     --grey-lightest: #EDEEF2;
     --error: #FF5C60;
 
+
     --breakpoint-mobile: 768px;
     --breakpoint-desktop: 1110px;
+}
+
+*{
+  margin: 0;
+  padding: 0;
 }
 
 *,

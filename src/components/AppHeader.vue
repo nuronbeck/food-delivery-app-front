@@ -24,9 +24,9 @@
         <div class="header__menu--right-side">
           <nav class="header__menu--link">
             <router-link class="menu_link" to="">Restaurants</router-link>
-            <a class="menu_link" href="#">Deals</a>
+            <router-link class="menu_link" to="">Deals</router-link>
             <span class="header__menu--divider-vertical"></span>
-            <a class="menu_link active" href="#">My orders</a>
+            <router-link class="menu_link active" to="/auth/footer">My orders</router-link>
           </nav>
           <div class="header__menu--icon">
             <a href="#"
