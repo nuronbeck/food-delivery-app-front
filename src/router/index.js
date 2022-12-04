@@ -1,48 +1,53 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router';
+import Vue from "vue";
+import VueRouter from "vue-router";
 // Layouts
-import MainLayout from '../layouts/MainLayout'
-import AuthLayout from '../layouts/AuthLayout'
+import MainLayout from "../layouts/MainLayout";
+import AuthLayout from "../layouts/AuthLayout";
 
 // Pages
-import IndexPage from '../pages/IndexPage'
-import LoginPage from '../pages/Auth/LoginPage'
-import ProfilePage from '../pages/ProfilePage'
+import IndexPage from "../pages/IndexPage";
+import LoginPage from "../pages/Auth/LoginPage";
+import ProfilePage from "../pages/ProfilePage";
+import ProductCardPage from "../pages/Cards/ProductCardPage";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/auth',
-    name: 'LoginPage',
+    path: "/auth",
+    name: "LoginPage",
     component: AuthLayout,
     children: [
       {
-        path: 'login',
-        component: LoginPage
-      }
-    ]
+        path: "login",
+        component: LoginPage,
+      },
+    ],
   },
   {
-    path: '/',
-    name: 'IndexPage',
+    path: "/",
+    name: "IndexPage",
     component: MainLayout,
     children: [
       {
-        path: '',
-        component: IndexPage
+        path: "",
+        component: IndexPage,
       },
       {
-        path: 'profile',
-        component: ProfilePage
-      }
-    ]
+        path: "profile",
+        component: ProfilePage,
+      },
+      {
+        path: "cards",
+        component: ProductCardPage,
+      },
+    ],
   },
-]
+];
 
 const router = new VueRouter({
-  mode: 'history',
-  routes
-})
+  mode: "history",
+  routes,
+});
 
-export default router
+export default router;

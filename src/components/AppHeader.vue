@@ -3,21 +3,11 @@
     <div class="container">
       <div class="header__navbar">
         <div class="header__menu--left-side">
-          <img
-            class="header__menu--logo"
-            src="@/assets/img/main_logo.svg"
-            alt="Food delivery website logo"
-          />
+          <img class="header__menu--logo" src="@/assets/img/main_logo.svg" alt="Food delivery website logo" />
 
           <div class="header__menu--search">
-            <input
-              class="header__menu--search-input"
-              type="text"
-              placeholder="Search "
-            />
-            <i
-              class="header__menu--search-icon fa-solid fa-magnifying-glass"
-            ></i>
+            <input class="header__menu--search-input" type="text" placeholder="Search " />
+            <i class="header__menu--search-icon fa-solid fa-magnifying-glass"></i>
           </div>
         </div>
 
@@ -29,27 +19,15 @@
             <a class="menu_link active" href="#">My orders</a>
           </nav>
           <div class="header__menu--icon">
-            <a href="#"
-              ><img
-                class="header__menu--icon-item"
-                src="@/assets/img/shopping bag.svg"
-                alt="shopping bag icon"
-            /></a>
+            <a href="#"><img class="header__menu--icon-item" src="@/assets/img/shopping bag.svg"
+                alt="shopping bag icon" /></a>
             <span class="header__menu--icon-number">4</span>
           </div>
           <router-link to="/profile">
-            <img
-              class="header__menu--useravatar"
-              src="@/assets/img/useravatar.svg"
-              alt="useravatar img"
-            />
+            <img class="header__menu--useravatar" src="@/assets/img/useravatar.svg" alt="useravatar img" />
           </router-link>
           <span class="header__menu--divider-vertical"></span>
-          <img
-            class="header__menu--icon-mobile"
-            src="@/assets/img/menu.svg"
-            alt=" header menu icon "
-          />
+          <img class="header__menu--icon-mobile" src="@/assets/img/menu.svg" alt=" header menu icon " />
         </div>
       </div>
     </div>
@@ -68,6 +46,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 24px;
   background-color: var(--white);
   border-bottom: 1px solid var(--primary-light);
 }

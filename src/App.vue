@@ -31,9 +31,20 @@
     box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
+
 .container {
     width: 100%;
     margin: 0 auto;
     max-width: var(--breakpoint-desktop);
 }
+
+@media screen and (max-width: 1140px) {
+  .container {
+    padding: 0 15px;
+  }
+} 
 </style>
