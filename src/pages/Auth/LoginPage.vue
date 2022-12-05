@@ -28,7 +28,7 @@
           <router-link to="./forgot" class="button_forgot">Forgot password</router-link>
           <div class="sign">
             <p>
-              Don`t have an account?<a href="#" class="sign_inner"> Sign up</a>
+              Don`t have an account?<router-link to="./sign" class="sign_inner"> Sign up</router-link>
             </p>
           </div>
         </div>
@@ -61,6 +61,7 @@ export default {
 </script>
 
 <style>
+
 /* DEFAULT*/
 .login {
   margin: 0 auto;
@@ -164,6 +165,7 @@ export default {
   background-color: var(--primary);
   border-radius: 8px;
   box-shadow: 0 8px 20px rgba(78, 96, 255, 0.16);
+  transition: background 0.25s linear, color 0.25s linear;
 }
 
 .button_login:hover {
@@ -184,14 +186,14 @@ export default {
   line-height: 20px;
   text-align: center;
   color: var(--primary);
-
-
+  text-decoration: none;
   border: 0;
   background-color: var(--white);
 }
 
 .button_forgot:hover {
   color: var(--primary);
+  text-decoration: underline;
 }
 
 .sign {
@@ -206,8 +208,12 @@ export default {
 .sign_inner {
   font-size: 14px;
   color: var(--primary);
+  text-decoration: none;
 }
 
+.sign_inner:hover {
+  text-decoration: underline;
+}
 
 /*BLOCK_RIGHT-SIDE*/
 .block_right-side {
