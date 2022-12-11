@@ -5,9 +5,9 @@
     </div>
 
     <div class="deal-card__content">
-      <div class="deal-card__title">{{title}}</div>
-      <div class="deal-card__offer">{{offer}}</div>
-      <div class="deal-card__tag">{{tag}}</div>
+      <div class="deal-card__title">{{ title }}</div>
+      <div class="deal-card__offer">{{ offer }}</div>
+      <div class="deal-card__tag">{{ tag }}</div>
     </div>
   </div>
 </template>
@@ -89,11 +89,41 @@ export default {
 
 .deal-card__tag {
   font-family: 'Nunito', sans-serif;
-  font-style: normal;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 20px;
   letter-spacing: 0.1px;
   color: var(--grey);
+}
+
+@media screen and (max-width: 768px) {
+  .deal-card {
+    flex-direction: column-reverse;
+  }
+
+  .deal-card__content {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 20px;
+    justify-content: space-between;
+  }
+
+  .deal-card__title {
+    padding-bottom: 60px;
+
+  }
+
+  .deal-card__tag {
+    padding: 2px 0 0 132px;
+  }
+
+  .deal-card__offer {
+    position: absolute;
+    top: 52px;
+    left: 16px;
+  }
+
 }
 </style>

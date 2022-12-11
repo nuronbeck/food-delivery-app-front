@@ -5,10 +5,13 @@
 </template>
 
 <style>
-/* Nunito font regular */
+/* ============NOrmalize css ================== */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css');
+
+/*=========== Nunito font regular================== */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital@1&display=swap');
 
-/* Nunito font bold */
+/*=================== Nunito font bold ==========*/
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,700;1,400&display=swap');
 
 :root {
@@ -33,9 +36,19 @@
   box-sizing: border-box;
 }
 
+*{
+  text-decoration: none;
+}
+
 .container {
   width: 100%;
   margin: 0 auto;
   max-width: var(--breakpoint-desktop);
+}
+
+@media screen and (max-width: 768px){
+  .container {
+    padding: 0 15px;
+  }
 }
 </style>
