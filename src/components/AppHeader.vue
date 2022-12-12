@@ -10,13 +10,13 @@
           </div>
         </div>
         <div class="menu">
-          <a class="menu__link" to="#">Restaurants</a>
-          <a class="menu__link" to="#">Deals</a>
+          <a class="menu__link" href="#">Restaurants</a>
+          <a class="menu__link" href="#">Deals</a>
           <span class="menu-divider__vertical"></span>
-          <a class="menu__link" to="#">My orders</a>
-          <a class="menu__shopping" to="#"><img src="@/assets/header/shopping bag.svg"><span
+          <a class="menu__link" href="#">My orders</a>
+          <a class="menu__shopping" href="#"><img src="@/assets/header/shopping bag.svg"><span
               class="menu__shopping--counter">4</span></a>
-          <a to="#"><img class="menu__user" src="@/assets/header/useravatar.svg"></a>
+          <a href="#"><img class="menu__user" src="@/assets/header/useravatar.svg"></a>
           <img class="menu__menu--icon" src="@/assets/header/menu.svg">
         </div>
       </div>

@@ -14,26 +14,26 @@
 
 <script>
 export default {
-  name: 'DealCard',
+  name: "DealCard",
   props: {
     variant: {
       type: String,
-      default: "primary"
+      default: "primary",
     },
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     offer: {
       type: String,
-      default: ""
+      default: "",
     },
     tag: {
       type: String,
-      default: ""
+      default: "",
     },
-  }
-}
+  },
+};
 </script>
 
 <style>
@@ -68,17 +68,17 @@ export default {
 }
 
 .deal-card__title {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
   line-height: 28px;
   letter-spacing: 0.1px;
-  color: #2B2B43;
+  color: #2b2b43;
 }
 
 .deal-card__offer {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-style: normal;
   font-weight: 800;
   font-size: 40px;
@@ -88,7 +88,7 @@ export default {
 }
 
 .deal-card__tag {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-weight: 400;
   font-size: 15px;
   line-height: 20px;
@@ -112,7 +112,6 @@ export default {
 
   .deal-card__title {
     padding-bottom: 60px;
-
   }
 
   .deal-card__tag {
@@ -124,6 +123,5 @@ export default {
     top: 52px;
     left: 16px;
   }
-
 }
 </style>
