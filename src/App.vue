@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
@@ -23,6 +23,7 @@
   --dark: #2B2B43;
   --grey: #83859C;
   --grey-light: #C7C8D2;
+  --grey-dark: #545563;
   --grey-lightest: #EDEEF2;
   --error: #FF5C60;
 
@@ -36,7 +37,7 @@
   box-sizing: border-box;
 }
 
-*{
+* {
   text-decoration: none;
 }
 
@@ -46,7 +47,7 @@
   max-width: var(--breakpoint-desktop);
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 768px) {
   .container {
     padding: 0 15px;
   }
