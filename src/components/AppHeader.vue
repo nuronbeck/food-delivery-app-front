@@ -10,13 +10,13 @@
           </div>
         </div>
         <div class="menu">
-          <router-link class="menu__link" to="#">Restaurants</router-link>
-          <router-link class="menu__link" to="#">Deals</router-link>
+          <a class="menu__link" to="#">Restaurants</a>
+          <a class="menu__link" to="#">Deals</a>
           <span class="menu-divider__vertical"></span>
-          <router-link class="menu__link" to="#">My orders</router-link>
-          <router-link class="menu__shopping" to="#"><img src="@/assets/header/shopping bag.svg"><span
-              class="menu__shopping--counter">4</span></router-link>
-          <router-link to="#"><img class="menu__user" src="@/assets/header/useravatar.svg"></router-link>
+          <a class="menu__link" to="#">My orders</a>
+          <a class="menu__shopping" to="#"><img src="@/assets/header/shopping bag.svg"><span
+              class="menu__shopping--counter">4</span></a>
+          <a to="#"><img class="menu__user" src="@/assets/header/useravatar.svg"></a>
           <img class="menu__menu--icon" src="@/assets/header/menu.svg">
         </div>
       </div>
