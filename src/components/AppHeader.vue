@@ -50,6 +50,10 @@ export default {
   align-items: center;
 }
 
+.logo{
+ cursor: pointer; 
+}
+
 .search-form {
   position: relative;
   margin-left: 48px;
