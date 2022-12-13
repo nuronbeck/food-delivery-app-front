@@ -7,6 +7,7 @@ import AuthLayout from '../layouts/AuthLayout'
 // Pages
 import IndexPage from '../pages/IndexPage'
 import LoginPage from '../pages/Auth/LoginPage'
+import ForgotPasswordPage from '../pages/Auth/ForgotPasswordPage'
 import ProfilePage from '../pages/ProfilePage'
 
 Vue.use(VueRouter)
@@ -14,18 +15,22 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/auth',
-    name: 'LoginPage',
+    name: 'AuthLayout',
     component: AuthLayout,
     children: [
       {
         path: 'login',
         component: LoginPage
+      },
+      {
+        path: 'forgot-password',
+        component: ForgotPasswordPage
       }
     ]
   },
   {
     path: '/',
-    name: 'IndexPage',
+    name: 'MainLayout',
     component: MainLayout,
     children: [
       {

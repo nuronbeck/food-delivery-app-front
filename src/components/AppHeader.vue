@@ -1,61 +1,28 @@
 <template>
-  <header class="header__menu">
+  <header class="header">
     <div class="container">
-      <div class="header__navbar">
-        <div class="header__menu--left-side">
-          <img
-            class="header__menu--logo"
-            src="@/assets/img/main_logo.svg"
-            alt="Food delivery website logo"
-          />
-
-          <div class="header__menu--search">
-            <input
-              class="header__menu--search-input"
-              type="text"
-              placeholder="Search "
-            />
-            <i
-              class="header__menu--search-icon fa-solid fa-magnifying-glass"
-            ></i>
+      <div class="header-wrapper">
+        <div class="header-left">
+          <img class="logo" src="@/assets/header/main_logo.svg">
+          <div class="search-form">
+            <input class="search-input" type="text" placeholder="Search ">
+            <i class="search-icon fa-solid fa-magnifying-glass"></i>
           </div>
         </div>
-
-        <div class="header__menu--right-side">
-          <nav class="header__menu--link">
-            <router-link class="menu_link" to="">Restaurants</router-link>
-            <a class="menu_link" href="#">Deals</a>
-            <span class="header__menu--divider-vertical"></span>
-            <a class="menu_link active" href="#">My orders</a>
-          </nav>
-          <div class="header__menu--icon">
-            <a href="#"
-              ><img
-                class="header__menu--icon-item"
-                src="@/assets/img/shopping bag.svg"
-                alt="shopping bag icon"
-            /></a>
-            <span class="header__menu--icon-number">4</span>
-          </div>
-          <router-link to="/profile">
-            <img
-              class="header__menu--useravatar"
-              src="@/assets/img/useravatar.svg"
-              alt="useravatar img"
-            />
-          </router-link>
-          <span class="header__menu--divider-vertical"></span>
-          <img
-            class="header__menu--icon-mobile"
-            src="@/assets/img/menu.svg"
-            alt=" header menu icon "
-          />
+        <div class="menu">
+          <a class="menu__link" href="#">Restaurants</a>
+          <a class="menu__link" href="#">Deals</a>
+          <span class="menu-divider__vertical"></span>
+          <a class="menu__link" href="#">My orders</a>
+          <a class="menu__shopping" href="#"><img src="@/assets/header/shopping bag.svg"><span
+              class="menu__shopping--counter">4</span></a>
+          <router-link to="/profile"><img class="menu__user" src="@/assets/header/useravatar.svg"></router-link>
+          <img class="menu__menu--icon" src="@/assets/header/menu.svg">
         </div>
       </div>
     </div>
   </header>
 </template>
-
 <script>
 export default {
   name: "AppHeader",
@@ -63,32 +30,33 @@ export default {
 </script>
 
 <style>
-.header__menu {
+.header {
   height: 80px;
+  background-color: var(--white);
+  border-bottom: 1px solid var(--primary-light);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.header-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--white);
-  border-bottom: 1px solid var(--primary-light);
 }
 
-.header__menu--left-side {
+.header-left {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
 }
 
-.header__menu--logo {
-  width: 79px;
-  height: 40px;
-}
-
-.header__menu--search {
+.search-form {
   position: relative;
   margin-left: 48px;
+  align-items: center;
 }
 
-.header__menu--search-input {
+.search-input {
   font-family: "Nunito", sans-serif;
   font-size: 14px;
   line-height: 20px;
@@ -105,7 +73,7 @@ export default {
   box-sizing: border-box;
 }
 
-.header__menu--search-icon {
+.search-icon {
   position: absolute;
   color: var(--grey);
   width: 16px;
@@ -114,59 +82,42 @@ export default {
   right: calc((40px - 16px) / 2);
 }
 
-/*  Here you can define styles how to create menu right side  */
 
-.header__menu--right-side {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-.header__menu--link {
+.menu {
   display: flex;
   align-items: center;
 }
 
-.menu_link {
-  text-decoration: none;
-  font-family: "Nunito", sans-serif;
+.menu__link {
+  font-family: 'Nunito', sans-serif;
   font-weight: 700;
   font-size: 14px;
   line-height: 20px;
   color: var(--dark);
-  list-style: none;
   margin: 0 28px;
 }
 
-.menu_link:hover {
+.menu__link:hover {
   color: var(--primary);
-  transition: 0.5s;
+  transition: .5s;
 }
 
-.header__navbar {
-  display: flex;
-  justify-content: space-between;
-}
-
-.header__menu--divider-vertical {
+.menu-divider__vertical {
   height: 32px;
-  border-right: 1px solid var(--grey-lightest);
+  border-right: 1px solid var(--grey-light);
 }
 
-.header__menu--icon {
-  position: relative;
-  margin-right: 12px;
-}
-
-.header__menu--icon-item {
+.menu__shopping {
   background-color: var(--primary-light);
-  padding: 16px;
+  padding: 12px;
   border-radius: 16px;
+  position: relative;
+  margin-right: 11px;
 }
 
-.header__menu--icon-number {
+.menu__shopping--counter {
   position: absolute;
-  background-color: #4e60ff;
+  background-color: #4E60FF;
   border-radius: 8px;
   padding: 2px 6px;
   color: var(--white);
@@ -174,67 +125,81 @@ export default {
   top: -6px;
 }
 
-.header__menu--useravatar {
-  border: 2px solid #edeef2;
+.menu__user {
+  border: 2px solid #EDEEF2;
   border-radius: 16px;
   padding: 2px;
 }
 
-.header__menu--icon-mobile {
+.menu__user:hover {
+  border: 2px solid var(--primary);
+}
+
+.menu__menu--icon {
   display: none;
 }
+
 
 /* cards section */
 
 /* Here you can define styles how to change on mobile  */
 @media screen and (max-width: 768px) {
-  .container {
-    padding: 0 15px;
-  }
 
-  .header__menu--search {
-    display: none;
-  }
-
-  .header__menu--logo {
+  .logo {
     padding-left: 15px;
   }
 
-  .header__menu--link {
+  .search-form {
     display: none;
   }
 
-  .header__navbar {
-    display: flex;
+  .menu {
+    position: relative;
   }
 
-  .header__menu--icon {
-    margin-left: 59px;
+  .menu__link {
+    display: none;
   }
 
-  .header__menu--useravatar {
+  .menu__shopping {
+    border: 2px solid var(--primary-light);
+  }
+
+  .menu__shopping:hover {
     border: 2px solid var(--primary);
-    margin-left: 12px;
   }
 
-  .header__menu--divider-vertical {
-    margin: 0 19px;
+  .menu__user {
+    margin-right: 32px;
+  }
+
+  .menu__user:hover {
+    border: 2px solid var(--primary);
+  }
+
+
+  .menu-divider__vertical {
+    position: absolute;
+    right: 65px;
+    top: 10;
     border: 1px solid var(--grey-lightest);
     height: 32px;
     color: var(--grey);
   }
 
-  .header__menu--icon-mobile {
+
+
+  .menu__menu--icon {
+    cursor: pointer;
     display: block;
     background: #edeef2;
     border-radius: 16px;
     padding: 14px;
-    cursor: pointer;
-    border: 1px solid var(--white);
+    border: 2px solid var(--grey-lightest);
   }
 
-  .header__menu--icon-mobile:hover {
-    border: 1px solid var(--primary);
+  .menu__menu--icon:hover {
+    border: 2px solid var(--primary);
   }
 }
 </style>
