@@ -29,7 +29,6 @@ export default {
   font-weight: bold;
   padding: 12px 16px;
   border-radius: 8px;
-
   color: var(--white);
   background-color: var(--primary);
   border: none;
@@ -45,6 +44,12 @@ export default {
   background-color: var(--primary);
   border: none;
 }
+.btn-primary-outline {
+  color: var(--primary);
+  background-color: var(--white);
+  border: 1px solid var(--primary);
+  box-shadow: none;
+}
 
 .btn-danger {
   color: var(--white);
@@ -57,6 +62,18 @@ export default {
   background-color: var(--white);
   border: 1px solid var(--error);
   box-shadow: none;
+}
+.btn-outline-none {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.3px;
+  margin-left: 32px;
+  color: var(--grey);
 }
 
 .btn:disabled {

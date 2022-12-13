@@ -7,6 +7,7 @@ const productList = [
     cardAction: "Burger",
   },
   {
+    featured: "featured",
     title: "Royal Sushi House",
     text1: "30-40 min",
     text2: "$32 min sum",
@@ -14,6 +15,7 @@ const productList = [
     counter: 2,
   },
   {
+    counter: 2,
     title: "Burgers & Pizza",
     text1: "30-40 min",
     text2: "$32 min sum",
