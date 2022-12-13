@@ -16,14 +16,13 @@
           <a class="menu__link" href="#">My orders</a>
           <a class="menu__shopping" href="#"><img src="@/assets/header/shopping bag.svg"><span
               class="menu__shopping--counter">4</span></a>
-          <a href="#"><img class="menu__user" src="@/assets/header/useravatar.svg"></a>
+          <router-link to="/profile"><img class="menu__user" src="@/assets/header/useravatar.svg"></router-link>
           <img class="menu__menu--icon" src="@/assets/header/menu.svg">
         </div>
       </div>
     </div>
   </header>
 </template>
-
 <script>
 export default {
   name: "AppHeader",

@@ -39,6 +39,7 @@
 
 * {
   text-decoration: none;
+  margin: 0;
 }
 
 .container {
