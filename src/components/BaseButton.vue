@@ -23,7 +23,6 @@ export default {
 <style>
 .btn {
   cursor: pointer;
-  width: 100%;
   font-size: 14px;
   line-height: 20px;
   font-family: "Nunito";

@@ -72,9 +72,7 @@
             </form>
           </div>
           <div class="account__btns">
-          
               <BaseButton class="dangerBtn" variant="danger-outline">Log out</BaseButton>
-     
            <div>
             <BaseButton disabled="disabled" class="DiscardBtn">Discard changes</BaseButton>
             <BaseButton class="SaveBtn">Save changes</BaseButton>
@@ -274,6 +272,9 @@ input[type=checkbox]:checked+label:before {
 .account__btns div:nth-child(2){
   display: flex;
   justify-content: space-between;
+}
+.account__btns div button{
+  width: 100%;
 }
 .dangerBtn{
   margin-bottom: 40px;
