@@ -1,37 +1,27 @@
 <template>
-  <div class="auth_form">
+  <form class="auth_form">
     <h1 class="login_name">Login</h1>
-    <label class="login_label" for="email">Email</label>
-    <input
-      class="login_input"
-      placeholder="name@example.com"
-      id="email"
-      type="text"
-      name="email"
-    />
-    <label class="login_label" for="password">Password</label>
-    <input
-      class="login_input"
-      placeholder="min.8 characters"
-      id="password"
-      type="text"
-      name="password"
-    />
+    <BaseInput label="Email" placeholder="name@example.com"></BaseInput>
+    <BaseInput label="Password" placeholder="min. 8 characters"></BaseInput>
+
     <div class="chackbox">
-      <input class="chackbox_sign" type="checkbox" name="checkbox" />
+      <input class="chackbox_sign" type="checkbox" required name="checkbox" />
       <div class="chackbox_text">Keep me logged in</div>
     </div>
 
-    <BaseButton variant="primary" class="button_login">
-      Login
-    </BaseButton>
+    <BaseButton variant="primary" class="button_login"> Login </BaseButton>
 
-    <router-link to="/auth/forgot-password" class="button_forgot">Forgot password</router-link> 
+    <router-link to="/auth/forgot-password" class="button_forgot"
+      >Forgot password</router-link
+    >
 
     <div class="sign">
-      <p>Don`t have an account?<a href="#" class="sign_inner"> Sign up</a></p>
+      <p>
+        Don`t have an account?
+        <router-link to="../auth/sign" class="sign_inner"> Sign up</router-link>
+      </p>
     </div>
-  </div>
+  </form>
 </template>
 
 <script>
