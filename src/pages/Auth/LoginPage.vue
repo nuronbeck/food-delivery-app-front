@@ -3,9 +3,11 @@
     <h1 class="login_name">Login</h1>
     <BaseInput label="Email" placeholder="name@example.com"></BaseInput>
     <BaseInput label="Password" placeholder="min. 8 characters"></BaseInput>
+    <BaseInput label="Email" placeholder="name@example.com"></BaseInput>
+    <BaseInput label="Password" placeholder="min. 8 characters"></BaseInput>
 
     <div class="chackbox">
-      <input class="chackbox_sign" type="checkbox" required name="checkbox" />
+      <input class="chackbox_sign" type="checkbox" name="checkbox" />
       <div class="chackbox_text">Keep me logged in</div>
     </div>
 
@@ -16,10 +18,7 @@
     >
 
     <div class="sign">
-      <p>
-        Don`t have an account?
-        <router-link to="../auth/sign" class="sign_inner"> Sign up</router-link>
-      </p>
+      <p>Don`t have an account?<a href="#" class="sign_inner"> Sign up</a></p>
     </div>
   </form>
 </template>

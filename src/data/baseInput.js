@@ -1,12 +1,12 @@
 const baseInput = [
     {
-        label: 'salom',
-        placeholder: 'jinni',
-        name: 'sasassjdsds'
+        label: '',
+        placeholder: '',
+        name: ''
     },
     {
-        label: 'sdsfsfsf',
-        placeholder: 'dwsdwsdwsd'
+        label: '',
+        placeholder: ''
     },
   ];
   
