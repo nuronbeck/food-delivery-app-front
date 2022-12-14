@@ -84,11 +84,7 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "ProfilePage"
-}
-</script>
+
 
 
 <style>
@@ -109,9 +105,8 @@ export default {
   color: #2B2B43;
 }
 
-
 .profile__tab {
-  display: flex;
+    display: flex;
   align-items: center;
   margin-bottom: 12px;
   padding: 16px;
@@ -119,6 +114,10 @@ export default {
   background: #FFFFFF;
   border: 2px solid #EDEEF2;
   border-radius: 16px;
+}
+
+.profile__tab:hover img path{
+  stroke: white;
 }
 
 .profile__tab:hover {
