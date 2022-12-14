@@ -48,9 +48,5 @@
   max-width: var(--breakpoint-desktop);
 }
 
-@media screen and (max-width: 768px) {
-  .container {
-    padding: 0 15px;
-  }
-}
+
 </style>

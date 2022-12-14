@@ -3,7 +3,7 @@
     <div class="container">
       <div class="header-wrapper">
         <div class="header-left">
-          <img class="logo" src="@/assets/header/main_logo.svg">
+          <router-link to="/"><img class="logo" src="@/assets/header/main_logo.svg"></router-link>
           <div class="search-form">
             <input class="search-input" type="text" placeholder="Search ">
             <i class="search-icon fa-solid fa-magnifying-glass"></i>
@@ -48,6 +48,10 @@ export default {
 .header-left {
   display: flex;
   align-items: center;
+}
+
+.logo{
+ cursor: pointer; 
 }
 
 .search-form {

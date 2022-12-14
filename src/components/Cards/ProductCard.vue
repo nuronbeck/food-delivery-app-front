@@ -17,7 +17,7 @@
           <span v-if="counter" class="shopping-counter">{{ counter }}</span>
         </div>
       </div>
-      <div card__text>
+      <div class="card__text">
         <img src="@/assets/product/icons/clock.svg" />
         <p>{{ text1 }}</p>
         <span class="card__tag--dot">{{ cardTextDot }}</span>
@@ -148,7 +148,11 @@ export default {
   border-radius: 6px;
 }
 
-.card__body p {
+.card__text{
+  margin-bottom: 14px;
+}
+
+.card__text p {
   font-family: "Nunito";
   font-weight: 600;
   font-size: 12px;
