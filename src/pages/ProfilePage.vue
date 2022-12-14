@@ -40,7 +40,7 @@
           <div class="account__action">
             <img class="action-img" src="@/assets/profile/girl.svg">
             <BaseButton variant="primary-outline">Change</BaseButton>
-            <BaseButton variant="outline-none">Change</BaseButton>
+            <BaseButton variant="outline-none">Remove</BaseButton>
           </div>
           <div class="accout__input">
             <BaseInput label="First name" placeholder="Jane"></BaseInput>
