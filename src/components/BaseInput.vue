@@ -31,7 +31,7 @@ export default {
 <style>
 .input-box {
   width: 100%;
-  padding: 1 10px 12px 0;
+  padding: 1 16px 32px 0;
 }
 
 .input-box label {

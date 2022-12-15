@@ -5,6 +5,10 @@
     <BaseInput label="First Name" placeholder="First Name"></BaseInput>
     <BaseInput label="List Name" placeholder="List Name"></BaseInput>
     <BaseInput label="Password" placeholder="min. 8 characters"></BaseInput>
+    <BaseInput
+      label="Repeat Password"
+      placeholder="min. 8 characters"
+    ></BaseInput>
 
     <BaseButton variant="primary" class="button_login"> Register </BaseButton>
     <p class="top_link-center">

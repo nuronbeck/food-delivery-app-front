@@ -3,9 +3,11 @@
     <div class="container">
       <div class="header-wrapper">
         <div class="header-left">
-          <img class="logo" src="@/assets/header/main_logo.svg">
+          <router-link to="/">
+            <img class="logo" src="@/assets/header/main_logo.svg" />
+          </router-link>
           <div class="search-form">
-            <input class="search-input" type="text" placeholder="Search ">
+            <input class="search-input" type="text" placeholder="Search " />
             <i class="search-icon fa-solid fa-magnifying-glass"></i>
           </div>
         </div>
@@ -14,10 +16,16 @@
           <a class="menu__link" href="#">Deals</a>
           <span class="menu-divider__vertical"></span>
           <a class="menu__link" href="#">My orders</a>
-          <a class="menu__shopping" href="#"><img src="@/assets/header/shopping bag.svg"><span
-              class="menu__shopping--counter">4</span></a>
-          <router-link to="/profile"><img class="menu__user" src="@/assets/header/useravatar.svg"></router-link>
-          <img class="menu__menu--icon" src="@/assets/header/menu.svg">
+          <a class="menu__shopping" href="#"
+            ><img src="@/assets/header/shopping bag.svg" /><span
+              class="menu__shopping--counter"
+              >4</span
+            ></a
+          >
+          <router-link to="/profile"
+            ><img class="menu__user" src="@/assets/header/useravatar.svg"
+          /></router-link>
+          <img class="menu__menu--icon" src="@/assets/header/menu.svg" />
         </div>
       </div>
     </div>
@@ -82,14 +90,13 @@ export default {
   right: calc((40px - 16px) / 2);
 }
 
-
 .menu {
   display: flex;
   align-items: center;
 }
 
 .menu__link {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-weight: 700;
   font-size: 14px;
   line-height: 20px;
@@ -99,7 +106,7 @@ export default {
 
 .menu__link:hover {
   color: var(--primary);
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .menu-divider__vertical {
@@ -117,7 +124,7 @@ export default {
 
 .menu__shopping--counter {
   position: absolute;
-  background-color: #4E60FF;
+  background-color: #4e60ff;
   border-radius: 8px;
   padding: 2px 6px;
   color: var(--white);
@@ -126,7 +133,7 @@ export default {
 }
 
 .menu__user {
-  border: 2px solid #EDEEF2;
+  border: 2px solid #edeef2;
   border-radius: 16px;
   padding: 2px;
 }
@@ -139,12 +146,10 @@ export default {
   display: none;
 }
 
-
 /* cards section */
 
 /* Here you can define styles how to change on mobile  */
 @media screen and (max-width: 768px) {
-
   .logo {
     padding-left: 15px;
   }
@@ -177,7 +182,6 @@ export default {
     border: 2px solid var(--primary);
   }
 
-
   .menu-divider__vertical {
     position: absolute;
     right: 65px;
@@ -186,8 +190,6 @@ export default {
     height: 32px;
     color: var(--grey);
   }
-
-
 
   .menu__menu--icon {
     cursor: pointer;

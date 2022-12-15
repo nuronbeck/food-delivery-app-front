@@ -1,10 +1,8 @@
 <template>
   <section class="login">
     <div class="login_container">
-      <div class="block_left-side">
-        <router-view></router-view>
-      </div>
-      
+      <LogoBlock />
+
       <div class="block_right-side">
         <div class="block_right-inner">
           <h2 class="block_right--title">Strengthen the Guci`an bond</h2>
