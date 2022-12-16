@@ -40,7 +40,7 @@
           <div class="account__action">
             <img class="action-img" src="@/assets/profile/girl.svg" />
             <BaseButton variant="primary-outline">Change</BaseButton>
-            <BaseButton variant="outline-none">Change</BaseButton>
+            <BaseButton variant="outline-none">Remove</BaseButton>
           </div>
           <div class="accout__input">
             <BaseInput label="First name" placeholder="Jane"></BaseInput>
@@ -148,7 +148,7 @@ export default {
 }
 
 .profile__tab {
-  display: flex;
+    display: flex;
   align-items: center;
   margin-bottom: 12px;
   padding: 16px;
@@ -156,6 +156,10 @@ export default {
   background: #ffffff;
   border: 2px solid #edeef2;
   border-radius: 16px;
+}
+
+.profile__tab:hover img path{
+  stroke: white;
 }
 
 .profile__tab:hover {
