@@ -1,22 +1,24 @@
 <template>
-  <div>
-    <h1>Reset password</h1>
-
+  <form action="#" class="auth_form">
+    <h1 class="login_name">Reset password</h1>
+    <BaseInput label="Email" placeholder="name@example.com"></BaseInput>
+    <BaseInput label="Password" placeholder="min. 8 characters"></BaseInput>
+    <BaseInput
+      label="Repeat Password"
+      placeholder="min. 8 characters"
+    ></BaseInput>
     <div>
-      <BaseButton variant="primary">
-        Reset
-      </BaseButton>
+      <BaseButton variant="primary" class="button_login"> Reset </BaseButton>
     </div>
-
-    <p>
-      You already have account? Please <router-link to="/auth/login" class="button_forgot">login</router-link>
+    <p class="top_link-center">
+      You already have account? Please
+      <router-link to="/auth/login" class="link_login-name">Login</router-link>
     </p>
-  </div>
+  </form>
 </template>
 
 <script>
-
 export default {
-  name: "ForgotPasswordPage"
-}
+  name: "ForgotPasswordPage",
+};
 </script>

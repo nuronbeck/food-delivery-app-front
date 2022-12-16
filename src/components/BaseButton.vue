@@ -67,7 +67,7 @@ export default {
   border: none;
   background: none;
   cursor: pointer;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-weight: 700;
   font-size: 14px;
   line-height: 20px;
