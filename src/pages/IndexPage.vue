@@ -20,7 +20,6 @@
           :text2="productCard.text2" :cardAction="productCard.cardAction" :counter="productCard.counter" />
       </div>
     </div>
-
   </section>
 </template>
 
@@ -28,6 +27,7 @@
 import dealsList from "../data/dealsList";
 import categoryList from "../data/categoryList";
 import productList from "../data/productList";
+
 export default {
   name: "IndexPage",
   data() {
@@ -40,7 +40,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .deals-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -55,14 +55,18 @@ export default {
   margin-bottom: 79px;
 }
 
-.products__list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 30px;
-  margin-bottom: 100px;
+.products {
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+    margin-bottom: 100px;
+  }
 }
 
-@media screen and (max-width: 768px) {
+
+
+@media screen and (max-width: $breakpoint-md) {
   .deals-list {
     grid-template-columns: 1fr;
   }
@@ -71,8 +75,10 @@ export default {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .products__list {
-    grid-template-columns: 1fr;
+  .products {
+    &__list {
+      grid-template-columns: 1fr;
+    }
   }
 }
 </style>
