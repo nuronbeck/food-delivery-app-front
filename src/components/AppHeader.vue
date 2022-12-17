@@ -37,7 +37,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .header {
   height: 80px;
   background-color: var(--white);
@@ -45,20 +45,20 @@ export default {
   margin-bottom: 24px;
   display: flex;
   align-items: center;
+
+  &-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &-left {
+    display: flex;
+    align-items: center;
+  }
 }
 
-.header-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.header-left {
-  display: flex;
-  align-items: center;
-}
-
-.logo{
+.logo {
  cursor: pointer; 
 }
 
@@ -97,63 +97,63 @@ export default {
 .menu {
   display: flex;
   align-items: center;
-}
 
-.menu__link {
-  font-family: "Nunito", sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 20px;
-  color: var(--dark);
-  margin: 0 28px;
-}
+  &__link {
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--dark);
+    margin: 0 28px;
 
-.menu__link:hover {
-  color: var(--primary);
-  transition: 0.5s;
-}
+    &:hover {
+      color: var(--primary);
+      transition: 0.5s;
+    }
+  }
 
-.menu-divider__vertical {
-  height: 32px;
-  border-right: 1px solid var(--grey-light);
-}
+  &-divider {
+    &__vertical {
+      height: 32px;
+      border-right: 1px solid var(--grey-light);
+    }
+  }
 
-.menu__shopping {
-  background-color: var(--primary-light);
-  padding: 12px;
-  border-radius: 16px;
-  position: relative;
-  margin-right: 11px;
-}
+  &__shopping {
+    background-color: var(--primary-light);
+    padding: 12px;
+    border-radius: 16px;
+    position: relative;
+    margin-right: 11px;
 
-.menu__shopping--counter {
-  position: absolute;
-  background-color: #4e60ff;
-  border-radius: 8px;
-  padding: 2px 6px;
-  color: var(--white);
-  right: -6px;
-  top: -6px;
-}
+    &--counter {
+      position: absolute;
+      background-color: #4e60ff;
+      border-radius: 8px;
+      padding: 2px 6px;
+      color: var(--white);
+      right: -6px;
+      top: -6px;
+    }
+  }
 
-.menu__user {
-  border: 2px solid #edeef2;
-  border-radius: 16px;
-  padding: 2px;
-}
+  &__user {
+    border: 2px solid #edeef2;
+    border-radius: 16px;
+    padding: 2px;
 
-.menu__user:hover {
-  border: 2px solid var(--primary);
-}
+    &:hover {
+      border: 2px solid var(--primary);
+    }
+  }
 
-.menu__menu--icon {
-  display: none;
+  &__menu--icon {
+    display: none;
+  }
 }
-
-/* cards section */
 
 /* Here you can define styles how to change on mobile  */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: $breakpoint-md) {
   .logo {
     padding-left: 15px;
   }
@@ -171,11 +171,11 @@ export default {
   }
 
   .menu__shopping {
-    border: 2px solid var(--primary-light);
+    border: 2px solid $color-primary-light;
   }
 
   .menu__shopping:hover {
-    border: 2px solid var(--primary);
+    border: 2px solid $color-primary;
   }
 
   .menu__user {
@@ -183,16 +183,16 @@ export default {
   }
 
   .menu__user:hover {
-    border: 2px solid var(--primary);
+    border: 2px solid $color-primary;
   }
 
   .menu-divider__vertical {
     position: absolute;
     right: 65px;
     top: 10;
-    border: 1px solid var(--grey-lightest);
+    border: 1px solid $color-grey-lightest;
     height: 32px;
-    color: var(--grey);
+    color: $color-grey;
   }
 
   .menu__menu--icon {
@@ -201,11 +201,11 @@ export default {
     background: #edeef2;
     border-radius: 16px;
     padding: 14px;
-    border: 2px solid var(--grey-lightest);
+    border: 2px solid $color-grey-lightest;
   }
 
   .menu__menu--icon:hover {
-    border: 2px solid var(--primary);
+    border: 2px solid $color-primary;
   }
 }
 </style>
