@@ -6,26 +6,26 @@
 
 <style>
 /* ============NOrmalize css ================== */
-@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
 
 /*=========== Nunito font regular================== */
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital@1&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital@1&display=swap");
 
 /*=================== Nunito font bold ==========*/
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,700;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,700;1,400&display=swap");
 
 :root {
-  --primary: #4E60FF;
-  --primary-light: #F3F4FF;
-  --secondary: #FD6D22;
-  --secondary-light: #FFF3ED;
+  --primary: #4e60ff;
+  --primary-light: #f3f4ff;
+  --secondary: #fd6d22;
+  --secondary-light: #fff3ed;
   --white: #fff;
-  --dark: #2B2B43;
-  --grey: #83859C;
-  --grey-light: #C7C8D2;
+  --dark: #2b2b43;
+  --grey: #83859c;
+  --grey-light: #c7c8d2;
   --grey-dark: #545563;
-  --grey-lightest: #EDEEF2;
-  --error: #FF5C60;
+  --grey-lightest: #edeef2;
+  --error: #ff5c60;
 
   --breakpoint-mobile: 768px;
   --breakpoint-desktop: 1110px;
