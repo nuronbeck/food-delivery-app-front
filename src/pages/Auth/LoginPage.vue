@@ -5,13 +5,13 @@
     <BaseInput label="Password" placeholder="min. 8 characters"></BaseInput>
 
     <div class="chackbox">
-      <input class="chackbox_sign" type="" name="checkbox" />
+      <input class="chackbox_sign" type="" />
       <div class="chackbox_text">Keep me logged in</div>
     </div>
 
     <BaseButton variant="primary" class="button_login"> Login </BaseButton>
 
-    <router-link to="/auth/forgot-password" class="button_forgot"
+    <router-link to="/auth/forgot-password" class="forgot__icon"
       >Forgot password</router-link
     >
 
@@ -32,7 +32,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 /* FORM*/
 .auth_form {
   max-width: 350px;
@@ -48,56 +48,31 @@ export default {
   font-weight: 700;
   letter-spacing: 0.1px;
 
-  color: var(--dark);
-}
-
-.login_label {
-  margin-bottom: 5px;
-  width: 100%;
-  display: block;
-  font-family: "Nunito";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 16px;
-
-  color: var(--black);
-}
-
-.login_input {
-  width: 100%;
-  margin-bottom: 30px;
-  padding-left: 10px;
-  height: 44px;
-  display: block;
-  border: 1px solid var(--grey-light);
-  border-radius: 8px;
+  color: $color-dark;
 }
 
 .chackbox {
   margin-bottom: 40px;
   display: flex;
   align-items: center;
-}
+  &_sign {
+    margin-right: 12px;
+    width: 20px;
+    height: 20px;
 
-.chackbox_sign {
-  margin-right: 12px;
-  width: 20px;
-  height: 20px;
+    border: 2px solid $color-grey-light;
+    border-radius: 4px;
+  }
+  &_text {
+    font-family: "Nunito";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
 
-  border: 2px solid var(--grey-light);
-  border-radius: 4px;
-}
-
-.chackbox_text {
-  font-family: "Nunito";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: 0.1px;
-
-  color: var(--dark);
+    color: $color-grey-dark;
+  }
 }
 
 .button_login {
@@ -105,7 +80,7 @@ export default {
   margin-bottom: 35px;
 }
 
-.button_forgot {
+.forgot__icon {
   margin-bottom: 100px;
   width: 100%;
   display: block;
@@ -115,14 +90,13 @@ export default {
   font-size: 14px;
   line-height: 20px;
   text-align: center;
-  color: var(--primary);
+  color: $color-primary;
 
   border: 0;
-  background-color: var(--white);
-}
-
-.button_forgot:hover {
-  color: var(--primary);
+  background-color: $color-white;
+  :hover {
+    color: $color-primary;
+  }
 }
 
 .top_link-center {
@@ -131,13 +105,13 @@ export default {
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
-  color: var(--black);
+  color: $color-grey-dark;
   text-align: center;
 }
 
 .link_login-name {
   font-size: 14px;
-  color: var(--primary);
+  color: $color-primary;
   font-family: "Nunito";
   font-style: normal;
   font-weight: 400;

@@ -25,3 +25,5 @@ export default {
   name: "SignPage",
 };
 </script>
+
+<style></style>

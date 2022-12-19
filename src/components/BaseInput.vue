@@ -1,6 +1,6 @@
 <template>
   <div class="input-box">
-    <label for="email">{{ label }}</label>
+    <label class="login_label" for="email">{{ label }}</label>
     <input
       class="login_input"
       id="email"
@@ -28,32 +28,32 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .input-box {
   width: 100%;
   padding: 1 16px 32px 0;
 }
 
-.input-box label {
+.login_label {
+  margin-bottom: 5px;
+  width: 100%;
+  display: block;
   font-family: "Nunito" sans-serif;
+  font-style: normal;
   font-weight: 600;
   font-size: 12px;
-  line-break: 16px;
-  color: #545563;
+  line-height: 16px;
+
+  color: $color-grey-dark;
 }
 
-.input-box input {
+.login_input {
   width: 100%;
+  margin-bottom: 30px;
+  padding-left: 10px;
   height: 44px;
-  border: 1px solid #c7c8d2;
+  display: block;
+  border: 1px solid $color-grey-light;
   border-radius: 8px;
-  padding: 12px;
-  letter-spacing: 0.1px;
-  color: #2b2b43;
-  font-family: "Nunito" sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
-  margin-top: 4px;
 }
 </style>

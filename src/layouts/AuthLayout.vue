@@ -3,10 +3,10 @@
     <div class="login_container">
       <LogoBlock />
 
-      <div class="block_right-side">
-        <div class="block_right-inner">
-          <h2 class="block_right--title">Strengthen the Guci`an bond</h2>
-          <div class="block_right--text">
+      <div class="block">
+        <div class="block_inner">
+          <h2 class="block_title">Strengthen the Guci`an bond</h2>
+          <div class="block_text">
             Connecting Alumni and of Govermment engineering college idukki to a
             next level
           </div>
@@ -30,17 +30,16 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 /* DEFAULT*/
 .login {
   margin: 0 auto;
   width: 100%;
-}
-
-.login_container {
-  height: 100vh;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  &_container {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /*BLOCK_LIFT-SIDE*/
@@ -51,62 +50,57 @@ export default {
 }
 
 /*BLOCK_RIGHT-SIDE*/
-.block_right-side {
+.block {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   width: 100%;
 
-  background-color: var(--primary);
-}
+  background-color: $color-primary;
+  &_inner {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    margin: 0 auto;
+  }
+  &_title {
+    font-family: "Nunito";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 42px;
 
-.block_right-inner {
-  width: 100%;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-  margin: 0 auto;
-}
+    color: $color-white;
+  }
+  &_text {
+    font-family: "Nunito";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
 
-.block_right--title {
-  font-family: "Nunito";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 42px;
-
-  color: var(--white);
-}
-
-.block_right--text {
-  font-family: "Nunito";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: 0.1px;
-
-  color: var(--white);
+    color: $color-white;
+  }
 }
 
 .circle {
   margin: 54px 0;
-}
+  &_inner {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  &_item {
+    width: 8px;
+    height: 8px;
+    margin: 0 5px;
 
-.circle_inner {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.circle_item {
-  width: 8px;
-  height: 8px;
-  margin: 0 5px;
-
-  opacity: 0.3;
-  border-radius: 50%;
-  background-color: var(--white);
+    opacity: 0.3;
+    border-radius: 50%;
+    background-color: $color-white;
+  }
 }
 
 .active {
@@ -117,7 +111,7 @@ export default {
   display: none;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: $breakpoint-md) {
   .container {
     padding: 0 15px;
   }
@@ -125,10 +119,9 @@ export default {
   .header__menu {
     margin: 15px 0;
     width: 100%;
-  }
-
-  .header__navbar {
-    display: block;
+    &__navbar {
+      display: block;
+    }
   }
 
   .login_container {

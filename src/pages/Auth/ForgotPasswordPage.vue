@@ -22,3 +22,5 @@ export default {
   name: "ForgotPasswordPage",
 };
 </script>
+
+<style></style>

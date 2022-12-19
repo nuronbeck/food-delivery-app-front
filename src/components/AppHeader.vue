@@ -4,7 +4,7 @@
       <div class="header-wrapper">
         <div class="header-left">
           <router-link to="/">
-            <img class="logo" src="@/assets/header/main_logo.svg">
+            <img class="logo" src="@/assets/header/main_logo.svg" />
           </router-link>
           <div class="search-form">
             <input class="search-input" type="text" placeholder="Search " />
@@ -59,7 +59,7 @@ export default {
 }
 
 .logo {
- cursor: pointer; 
+  cursor: pointer;
 }
 
 .search-form {
