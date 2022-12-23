@@ -20,7 +20,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .btn {
   cursor: pointer;
   font-size: 14px;
@@ -33,37 +33,31 @@ export default {
   background-color: var(--primary);
   border: none;
   transition: box-shadow 0.15s ease-in-out;
-}
-
-.btn:hover {
+  :hover {
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.16);
 }
-
-.btn-primary {
+&-primary {
   color: var(--white);
   background-color: var(--primary);
   border: none;
-}
-.btn-primary-outline {
+  &-outline {
   color: var(--primary);
   background-color: var(--white);
   border: 1px solid var(--primary);
   box-shadow: none;
 }
-
-.btn-danger {
+}
+&-danger {
   color: var(--white);
   background-color: var(--error);
   border: none;
 }
-
-.btn-danger-outline {
+&-outline {
   color: var(--error);
   background-color: var(--white);
   border: 1px solid var(--error);
   box-shadow: none;
-}
-.btn-outline-none {
+  &-none {
   border: none;
   background: none;
   cursor: pointer;
@@ -75,12 +69,15 @@ export default {
   margin-left: 32px;
   color: var(--grey);
 }
-
-.btn:disabled {
+}
+:disabled {
   cursor: not-allowed;
   color: var(--grey);
   background-color: var(--white);
   border: 1px solid var(--grey);
   box-shadow: none;
+}
+
+
 }
 </style>

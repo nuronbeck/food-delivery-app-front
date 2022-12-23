@@ -2,12 +2,12 @@
   <section>
     <div class="container">
       <!-- ========Deals page========== -->
-      <div class="deals-list">
+      <div class="deals__list">
         <DealCard v-for="(dealCard, index) in dealsList" :key="`dealCard__${index}`" :variant="dealCard.variant"
           :title="dealCard.title" :offer="dealCard.offer" :tag="dealCard.tag" />
       </div>
       <!-- ===========Category page=========== -->
-      <div class="category-list">
+      <div class="category__list">
         <CategoryCard v-for="(categoryCard, index) in categoryList" :key="`categoryCard__${index}`"
           :title="categoryCard.title" />
       </div>
@@ -41,18 +41,22 @@ export default {
 </script>
 
 <style lang="scss">
-.deals-list {
+.deals{
+  &__list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 30px;
   margin-bottom: 32px;
 }
+}
 
-.category-list {
+.category{
+  &__list {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-gap: 15px;
   margin-bottom: 79px;
+}
 }
 
 .products {

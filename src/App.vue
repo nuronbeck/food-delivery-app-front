@@ -1,6 +1,8 @@
 <template>
   <div id="app">
+    <main>
     <router-view />
+  </main>
   </div>
 </template>
 
@@ -30,6 +32,7 @@
   --breakpoint-mobile: 768px;
   --breakpoint-desktop: 1110px;
 }
+
 
 *,
 *::before,

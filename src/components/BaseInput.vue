@@ -28,21 +28,18 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .input-box {
   width: 100%;
   padding: 1 16px 32px 0;
-}
-
-.input-box label {
+  label {
   font-family: "Nunito" sans-serif;
   font-weight: 600;
   font-size: 12px;
   line-break: 16px;
   color: #545563;
 }
-
-.input-box input {
+input {
   width: 100%;
   height: 44px;
   border: 1px solid #c7c8d2;
@@ -55,5 +52,6 @@ export default {
   font-size: 14px;
   line-height: 20px;
   margin-top: 4px;
+}
 }
 </style>
