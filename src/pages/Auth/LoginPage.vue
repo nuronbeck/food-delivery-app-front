@@ -1,28 +1,33 @@
 <template>
   <div class="auth_form">
     <h1 class="login_name">Login</h1>
-    <label class="login_label" for="email">Email</label>
-    <input
-      class="login_input"
+
+    <BaseInput
+      label="Email"
+      type="email"
       placeholder="name@example.com"
-      id="email"
-      type="text"
-      name="email"
+      :value="formData.email"
+      :error="errors.email"
+      @onInput="(value) => changeField('email', value)"
     />
-    <label class="login_label" for="password">Password</label>
-    <input
-      class="login_input"
+
+    <BaseInput
+      label="Password"
+      type="password"
       placeholder="min.8 characters"
-      id="password"
-      type="text"
-      name="password"
+      :value="formData.password"
+      :showPassword="showPassword"
+      :error="errors.password"
+      @onPasswordToggle="showPasswordClick"
+      @onInput="(value) => changeField('password', value)"
     />
+
     <div class="chackbox">
       <input class="chackbox_sign" type="checkbox" name="checkbox" />
       <div class="chackbox_text">Keep me logged in</div>
     </div>
 
-    <BaseButton variant="primary" class="button_login">
+    <BaseButton variant="primary" class="button_login" @onClick="login">
       Login
     </BaseButton>
 
@@ -37,6 +42,37 @@
 <script>
 export default {
   name: "LoginPage",
+  data(){
+    return {
+      showPassword: false,
+      formData: {
+        email: '',
+        password: '',
+      },
+      errors: {
+        email: '',
+        password: '',
+      }
+    }
+  },
+  methods: {
+    showPasswordClick () {
+      this.showPassword = !this.showPassword
+    },
+    changeField(propertyName, value){
+      if(this.errors[propertyName] !== ''){
+        this.errors[propertyName] = ''
+      }
+
+      this.formData[propertyName] = value
+    },
+    login(){
+      // setTimeout(() => {
+      //   this.errors.email= '* This email is not valid!'
+      //   this.errors.password= '* Password should contain at least one character!'
+      // }, 2500);
+    }
+  }
 };
 </script>
 

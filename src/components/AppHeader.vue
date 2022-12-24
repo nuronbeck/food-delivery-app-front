@@ -6,28 +6,43 @@
           <router-link to="/">
             <img class="logo" src="@/assets/header/main_logo.svg">
           </router-link>
-          <div class="search">
-            <input class="search__input" type="text" placeholder="Search " />
-            <i class="search__icon fa-solid fa-magnifying-glass"></i>
-          </div>
         </div>
         <div class="menu">
-          <a class="menu__link" href="#">Restaurants</a>
-          <a class="menu__link" href="#">Deals</a>
-          <span class="menu__divider-vertical"></span>
           <a class="menu__link" href="#">My orders</a>
-          <a class="menu__shopping" href="#"><img src="@/assets/header/shopping bag.svg" /><span
-              class="menu__shopping-counter">4</span></a>
-          <router-link to="/profile"><img class="menu__user" src="@/assets/header/useravatar.svg" /></router-link>
-          <img class="menu__icon" src="@/assets/header/menu.svg" />
+
+          <a class="menu__shopping" href="#">
+            <img src="@/assets/header/shopping bag.svg" />
+            <span class="menu__shopping-counter">4</span>
+          </a>
+
+          <router-link v-if="isLoggedIn" to="/profile">
+            <img class="menu__user" src="@/assets/header/useravatar.svg" />
+          </router-link>
+
+          <BaseButton v-if="!isLoggedIn" variant="primary" @onClick="login">
+            Login
+          </BaseButton>
+
+          <!-- <img class="menu__icon" src="@/assets/header/menu.svg" /> -->
         </div>
       </div>
     </div>
   </header>
 </template>
+
 <script>
 export default {
   name: "AppHeader",
+  data() {
+    return {
+      isLoggedIn: false,
+    }
+  },
+  methods: {
+    login(){
+      this.isLoggedIn = true
+    }
+  }
 };
 </script>
 
@@ -56,41 +71,6 @@ export default {
   cursor: pointer;
 }
 
-.search {
-  position: relative;
-  margin-left: 48px;
-  align-items: center;
-
-  &__input {
-    font-family: "Nunito", sans-serif;
-    font-size: 14px;
-    line-height: 20px;
-    font-weight: 400;
-    letter-spacing: 0.1px;
-    background-color: var(--grey-lightest);
-    padding: 10px 12px;
-    padding-right: calc((12px * 2) + 16px);
-    border-radius: 12px;
-    border: none;
-    outline-color: var(--primary);
-    height: 40px;
-    min-width: 224px;
-    box-sizing: border-box;
-  }
-
-  &__icon {
-    position: absolute;
-    color: var(--grey);
-    width: 16px;
-    height: 16px;
-    top: calc((40px - 16px) / 2);
-    right: calc((40px - 16px) / 2);
-  }
-
-}
-
-
-
 .menu {
   display: flex;
   align-items: center;
@@ -106,13 +86,6 @@ export default {
     &:hover {
       color: $color-primary;
       transition: 0.5s;
-    }
-  }
-
-  &__divider {
-    &-vertical {
-      height: 32px;
-      border-right: 1px solid var(--grey-light);
     }
   }
 

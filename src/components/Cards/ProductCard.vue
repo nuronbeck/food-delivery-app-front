@@ -43,8 +43,8 @@ export default {
       default: "",
     },
     counter: {
-      type: String,
-      default: "",
+      type: Number,
+      default: 0,
     },
     text1: {
       type: String,

@@ -1,5 +1,5 @@
 <template>
-  <button :class="'btn btn-' + variant" :disabled="disabled">
+  <button :class="'btn btn-' + variant" :disabled="disabled" @click="handleClick">
     <slot />
   </button>
 </template>
@@ -17,6 +17,11 @@ export default {
       default: "primary",
     },
   },
+  methods: {
+    handleClick(){
+      this.$emit('onClick')
+    }
+  }
 };
 </script>
 

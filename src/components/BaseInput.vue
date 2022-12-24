@@ -1,27 +1,54 @@
 <template>
-  <div class="input-box">
-    <label for="email">{{ label }}</label>
-    <input id="email" :type="type" name="email" required :placeholder="placeholder" />
-    <a @click="showPassword()" v-if="visibility == 'password'">
-      <font-awesome-icon icon="fa-light fa-eye" />
-    </a>
+  <div class="base-input">
+    <label class="base-input__label" for="email">{{ label }}</label>
+    
+    <div :class="`base-input__wrapper ${!!error ? 'has-error' : ''}`" >
+      <input
+        class="base-input__input"
+        :value="value"
+        :type="type === 'password' ? showPassword ? 'text': 'password' : type"
+        :placeholder="placeholder"
+        @input="handleInputChange"
+        required
+      />
 
-    <a @click="hidePassword()" v-if="visibility == 'text'">
-      <font-awesome-icon icon="fa-light fa-eye-slash" />
-    </a>
+      <div
+        v-if="type === 'password'"
+        class="base-input__append"
+      >
+        <button
+          v-if="showPassword"
+          class="base-input__password-toggle"
+          @click="togglePasswordShow"
+        >
+          <font-awesome-icon icon="fa-eye" />
+        </button>
+
+        <button
+          v-else
+          class="base-input__password-toggle"
+          @click="togglePasswordShow"
+        >
+          <font-awesome-icon icon="fa-eye-slash" />
+        </button>
+      </div>
+    </div>
+
+    <div v-if="!!error" class="base-input__error">
+      {{ error }}
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      visibility: "password"
-    }
-  },
   name: "BaseInput",
   props: {
     label: {
+      type: String,
+      default: "",
+    },
+    value: {
       type: String,
       default: "",
     },
@@ -33,43 +60,102 @@ export default {
       type: String,
       default: "",
     },
+    showPassword: {
+      type: Boolean,
+      default: false,
+    },
+    error: {
+      type: String,
+      default: "",
+    }
   },
   methods: {
-    showPassword() {
-      this.visibility = 'text';
+    togglePasswordShow(){
+      this.$emit("onPasswordToggle");
     },
-    hidePassword() {
-      this.visibility = 'password';
+    handleInputChange(e){
+      this.$emit("onInput", e.target.value);
     }
   }
 }
 </script>
 
 <style lang="scss">
-.input-box {
+.base-input {
   width: 100%;
   padding: 1 16px 32px 0;
+  margin-bottom: 12px;
 
-  label {
+  &__label {
+    display: block;
     font-family: "Nunito", sans-serif;
     font-weight: 700;
     font-size: 12px;
     line-break: 16px;
     color: #545563;
+    margin-bottom: 8px;
   }
 
-  input {
+  &__wrapper {
     width: 100%;
-    height: 44px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+
     border: 1px solid #c7c8d2;
     border-radius: 8px;
-    padding: 12px;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    &.has-error {
+      border: 1px solid $color-error;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    height: 44px;
+    border: none;
+    outline: none;
+    padding: 12px 4px 12px 12px;
     letter-spacing: 0.1px;
     color: #2b2b43;
     font-family: "Nunito", sans-serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
+  }
+
+  &__append {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+  }
+
+  &__password-toggle {
+    color: $color-grey;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: unset;
+    transition: color .25s ease-in-out;
+
+    &:hover {
+      color: $color-grey-dark;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-primary;
+    }
+  }
+
+  &__error {
+    color: $color-error;
+    font-family: "Nunito", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 0 8px;
     margin-top: 4px;
   }
 }

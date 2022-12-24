@@ -8,8 +8,16 @@ import ProductCard from "./components/Cards/ProductCard"
 import BaseInput from "./components/BaseInput"  
 import LogoBlock from "./components/LogoBlock"
 
+/* import the fontawesome core */
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
+library.add(faEye);
+library.add(faEyeSlash);
+
 Vue.config.productionTip = false
 
+Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.component('BaseButton', BaseButton)
 Vue.component('DealCard', DealCard)
 Vue.component('CategoryCard', CategoryCard)
