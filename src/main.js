@@ -5,7 +5,7 @@ import BaseButton from "./components/BaseButton"
 import DealCard from "./components/Cards/DealCard"
 import CategoryCard from "./components/Cards/CategoryCard"
 import ProductCard from "./components/Cards/ProductCard"
-import BaseInput from "./components/BaseInput"
+import BaseInput from "./components/BaseInput"  
 import LogoBlock from "./components/LogoBlock"
 
 Vue.config.productionTip = false
