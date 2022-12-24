@@ -41,22 +41,22 @@ export default {
 </script>
 
 <style lang="scss">
-.deals{
+.deals {
   &__list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-  margin-bottom: 32px;
-}
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 32px;
+  }
 }
 
-.category{
+.category {
   &__list {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-gap: 15px;
-  margin-bottom: 79px;
-}
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 15px;
+    margin-bottom: 79px;
+  }
 }
 
 .products {
@@ -71,12 +71,17 @@ export default {
 
 
 @media screen and (max-width: $breakpoint-md) {
-  .deals-list {
-    grid-template-columns: 1fr;
+  .deals {
+    &__list {
+      grid-template-columns: 1fr;
+    }
+
   }
 
-  .category-list {
-    grid-template-columns: repeat(3, 1fr);
+  .category {
+    &__list {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 
   .products {

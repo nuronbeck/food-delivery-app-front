@@ -1,29 +1,37 @@
 <template>
-  <form action="#" class="auth_form">
+  <div class="auth_form">
     <h1 class="login_name">Login</h1>
-    <BaseInput label="Email" placeholder="name@example.com"></BaseInput>
-    <BaseInput label="Password" placeholder="min. 8 characters"></BaseInput>
-
+    <label class="login_label" for="email">Email</label>
+    <input
+      class="login_input"
+      placeholder="name@example.com"
+      id="email"
+      type="text"
+      name="email"
+    />
+    <label class="login_label" for="password">Password</label>
+    <input
+      class="login_input"
+      placeholder="min.8 characters"
+      id="password"
+      type="text"
+      name="password"
+    />
     <div class="chackbox">
-      <input class="chackbox_sign" type="" name="checkbox" />
+      <input class="chackbox_sign" type="checkbox" name="checkbox" />
       <div class="chackbox_text">Keep me logged in</div>
     </div>
 
-    <BaseButton variant="primary" class="button_login"> Login </BaseButton>
+    <BaseButton variant="primary" class="button_login">
+      Login
+    </BaseButton>
 
-    <router-link to="/auth/forgot-password" class="button_forgot"
-      >Forgot password</router-link
-    >
+    <router-link to="/auth/forgot-password" class="button_forgot">Forgot password</router-link> 
 
-    <div class="top_link-center">
-      <p>
-        Don`t have an account?
-        <router-link to="/auth/sign" class="link_login-name">
-          Sign up</router-link
-        >
-      </p>
+    <div class="sign">
+      <p>Don`t have an account?<a href="#" class="sign_inner"> Sign up</a></p>
     </div>
-  </form>
+  </div>
 </template>
 
 <script>
@@ -42,7 +50,7 @@ export default {
 .login_name {
   width: 100%;
   font-size: 32px;
-  line-height: 40px;
+  line-height: 82px;
   font-family: "Nunito";
   font-style: normal;
   font-weight: 700;
@@ -125,7 +133,7 @@ export default {
   color: var(--primary);
 }
 
-.top_link-center {
+.sign {
   font-family: "Nunito";
   font-style: normal;
   font-weight: 400;
@@ -135,12 +143,8 @@ export default {
   text-align: center;
 }
 
-.link_login-name {
+.sign_inner {
   font-size: 14px;
   color: var(--primary);
-  font-family: "Nunito";
-  font-style: normal;
-  font-weight: 400;
-  line-height: 20px;
 }
 </style>

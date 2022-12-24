@@ -20,14 +20,14 @@ export default {
 <style lang="scss">
 .category {
     height: 80px;
-    border: 1px solid var(--grey-lightest);
+    border: 1px solid $color-grey-lightest;
     border-radius: 16px;
-    background: var(--white);
+    background: $color-white;
     text-align: center;
     &:hover {
-        border: 1px solid var(--primary);
+        border: 1px solid $color-primary;
         cursor: pointer;
-        background-color: var(--grey-lightest);
+        background-color: $color-grey-lightest;
     }
 
     &__img {
@@ -40,7 +40,7 @@ export default {
         font-family: 'Nunito', sans-serif;
         font-size: 13px;
         font-weight: 700;
-        color: var(--grey-dark);
+        color: $color-grey-dark;
         line-height: 18px;
         letter-spacing: 0.1px;
     }

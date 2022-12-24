@@ -33,7 +33,7 @@ export default {
   background-color: var(--primary);
   border: none;
   transition: box-shadow 0.15s ease-in-out;
-  :hover {
+  &:hover {
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.16);
 }
 &-primary {
@@ -51,13 +51,15 @@ export default {
   color: var(--white);
   background-color: var(--error);
   border: none;
-}
-&-outline {
+  &-outline {
   color: var(--error);
   background-color: var(--white);
   border: 1px solid var(--error);
   box-shadow: none;
-  &-none {
+
+}
+}
+&-none {
   border: none;
   background: none;
   cursor: pointer;
@@ -69,8 +71,7 @@ export default {
   margin-left: 32px;
   color: var(--grey);
 }
-}
-:disabled {
+&:disabled {
   cursor: not-allowed;
   color: var(--grey);
   background-color: var(--white);

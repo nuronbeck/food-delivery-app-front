@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="app">
     <main>
     <router-view />
   </main>
@@ -32,8 +32,17 @@
   --breakpoint-mobile: 768px;
   --breakpoint-desktop: 1110px;
 }
-
-
+body{
+  -webkit-fill-available: 100%;
+}
+.app{
+  display: flex;
+}
+main{
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+}
 *,
 *::before,
 *::after {

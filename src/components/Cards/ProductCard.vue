@@ -9,7 +9,7 @@
     <div class="card__body">
       <div>
         <div class="card__title">{{ title }}</div>
-        <div class="card__shopping--counter">
+        <div class="card__shopping-counter">
           <img src="@/assets/product/icons/shopping.svg" />
           <span v-if="counter" class="card__counter">{{ counter }}</span>
         </div>
@@ -68,7 +68,7 @@ export default {
 
 <style lang="scss">
 .card {
-  border: 1px solid var(--grey-lightest);
+  border: 1px solid $color-grey-lightest;
   border-radius: 16px;
 
   &__image {
@@ -95,7 +95,7 @@ export default {
     color: var(--white);
     text-transform: uppercase;
     border-radius: 0 16px;
-    background-color: var(--primary);
+    background-color: $color-primary;
   }
 
   &__body {
@@ -105,7 +105,7 @@ export default {
       display: flex;
       align-items: center;
 
-      :nth-child(1) {
+      &:nth-child(1) {
         display: flex;
         justify-content: space-between;
       }
@@ -116,15 +116,14 @@ export default {
     font-family: "Nunito", sans-serif;
     font-size: 18px;
     line-height: 24px;
-    color: var(--dark);
+    color: $color-dark;
     margin-bottom: 6px;
   }
 
-  &__shopping--counter {
-    position: relative;
+  &__shopping {
+    &-counter {
+      position: relative;
 
-    img {
-      margin-right: 10px;
     }
   }
 
@@ -137,7 +136,7 @@ export default {
     line-height: 1;
     font-weight: bold;
     color: var(--white);
-    background-color: var(--primary);
+    background-color: $color-primary;
     padding: 3px;
     min-width: 14px;
     text-align: center;
@@ -153,7 +152,7 @@ export default {
       font-size: 12px;
       line-height: 16px;
       margin-left: 7px;
-      color: var(--grey);
+      color: $color-grey;
     }
   }
 
@@ -167,13 +166,13 @@ export default {
 
   &__action {
     cursor: pointer;
-    font-family: "Nunito";
+    font-family: "Nunito", sans-serif;
     font-weight: 600;
     font-size: 12px;
     line-height: 16px;
-    color: var(--grey-dark);
+    color: $color-grey-dark;
     padding: 4px 10px;
-    background: var(--grey-lightest);
+    background: $color-grey-lightest;
     border-radius: 100px;
 
     img {
