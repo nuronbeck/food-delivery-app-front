@@ -8,8 +8,7 @@
     <BaseInput label="Password" type="password" placeholder="min.8 characters" :value="formData.password"
       :showPassword="showPassword" :error="errors.password" @onPasswordToggle="showPasswordClick"
       @onInput="(value) => changeField('password', value)" />
-
-      <BaseCheckbox label="Keep me logged in"/>
+      
 
     <BaseButton variant="primary" class="login__btn" @onClick="login">
       Login
