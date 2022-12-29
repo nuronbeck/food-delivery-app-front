@@ -10,7 +10,7 @@
       @onInput="(value) => changeField('password', value)" />
       
 
-    <BaseButton variant="primary" class="login__btn" @onClick="login">
+    <BaseButton variant="primary" class="login__btn" @onClick="login" :loading="isLoading">
       Login
     </BaseButton>
 
@@ -27,6 +27,7 @@ export default {
   name: "LoginPage",
   data() {
     return {
+      isLoading: false,
       showPassword: false,
       formData: {
         email: '',
@@ -50,10 +51,14 @@ export default {
       this.formData[propertyName] = value
     },
     login() {
-      // setTimeout(() => {
-      //   this.errors.email= '* This email is not valid!'
-      //   this.errors.password= '* Password should contain at least one character!'
-      // }, 2500);
+      this.isLoading = true;
+
+      setTimeout(() => {
+        this.errors.email= '* This email is not valid!'
+        this.errors.password= '* Password should contain at least one character!'
+
+        this.isLoading = false;
+      }, 2500);
     }
   }
 };
