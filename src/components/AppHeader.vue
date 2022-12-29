@@ -9,7 +9,6 @@
         </div>
         <div class="menu">
           <a class="menu__link" href="#">My orders</a>
-
           <a class="menu__shopping" href="#">
             <img src="@/assets/header/shopping bag.svg" />
             <span class="menu__shopping-counter">4</span>
@@ -39,7 +38,7 @@ export default {
     }
   },
   methods: {
-    login(){
+    login() {
       this.isLoggedIn = true
     }
   }
@@ -49,8 +48,8 @@ export default {
 <style lang="scss">
 .header {
   height: 80px;
-  background-color: var(--white);
-  border-bottom: 1px solid var(--primary-light);
+  background-color: $color-white;
+  border-bottom: 1px solid $color-primary-light;
   margin-bottom: 24px;
   display: flex;
   align-items: center;
@@ -76,21 +75,21 @@ export default {
   align-items: center;
 
   &__link {
-    font-family: "Nunito", sans-serif;
+    font-family: $base-font;
     font-weight: 700;
     font-size: 14px;
     line-height: 20px;
-    color: var(--dark);
     margin: 0 28px;
+    color: $color-dark;
 
     &:hover {
-      color: $color-primary;
       transition: 0.5s;
+      color: $color-primary;
     }
   }
 
   &__shopping {
-    background-color: var(--primary-light);
+    background-color: $color-primary-light;
     padding: 12px;
     border-radius: 16px;
     position: relative;
@@ -98,22 +97,22 @@ export default {
 
     &-counter {
       position: absolute;
-      background-color: #4e60ff;
       border-radius: 8px;
       padding: 2px 6px;
-      color: var(--white);
       right: -6px;
       top: -6px;
+      background-color: $color-primary;
+      color: $color-white;
     }
   }
 
   &__user {
-    border: 2px solid #edeef2;
+    border: 2px solid $color-grey-lightest;
     border-radius: 16px;
     padding: 2px;
 
     &:hover {
-      border: 2px solid var(--primary);
+      border: 2px solid $color-primary;
     }
   }
 
@@ -170,7 +169,7 @@ export default {
       &__icon {
         cursor: pointer;
         display: block;
-        background: #edeef2;
+        background: $color-grey-lightest;
         border-radius: 16px;
         padding: 14px;
         border: 2px solid $color-grey-lightest;

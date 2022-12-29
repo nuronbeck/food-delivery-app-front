@@ -1,40 +1,24 @@
 <template>
-  <div class="auth_form">
-    <h1 class="login_name">Login</h1>
+  <div class="login">
+    <h1 class="login__name">Login</h1>
 
-    <BaseInput
-      label="Email"
-      type="email"
-      placeholder="name@example.com"
-      :value="formData.email"
-      :error="errors.email"
-      @onInput="(value) => changeField('email', value)"
-    />
+    <BaseInput label="Email" type="email" placeholder="name@example.com" :value="formData.email" :error="errors.email"
+      @onInput="(value) => changeField('email', value)" />
 
-    <BaseInput
-      label="Password"
-      type="password"
-      placeholder="min.8 characters"
-      :value="formData.password"
-      :showPassword="showPassword"
-      :error="errors.password"
-      @onPasswordToggle="showPasswordClick"
-      @onInput="(value) => changeField('password', value)"
-    />
+    <BaseInput label="Password" type="password" placeholder="min.8 characters" :value="formData.password"
+      :showPassword="showPassword" :error="errors.password" @onPasswordToggle="showPasswordClick"
+      @onInput="(value) => changeField('password', value)" />
 
-    <div class="chackbox">
-      <input class="chackbox_sign" type="checkbox" name="checkbox" />
-      <div class="chackbox_text">Keep me logged in</div>
-    </div>
+      <BaseCheckbox label="Keep me logged in"/>
 
-    <BaseButton variant="primary" class="button_login" @onClick="login">
+    <BaseButton variant="primary" class="login__btn" @onClick="login">
       Login
     </BaseButton>
 
-    <router-link to="/auth/forgot-password" class="button_forgot">Forgot password</router-link> 
+    <router-link to="/auth/forgot-password" class="login__forgotLink">Forgot password</router-link>
 
-    <div class="sign">
-      <p>Don`t have an account?<a href="#" class="sign_inner"> Sign up</a></p>
+    <div class="login__sign">
+      <p>Don`t have an account?<router-link to="/auth/sign" class="login__link"> Sign up</router-link></p>
     </div>
   </div>
 </template>
@@ -42,7 +26,7 @@
 <script>
 export default {
   name: "LoginPage",
-  data(){
+  data() {
     return {
       showPassword: false,
       formData: {
@@ -56,17 +40,17 @@ export default {
     }
   },
   methods: {
-    showPasswordClick () {
+    showPasswordClick() {
       this.showPassword = !this.showPassword
     },
-    changeField(propertyName, value){
-      if(this.errors[propertyName] !== ''){
+    changeField(propertyName, value) {
+      if (this.errors[propertyName] !== '') {
         this.errors[propertyName] = ''
       }
 
       this.formData[propertyName] = value
     },
-    login(){
+    login() {
       // setTimeout(() => {
       //   this.errors.email= '* This email is not valid!'
       //   this.errors.password= '* Password should contain at least one character!'
@@ -76,111 +60,58 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 /* FORM*/
-.auth_form {
+.login {
   max-width: 350px;
   width: 100%;
-}
 
-.login_name {
-  width: 100%;
-  font-size: 32px;
-  line-height: 82px;
-  font-family: "Nunito";
-  font-style: normal;
-  font-weight: 700;
-  letter-spacing: 0.1px;
+  &__name {
+    width: 100%;
+    font-size: 32px;
+    line-height: 82px;
+    font-family: $base-font;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 0.1px;
+    color: $color-dark;
+  }
 
-  color: var(--dark);
-}
+  &__btn {
+    width: 100%;
+    margin-bottom: 35px;
+  }
 
-.login_label {
-  margin-bottom: 5px;
-  width: 100%;
-  display: block;
-  font-family: "Nunito";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 16px;
+  &__forgotLink {
+    margin-bottom: 100px;
+    width: 100%;
+    display: block;
+    font-family: $base-font;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    color: $color-primary;
+    border: 0;
+    background-color: $color-white;
+    &:hover {
+      color: $color-primary;
+    }
+  }
 
-  color: var(--black);
-}
+  &__sign {
+    font-family: $base-font;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: $color-dark;
+    text-align: center;
+  }
 
-.login_input {
-  width: 100%;
-  margin-bottom: 30px;
-  padding-left: 10px;
-  height: 44px;
-  display: block;
-  border: 1px solid var(--grey-light);
-  border-radius: 8px;
-}
-
-.chackbox {
-  margin-bottom: 40px;
-  display: flex;
-  align-items: center;
-}
-
-.chackbox_sign {
-  margin-right: 12px;
-  width: 20px;
-  height: 20px;
-
-  border: 2px solid var(--grey-light);
-  border-radius: 4px;
-}
-
-.chackbox_text {
-  font-family: "Nunito";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: 0.1px;
-
-  color: var(--dark);
-}
-
-.button_login {
-  width: 100%;
-  margin-bottom: 35px;
-}
-
-.button_forgot {
-  margin-bottom: 100px;
-  width: 100%;
-  display: block;
-  font-family: "Nunito";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 20px;
-  text-align: center;
-  color: var(--primary);
-
-  border: 0;
-  background-color: var(--white);
-}
-
-.button_forgot:hover {
-  color: var(--primary);
-}
-
-.sign {
-  font-family: "Nunito";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
-  color: var(--black);
-  text-align: center;
-}
-
-.sign_inner {
-  font-size: 14px;
-  color: var(--primary);
+  &__link {
+    font-size: 14px;
+    color: $color-primary;
+  }
 }
 </style>

@@ -16,8 +16,8 @@
 
       <div class="products__list">
         <ProductCard v-for="(productCard, index) in productList" :key="`productCard__${index}`"
-          :featured="productCard.featured" :title="productCard.title" :text1="productCard.text1"
-          :text2="productCard.text2" :cardAction="productCard.cardAction" :counter="productCard.counter" />
+          :featured="productCard.featured" :title="productCard.title" :minTime="productCard.minTime"
+          :minSum="productCard.minSum" :cardAction="productCard.cardAction" :counter="productCard.counter" />
       </div>
     </div>
   </section>

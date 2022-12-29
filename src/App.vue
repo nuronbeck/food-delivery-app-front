@@ -6,7 +6,7 @@
   </div>
 </template>
 
-<style>
+<style lang="scss">
 /* ============NOrmalize css ================== */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css');
 

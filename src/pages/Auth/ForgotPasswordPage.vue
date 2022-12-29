@@ -1,6 +1,6 @@
 <template>
-  <form action="#" class="auth_form">
-    <h1 class="login_name">Reset password</h1>
+  <form action="#" class="login">
+    <h1 class="login__name">Reset password</h1>
     <BaseInput label="Email" placeholder="name@example.com"></BaseInput>
     <BaseInput label="Password" placeholder="min. 8 characters"></BaseInput>
     <BaseInput
@@ -8,11 +8,11 @@
       placeholder="min. 8 characters"
     ></BaseInput>
     <div>
-      <BaseButton variant="primary" class="button_login"> Reset </BaseButton>
+      <BaseButton variant="primary" class="login__btn"> Reset </BaseButton>
     </div>
-    <p class="top_link-center">
+    <p class="login__sign">
       You already have account? Please
-      <router-link to="/auth/login" class="link_login-name">Login</router-link>
+      <router-link to="/auth/login" class="login__link">Login</router-link>
     </p>
   </form>
 </template>

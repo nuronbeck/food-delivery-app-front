@@ -4,31 +4,63 @@
       <div class="profile__tabs">
         <h3 class="profile__name">Settings</h3>
         <a class="profile__tab" href="#">
-          <img class="tab-img" src="@/assets/profile/user.svg" />
-          <div class="tab-content">
-            <h2 class="tab-title">Account</h2>
-            <p class="tab-text">Personal information</p>
+          <div class="profile__tab-img">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path stroke="#83859C"
+                d="M16.6666 17.5V15.8333C16.6666 14.9493 16.3155 14.1014 15.6903 13.4763C15.0652 12.8512 14.2174 12.5 13.3333 12.5H6.66665C5.78259 12.5 4.93474 12.8512 4.30962 13.4763C3.6845 14.1014 3.33331 14.9493 3.33331 15.8333V17.5"
+                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M9.99996 9.16667C11.8409 9.16667 13.3333 7.67428 13.3333 5.83333C13.3333 3.99238 11.8409 2.5 9.99996 2.5C8.15901 2.5 6.66663 3.99238 6.66663 5.83333C6.66663 7.67428 8.15901 9.16667 9.99996 9.16667Z"
+                stroke="#83859C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <div class="profile__tab-content">
+            <h2 class="profile__tab-title">Account</h2>
+            <p class="profile__tab-text">Personal information</p>
           </div>
         </a>
         <a class="profile__tab" href="#">
-          <img class="tab-img" src="@/assets/profile/location.svg" />
-          <div class="tab-content">
-            <h2 class="tab-title">Address</h2>
-            <p class="tab-text">Shippings addresses</p>
+          <div class="profile__tab-img">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M17.5 8.33333C17.5 14.1667 10 19.1667 10 19.1667C10 19.1667 2.5 14.1667 2.5 8.33333C2.5 6.3442 3.29018 4.43655 4.6967 3.03003C6.10322 1.6235 8.01088 0.833328 10 0.833328C11.9891 0.833328 13.8968 1.6235 15.3033 3.03003C16.7098 4.43655 17.5 6.3442 17.5 8.33333Z"
+                stroke="#83859C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M10 10.8333C11.3807 10.8333 12.5 9.71404 12.5 8.33333C12.5 6.95262 11.3807 5.83333 10 5.83333C8.61929 5.83333 7.5 6.95262 7.5 8.33333C7.5 9.71404 8.61929 10.8333 10 10.8333Z"
+                stroke="#83859C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <div class="profile__tab-content">
+            <h2 class="profile__tab-title">Address</h2>
+            <p class="profile__tab-text">Shippings addresses</p>
           </div>
         </a>
         <a class="profile__tab" href="#">
-          <img class="tab-img" src="@/assets/profile/card.svg" />
-          <div class="tab-content">
-            <h2 class="tab-title">Payment method</h2>
-            <p class="tab-text">Connected credit cards</p>
+          <div class="profile__tab-img">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M17.5 3.33334H2.49998C1.5795 3.33334 0.833313 4.07953 0.833313 5V15C0.833313 15.9205 1.5795 16.6667 2.49998 16.6667H17.5C18.4205 16.6667 19.1666 15.9205 19.1666 15V5C19.1666 4.07953 18.4205 3.33334 17.5 3.33334Z"
+                stroke="#83859C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M0.833313 8.33334H19.1666" stroke="#83859C" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </div>
+          <div class="profile__tab-content">
+            <h2 class="profile__tab-title">Payment method</h2>
+            <p class="profile__tab-text">Connected credit cards</p>
           </div>
         </a>
         <a class="profile__tab" href="#">
-          <img class="tab-img" src="@/assets/profile/security.svg" />
-          <div class="tab-content">
-            <h2 class="tab-title">Security</h2>
-            <p class="tab-text">Password, 2FA</p>
+          <div class="profile__tab-img">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M9.99998 18.3333C9.99998 18.3333 16.6666 15 16.6666 10V4.16667L9.99998 1.66667L3.33331 4.16667V10C3.33331 15 9.99998 18.3333 9.99998 18.3333Z"
+                stroke="#83859C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <div class="profile__tab-content">
+            <h2 class="profile__tab-title">Security</h2>
+            <p class="profile__tab-text">Password, 2FA</p>
           </div>
         </a>
       </div>
@@ -45,76 +77,30 @@
           <div class="accout__input">
             <BaseInput label="First name" placeholder="Jane"></BaseInput>
             <BaseInput label="Last name" placeholder="Robertson"></BaseInput>
-            <BaseInput
-              label="Email"
-              placeholder="jane.robertson@example.com"
-            ></BaseInput>
-            <BaseInput
-              label="Phone number"
-              placeholder="(217) 555-0113"
-            ></BaseInput>
+            <BaseInput label="Email" placeholder="jane.robertson@example.com"></BaseInput>
+            <BaseInput label="Phone number" placeholder="(217) 555-0113"></BaseInput>
           </div>
           <div class="account__checkbox">
             <h3 class="account__info--title">Email notifications</h3>
             <form>
               <div class="checkboxs">
                 <div class="checkbox">
-                  <input
-                    type="checkbox"
-                    id="notice1"
-                    name="notice1"
-                    value="f1"
-                  />
-                  <label for="notice1">New deals</label>
-                  <input
-                    type="checkbox"
-                    id="notice2"
-                    name="notice1"
-                    value="f2"
-                  />
-                  <label for="notice2">New restaurants</label>
-                  <input
-                    type="checkbox"
-                    id="notice3"
-                    name="notice1"
-                    value="f3"
-                  />
-                  <label for="notice3">Order statuses</label>
+                  <BaseCheckbox label="New deals" />
+                  <BaseCheckbox label="New restaurants" />
+                  <BaseCheckbox label="Order statuses" />
                 </div>
                 <div class="checkbox">
-                  <input
-                    type="checkbox"
-                    id="notice4"
-                    name="notice1"
-                    value="f4"
-                  />
-                  <label for="notice4">Password changes</label>
-                  <input
-                    type="checkbox"
-                    id="notice5"
-                    name="notice1"
-                    value="f5"
-                  />
-                  <label for="notice5">Special offers</label>
-                  <input
-                    type="checkbox"
-                    id="notice6"
-                    name="notice1"
-                    value="f6"
-                  />
-                  <label for="notice6">Newsletter</label>
+                  <BaseCheckbox label="Password changes" />
+                  <BaseCheckbox label="Special offers" />
+                  <BaseCheckbox label="Newsletter" />
                 </div>
               </div>
             </form>
           </div>
           <div class="account__btns">
-            <BaseButton class="dangerBtn" variant="danger-outline"
-              >Log out</BaseButton
-            >
+            <BaseButton class="dangerBtn" variant="danger-outline">Log out</BaseButton>
             <div>
-              <BaseButton disabled="disabled" class="DiscardBtn"
-                >Discard changes</BaseButton
-              >
+              <BaseButton disabled="disabled" class="DiscardBtn">Discard changes</BaseButton>
               <BaseButton class="SaveBtn">Save changes</BaseButton>
             </div>
           </div>
@@ -125,85 +111,103 @@
 </template>
 
 <script>
+import baseCheckbox from "../data/baseCheckbox";
+
 export default {
   name: "ProfilePage",
+  data() {
+    return {
+      baseCheckbox
+    };
+  },
 };
 </script>
 
-<style>
+<style lang="scss">
 .profile {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr 2fr;
   gap: 30px;
-}
 
-.profile__name {
-  font-family: "Nunito", sans-serif;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 28px;
-  letter-spacing: 0.1px;
-  margin-bottom: 16px;
-  color: #2b2b43;
-}
+  &__name {
+    font-family: $base-font;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0.1px;
+    margin-bottom: 16px;
+    color: #2b2b43;
+  }
 
-.profile__tab {
+  &__tab {
     display: flex;
-  align-items: center;
-  margin-bottom: 12px;
-  padding: 16px;
-  box-sizing: border-box;
-  background: #ffffff;
-  border: 2px solid #edeef2;
-  border-radius: 16px;
+    align-items: center;
+    margin-bottom: 12px;
+    padding: 16px;
+    box-sizing: border-box;
+    background: $color-white;
+    border: 2px solid $color-grey-lightest;
+    border-radius: 16px;
+
+    &:hover {
+      path {
+        stroke: $color-white;
+      }
+    }
+
+    &:hover {
+      box-sizing: border-box;
+      border: 2px solid $color-primary;
+      border-radius: 16px;
+    }
+
+
+
+    &-img {
+      background: $color-grey-lightest;
+      border-radius: 12px;
+      padding: 10px;
+      margin-right: 12px;
+    }
+    &:hover {
+      &-img {
+        background: $color-primary;
+      }
+    }
+
+    &-title {
+      font-family: $base-font;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0.1px;
+      color: #2b2b43;
+    }
+
+    &-text {
+      font-family: $base-font;
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 18px;
+      letter-spacing: 0.2px;
+      color: $color-grey-dark;
+    }
+
+  }
+
 }
 
-.profile__tab:hover img path{
-  stroke: white;
-}
-
-.profile__tab:hover {
-  box-sizing: border-box;
-  background: #f3f4ff;
-  border: 2px solid #4e60ff;
-  border-radius: 16px;
-}
-
-.tab-img {
-  background: #edeef2;
-  border-radius: 12px;
-  padding: 10px;
-  margin-right: 12px;
-}
-
-.tab-title {
-  font-family: "Nunito";
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: 0.1px;
-  color: #2b2b43;
-}
-
-.tab-text {
-  font-family: "Nunito";
-  font-weight: 400;
-  font-size: 13px;
-  line-height: 18px;
-  letter-spacing: 0.2px;
-  color: #545563;
-}
 
 .account__info {
   background: #ffffff;
-  border: 1px solid #edeef2;
+  border: 1px solid $color-grey-lightest;
   border-radius: 16px;
   padding: 16px;
   margin-bottom: 24px;
 }
 
 .account__info--title {
-  font-family: "Nunito", sans-serif;
+  font-family: $base-font;
   font-weight: 700;
   font-size: 18px;
   line-height: 24px;
@@ -213,12 +217,12 @@ export default {
 }
 
 .account__info--text {
-  font-family: "Nunito", sans-serif;
+  font-family: $base-font;
   font-weight: 600;
   font-size: 12px;
   line-height: 16px;
   margin-bottom: 8px;
-  color: #545563;
+  color: $color-grey-dark;
 }
 
 .account__action {
@@ -236,6 +240,7 @@ export default {
 .accout__input {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
 }
 
 .checkboxs {
@@ -250,42 +255,6 @@ export default {
   flex-direction: column;
 }
 
-input[type="checkbox"] {
-  display: none;
-}
-
-input[type="checkbox"] + label {
-  font-family: "Nunito", sans-serif;
-  margin-bottom: 24px;
-  min-width: 341px;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: 0.1px;
-  color: #2b2b43;
-}
-
-input[type="checkbox"] + label:before {
-  content: "\2714";
-  border: 1px solid var(--grey);
-  border-radius: 4px;
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  padding-left: 2px;
-  margin-right: 12px;
-  color: transparent;
-  transition: 0.2s;
-}
-
-input[type="checkbox"] + label:active:before {
-  transform: scale(0);
-}
-
-input[type="checkbox"]:checked + label:before {
-  background: var(--primary);
-  color: var(--white);
-}
 .account__btns {
   display: flex;
   justify-content: space-between;
@@ -300,22 +269,28 @@ input[type="checkbox"]:checked + label:before {
   .profile {
     grid-template-columns: 1fr;
   }
+
   .accout__input {
     grid-template-columns: 1fr;
   }
+
   .checkboxs {
     grid-template-columns: 1fr;
   }
+
   .account__btns {
     flex-direction: column;
   }
+
   .account__btns div:nth-child(2) {
     display: flex;
     justify-content: space-between;
   }
+
   .account__btns div button {
     width: 100%;
   }
+
   .dangerBtn {
     margin-bottom: 40px;
   }

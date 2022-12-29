@@ -24,9 +24,10 @@ export default {
     border-radius: 16px;
     background: $color-white;
     text-align: center;
+
     &:hover {
-        border: 1px solid $color-primary;
         cursor: pointer;
+        border: 1px solid $color-primary;
         background-color: $color-grey-lightest;
     }
 
@@ -37,7 +38,7 @@ export default {
     }
 
     &__name {
-        font-family: 'Nunito', sans-serif;
+        font-family: $base-font;
         font-size: 13px;
         font-weight: 700;
         color: $color-grey-dark;

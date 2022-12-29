@@ -1,39 +1,22 @@
 <template>
   <div class="base-input">
     <label class="base-input__label" for="email">{{ label }}</label>
-    
-    <div :class="`base-input__wrapper ${!!error ? 'has-error' : ''}`" >
-      <input
-        class="base-input__input"
-        :value="value"
-        :type="type === 'password' ? showPassword ? 'text': 'password' : type"
-        :placeholder="placeholder"
-        @input="handleInputChange"
-        required
-      />
 
-      <div
-        v-if="type === 'password'"
-        class="base-input__append"
-      >
-        <button
-          v-if="showPassword"
-          class="base-input__password-toggle"
-          @click="togglePasswordShow"
-        >
+    <div :class="`base-input__wrapper ${!!error ? 'has-error' : ''}`">
+      <input class="base-input__input" :value="value"
+        :type="type === 'password' ? showPassword ? 'text' : 'password' : type" :placeholder="placeholder"
+        @input="handleInputChange" required />
+
+      <div v-if="type === 'password'" class="base-input__append">
+        <button v-if="showPassword" class="base-input__password-toggle" @click="togglePasswordShow">
           <font-awesome-icon icon="fa-eye" />
         </button>
 
-        <button
-          v-else
-          class="base-input__password-toggle"
-          @click="togglePasswordShow"
-        >
+        <button v-else class="base-input__password-toggle" @click="togglePasswordShow">
           <font-awesome-icon icon="fa-eye-slash" />
         </button>
       </div>
     </div>
-
     <div v-if="!!error" class="base-input__error">
       {{ error }}
     </div>
@@ -70,10 +53,10 @@ export default {
     }
   },
   methods: {
-    togglePasswordShow(){
+    togglePasswordShow() {
       this.$emit("onPasswordToggle");
     },
-    handleInputChange(e){
+    handleInputChange(e) {
       this.$emit("onInput", e.target.value);
     }
   }
@@ -88,11 +71,11 @@ export default {
 
   &__label {
     display: block;
-    font-family: "Nunito", sans-serif;
+    font-family: $base-font;
     font-weight: 700;
     font-size: 12px;
     line-break: 16px;
-    color: #545563;
+    color: $color-grey-dark;
     margin-bottom: 8px;
   }
 
@@ -100,8 +83,7 @@ export default {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr auto;
-
-    border: 1px solid #c7c8d2;
+    border: 1px solid $color-grey-light;
     border-radius: 8px;
     box-sizing: border-box;
     overflow: hidden;
@@ -118,8 +100,8 @@ export default {
     outline: none;
     padding: 12px 4px 12px 12px;
     letter-spacing: 0.1px;
-    color: #2b2b43;
-    font-family: "Nunito", sans-serif;
+    color: $color-dark;
+    font-family: $base-font;
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
@@ -133,13 +115,13 @@ export default {
   }
 
   &__password-toggle {
-    color: $color-grey;
     cursor: pointer;
     padding: 0;
     margin: 0;
     border: none;
     background: unset;
     transition: color .25s ease-in-out;
+    color: $color-grey;
 
     &:hover {
       color: $color-grey-dark;
@@ -151,12 +133,12 @@ export default {
   }
 
   &__error {
-    color: $color-error;
-    font-family: "Nunito", sans-serif;
+    font-family: $base-font;
     font-size: 12px;
     font-weight: 700;
     padding: 0 8px;
     margin-top: 4px;
+    color: $color-error;
   }
 }
 </style>

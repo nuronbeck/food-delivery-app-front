@@ -7,6 +7,7 @@ import CategoryCard from "./components/Cards/CategoryCard"
 import ProductCard from "./components/Cards/ProductCard"
 import BaseInput from "./components/BaseInput"  
 import LogoBlock from "./components/LogoBlock"
+import BaseCheckbox from "./components/BaseCheckbox"  
 
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -19,6 +20,7 @@ Vue.config.productionTip = false
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.component('BaseButton', BaseButton)
+Vue.component('BaseCheckbox', BaseCheckbox)
 Vue.component('DealCard', DealCard)
 Vue.component('CategoryCard', CategoryCard)
 Vue.component('ProductCard', ProductCard)

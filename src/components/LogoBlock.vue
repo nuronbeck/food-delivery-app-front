@@ -17,7 +17,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .header-wrappers {
   margin: 30px 0 20px 30px;
 }

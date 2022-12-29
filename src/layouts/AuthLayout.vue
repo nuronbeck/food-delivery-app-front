@@ -1,40 +1,78 @@
 <template>
-  <section class="login">
-    <div class="login_container">
-      <LogoBlock />
+  <div class="loginPage">
+    <LogoBlock />
 
-      <div class="block_right-side">
-        <div class="block_right-inner">
-          <h2 class="block_right--title">Strengthen the Guci`an bond</h2>
-          <div class="block_right--text">
-            Connecting Alumni and of Govermment engineering college idukki to a
-            next level
-          </div>
-          <div class="circle">
-            <div class="circle_inner">
-              <div class="circle_item"></div>
-              <div class="circle_item active"></div>
-              <div class="circle_item"></div>
-              <div class="circle_item"></div>
-            </div>
-          </div>
-        </div>
+    <div class="loginPage__right">
+      <div class="loginPage__right_title">
+        <h2>Strengthen the Guci`an bond</h2>
+      </div>
+      <div class="loginPage__right_text">
+        <p>Connecting Alumni and students of Government engineering college Idukki to a next level</p>
+      </div>
+      <div class="loginPage__right_circle">
+        <span></span>
+        <span class="active"></span>
+        <span></span>
+        <span></span>
       </div>
     </div>
-  </section>
+  </div>
 </template>
 
-<style>
+<style lang="scss">
 /* DEFAULT*/
-.login {
-  margin: 0 auto;
-  width: 100%;
-}
-
-.login_container {
+.loginPage {
   height: 100vh;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    text-align: center;
+    background-color: $color-primary;
+
+    &_title {
+      font-family: $base-font;
+      font-weight: 700;
+      font-size: 32px;
+      margin-bottom: 16px;
+      line-height: 42px;
+      color: $color-white;
+
+    }
+
+    &_text {
+      font-family: $base-font;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 14px;
+      margin-bottom: 40px;
+      line-height: 20px;
+      letter-spacing: 0.1px;
+      color: $color-white;
+    }
+
+    &_circle {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 60px;
+
+      span {
+        width: 8px;
+        height: 8px;
+        margin: 0 5px;
+        opacity: 0.3;
+        border-radius: 50%;
+        background-color: $color-white;
+
+        &.active {
+          opacity: 1;
+        }
+      }
+    }
+  }
 }
 
 /*BLOCK_LIFT-SIDE*/
@@ -44,72 +82,8 @@
   align-items: center;
 }
 
-/*BLOCK_RIGHT-SIDE*/
-.block_right-side {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  width: 100%;
 
-  background-color: var(--primary);
-}
 
-.block_right-inner {
-  width: 100%;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-  margin: 0 auto;
-}
-
-.block_right--title {
-  font-family: "Nunito";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 42px;
-
-  color: var(--white);
-}
-
-.block_right--text {
-  font-family: "Nunito";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: 0.1px;
-
-  color: var(--white);
-}
-
-.circle {
-  margin: 54px 0;
-}
-
-.circle_inner {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.circle_item {
-  width: 8px;
-  height: 8px;
-  margin: 0 5px;
-
-  opacity: 0.3;
-  border-radius: 50%;
-  background-color: var(--white);
-}
-
-.active {
-  opacity: 1;
-}
-
-.header__navbar {
-  display: none;
-}
 
 @media screen and (max-width: 768px) {
   .container {
