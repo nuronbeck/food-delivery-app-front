@@ -1,6 +1,7 @@
 <template>
   <button :class="'btn btn-' + variant" :disabled="disabled" @click="handleClick">
-    <slot />
+    <BaseSpinner v-if="loading" />
+    <slot v-else />
   </button>
 </template>
 
@@ -16,6 +17,10 @@ export default {
       type: String,
       default: "primary",
     },
+    loading: {
+      type: Boolean,
+      default: false,
+    }
   },
   methods: {
     handleClick() {

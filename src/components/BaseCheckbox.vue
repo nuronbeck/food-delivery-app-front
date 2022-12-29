@@ -1,69 +1,80 @@
 <template>
-    <div class="form-checkbox">
-        <input class="form-checkbox__label" type="checkbox" id="checkbox1">
-        <label  for="checkbox1">{{ label }}</label>
+  <div class="base-checkbox__wrapper">
+    <div :class="`base-checkbox__checkbox ${checked ? 'isChecked' : ''}`" @click="toggleCheckbox">
+        <font-awesome-icon class="base-checkbox__icon" icon="fa-solid fa-check" />
     </div>
+
+    <div v-if="label" class="base-checkbox__label" @click="toggleCheckbox">
+        {{ label }}
+    </div>
+  </div>
 </template>
 
 <script>
-
 export default {
-    name: "BaseCheckbox",
-    props: {
-        label: {
-            type: String,
-            default: ""
-        },
+  name: "BaseCheckbox",
+  props: {
+    label: {
+      type: String,
+      default: "",
+    },
+    checked: {
+      type: Boolean,
+      default: false,
     }
-}
-
-
+  },
+  methods: {
+    toggleCheckbox () {
+        this.$emit('onChange', !this.checked)
+    }
+  }
+};
 </script>
 
 <style lang="scss">
-// Variables
-$checkbox-width: 20px;
- 
-// Checkboxes
-input[type="checkbox"] {
-    display: none;
-    &+label {
+.base-checkbox {
+    &__wrapper {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 0 12px;
+    }
+
+    &__label {
+        color: $color-dark;
         font-family: $base-font;
         font-weight: 400;
         font-size: 14px;
         line-height: 20px;
         letter-spacing: 0.1px;
-        color: $color-dark;
+    }
+    
+    &__icon {
+        color: $color-white;
+        display: none;
+    }
 
-        // Default State
-        &:before {
-            content: "\2714";
-            border: 1px solid $color-grey;
-            border-radius: 4px;
-            display: inline-block;
-            padding-left: 2px;
-            margin: 0 12px 24px 0;
-            color: transparent;
-            transition: 0.2s;
-            width: $checkbox-width;
-            height: $checkbox-width;
-        }
+    &__checkbox {
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid $color-primary;
+        border-radius: 4px;
 
-        &:active {
-            &::before {
-                transform: scale(0);
+        &.isChecked {
+            background-color: $color-primary;
+
+            .base-checkbox__icon {
+                display: block;
             }
         }
     }
 
-    // Checked State
-    &:checked+label {
-        &:before {
-            background: $color-primary;
-            color: $color-white;
+    &__label, &__checkbox {
+        &:hover {
+            cursor: pointer;
         }
     }
 }
-
-
 </style>

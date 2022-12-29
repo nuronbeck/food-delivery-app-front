@@ -19,6 +19,7 @@
             <p class="profile__tab-text">Personal information</p>
           </div>
         </a>
+
         <a class="profile__tab" href="#">
           <div class="profile__tab-img">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -35,6 +36,7 @@
             <p class="profile__tab-text">Shippings addresses</p>
           </div>
         </a>
+
         <a class="profile__tab" href="#">
           <div class="profile__tab-img">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -50,6 +52,7 @@
             <p class="profile__tab-text">Connected credit cards</p>
           </div>
         </a>
+
         <a class="profile__tab" href="#">
           <div class="profile__tab-img">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -64,6 +67,7 @@
           </div>
         </a>
       </div>
+
       <div class="account">
         <h3 class="profile__name">Account</h3>
         <div class="account__info">
@@ -74,34 +78,60 @@
             <BaseButton variant="primary-outline">Change</BaseButton>
             <BaseButton variant="none">Remove</BaseButton>
           </div>
+
           <div class="accout__input">
             <BaseInput label="First name" placeholder="Jane"></BaseInput>
             <BaseInput label="Last name" placeholder="Robertson"></BaseInput>
             <BaseInput label="Email" placeholder="jane.robertson@example.com"></BaseInput>
             <BaseInput label="Phone number" placeholder="(217) 555-0113"></BaseInput>
           </div>
+
           <div class="account__checkbox">
             <h3 class="account__info--title">Email notifications</h3>
-            <form>
-              <div class="checkboxs">
-                <div class="checkbox">
-                  <BaseCheckbox label="New deals" />
-                  <BaseCheckbox label="New restaurants" />
-                  <BaseCheckbox label="Order statuses" />
-                </div>
-                <div class="checkbox">
-                  <BaseCheckbox label="Password changes" />
-                  <BaseCheckbox label="Special offers" />
-                  <BaseCheckbox label="Newsletter" />
-                </div>
-              </div>
-            </form>
+            <div class="profile-notifications__wrapper">
+              <BaseCheckbox
+                label="New deals"
+                :checked="formData.emailNotifications.newDeals"
+                @onChange="(value) => changeCheckboxField('newDeals', value)"
+              />
+
+              <BaseCheckbox
+                label="New restaurants"
+                :checked="formData.emailNotifications.newRestaurants"
+                @onChange="(value) => changeCheckboxField('newRestaurants', value)"
+              />
+
+              <BaseCheckbox
+                label="Order statuses"
+                :checked="formData.emailNotifications.orderStatuses"
+                @onChange="(value) => changeCheckboxField('orderStatuses', value)"
+              />
+
+              <BaseCheckbox
+                label="Password changes"
+                :checked="formData.emailNotifications.passwordChanges"
+                @onChange="(value) => changeCheckboxField('passwordChanges', value)"
+              />
+              <BaseCheckbox
+                label="Special offers"
+                :checked="formData.emailNotifications.specialOffers"
+                @onChange="(value) => changeCheckboxField('specialOffers', value)"
+              />
+              <BaseCheckbox
+                label="Newsletter"
+                :checked="formData.emailNotifications.newsLetter"
+                @onChange="(value) => changeCheckboxField('newsLetter', value)"
+              />
+            </div>
           </div>
+
+          <div class="profile-form-divider"></div>
+
           <div class="account__btns">
             <BaseButton class="dangerBtn" variant="danger-outline">Log out</BaseButton>
             <div>
               <BaseButton disabled="disabled" class="DiscardBtn">Discard changes</BaseButton>
-              <BaseButton class="SaveBtn">Save changes</BaseButton>
+              <BaseButton class="SaveBtn" @onClick="saveChangeClick">Save changes</BaseButton>
             </div>
           </div>
         </div>
@@ -111,15 +141,35 @@
 </template>
 
 <script>
-import baseCheckbox from "../data/baseCheckbox";
 
 export default {
   name: "ProfilePage",
   data() {
     return {
-      baseCheckbox
+      formData: {
+        firstName: '',
+        lastName: '',
+        email: '',
+        phoneNumber: '',
+        emailNotifications: {
+          newDeals: false,
+          newRestaurants: false,
+          orderStatuses: false,
+          passwordChanges: false,
+          specialOffers: false,
+          newsLetter: false,
+        }
+      }
     };
   },
+  methods: {
+    changeCheckboxField(propertyName, value){
+      this.formData.emailNotifications[propertyName] = value;
+    },
+    saveChangeClick(){
+      console.log(this.formData);
+    }
+  }
 };
 </script>
 
@@ -149,29 +199,28 @@ export default {
     border: 2px solid $color-grey-lightest;
     border-radius: 16px;
 
-    &:hover {
-      path {
-        stroke: $color-white;
-      }
+    &-img {
+      background: $color-grey-lightest;
+      border-radius: 12px;
+      padding: 10px;
+      margin-right: 12px;
+      transition: all .15s linear;
     }
 
     &:hover {
       box-sizing: border-box;
       border: 2px solid $color-primary;
       border-radius: 16px;
-    }
 
+      path {
+        stroke: $color-white;
+        transition: all .15s linear;
+      }
 
-
-    &-img {
-      background: $color-grey-lightest;
-      border-radius: 12px;
-      padding: 10px;
-      margin-right: 12px;
-    }
-    &:hover {
-      &-img {
-        background: $color-primary;
+      .profile {
+        &__tab-img {
+          background: $color-primary;
+        }
       }
     }
 
@@ -197,38 +246,39 @@ export default {
 
 }
 
+.account {
+  &__info {
+    background: #ffffff;
+    border: 1px solid $color-grey-lightest;
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 24px;
 
-.account__info {
-  background: #ffffff;
-  border: 1px solid $color-grey-lightest;
-  border-radius: 16px;
-  padding: 16px;
-  margin-bottom: 24px;
-}
+    &--title {
+      font-family: $base-font;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 24px;
+      letter-spacing: 0.1px;
+      margin-bottom: 16px;
+      color: #2b2b43;
+    }
 
-.account__info--title {
-  font-family: $base-font;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 24px;
-  letter-spacing: 0.1px;
-  margin-bottom: 16px;
-  color: #2b2b43;
-}
+    &--text {
+      font-family: $base-font;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 16px;
+      margin-bottom: 8px;
+      color: $color-grey-dark;
+    }
+  }
 
-.account__info--text {
-  font-family: $base-font;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 16px;
-  margin-bottom: 8px;
-  color: $color-grey-dark;
-}
-
-.account__action {
-  display: flex;
-  align-items: center;
-  margin-bottom: 16px;
+  &__action {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+  }
 }
 
 .action-img {
@@ -243,16 +293,21 @@ export default {
   gap: 16px;
 }
 
-.checkboxs {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  margin-bottom: 20px;
-  border-bottom: 1px solid var(--grey-lightest);
+.profile-notifications {
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 16px;
+    margin-bottom: 36px;
+  }
 }
 
-.checkbox {
-  display: flex;
-  flex-direction: column;
+.profile-form-divider {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 1px;
+  width: 100%;
+  background-color: $color-grey-light;
 }
 
 .account__btns {
