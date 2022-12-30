@@ -58,6 +58,7 @@ main{
   width: 100%;
   margin: 0 auto;
   max-width: var(--breakpoint-desktop);
+  padding: 0 15px;
 }
 
 

@@ -112,6 +112,7 @@ export default {
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
+
   &__name {
     color: $color-dark;
     font-size: 32px;
@@ -170,9 +171,11 @@ export default {
   .login {
     transform: translateX(-50%) translateY(-40%);
     width: 95%;
+
     &__name {
       font-size: 60px;
     }
+
     &__text {
       display: block;
       color: $color-grey-dark;
@@ -183,6 +186,7 @@ export default {
       line-height: 20px;
       letter-spacing: 0.1px;
     }
+
     &__link {
       padding-bottom: 32px;
     }

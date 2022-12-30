@@ -70,8 +70,8 @@ export default {
   &__list {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-gap: 15px;
-    margin-bottom: 79px;
+    grid-gap: 30px;
+    margin-bottom: 40px;
   }
 }
 

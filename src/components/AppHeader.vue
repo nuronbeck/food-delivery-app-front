@@ -122,12 +122,6 @@ export default {
 @media screen and (max-width: $breakpoint-md) {
 
   .header {
-    &__logo {
-      img {
-        padding-left: 15px;
-      }
-    }
-
     &__menu {
       position: relative;
       justify-content: end;

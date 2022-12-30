@@ -3,7 +3,7 @@
     <div class="profile">
       <div class="profile__tabs">
         <h3 class="profile__name">Settings</h3>
-        <a class="profile__tab" href="#">
+        <a class="profile__tab active" href="#">
           <div class="profile__tab-img">
             <svg
               width="20"
@@ -137,26 +137,33 @@
               label="First name"
               placeholder="Jane"
               :value="formData.firstName"
+              :error="errors.firstName"
               @onInput="(value) => changeField('firstName', value)"
-            ></BaseInput>
+            />
+
             <BaseInput
               label="Last name"
               placeholder="Robertson"
               :value="formData.lastName"
+              :error="errors.lastName"
               @onInput="(value) => changeField('lastName', value)"
-            ></BaseInput>
+            />
+
             <BaseInput
               label="Email"
               placeholder="jane.robertson@example.com"
               :value="formData.email"
+              :error="errors.email"
               @onInput="(value) => changeField('email', value)"
-            ></BaseInput>
+            />
+
             <BaseInput
               label="Phone number"
               placeholder="(217) 555-0113"
               :value="formData.phoneNumber"
+              :error="errors.phoneNumber"
               @onInput="(value) => changeField('phoneNumber', value)"
-            ></BaseInput>
+            />
           </div>
 
           <div class="account__checkbox">
@@ -242,25 +249,31 @@ export default {
           newsLetter: false,
         },
       },
+      errors: {
+        firstName: '',
+        lastName: '',
+        email: '',
+        phoneNumber: '',
+      }
     };
   },
   methods: {
     changeField(propertyName, value) {
-      // if (this.errors[propertyName] !== "") {
-      //   this.errors[propertyName] = "";
-      // }
+      if (this.errors[propertyName] !== "") {
+        this.errors[propertyName] = "";
+      }
 
       this.formData[propertyName] = value;
       this.formData.emailNotifications[propertyName] = value;
     },
     saveChangeClick() {
-      // console.log(this.formData);
       this.isLoading = true;
+
       setTimeout(() => {
-        // this.errors.firstName = "* This firstName is not valid!";
-        // this.errors.lastName = "* This lastName is not valid!";
-        // this.errors.email = "* This email is not valid!";
-        // this.errors.phoneNumber = "* This phoneNumber is not valid!";
+        this.errors.firstName = "* This firstName is not valid!";
+        this.errors.lastName = "* This lastName is not valid!";
+        this.errors.email = "* This email is not valid!";
+        this.errors.phoneNumber = "* This phoneNumber is not valid!";
 
         this.isLoading = false;
       }, 2500);
@@ -303,23 +316,6 @@ export default {
       transition: all 0.15s linear;
     }
 
-    &:hover {
-      box-sizing: border-box;
-      border: 2px solid $color-primary;
-      border-radius: 16px;
-
-      path {
-        stroke: $color-white;
-        transition: all 0.15s linear;
-      }
-
-      .profile {
-        &__tab-img {
-          background: $color-primary;
-        }
-      }
-    }
-
     &-title {
       font-family: $base-font;
       font-weight: 700;
@@ -336,6 +332,36 @@ export default {
       line-height: 18px;
       letter-spacing: 0.2px;
       color: $color-grey-dark;
+    }
+
+    &.active {
+      border: 2px solid $color-primary;
+
+      .profile {
+        &__tab-img {
+          background: $color-primary;
+        }
+      }
+      
+      path {
+        stroke: $color-white;
+        transition: all 0.15s linear;
+      }
+    }
+
+    &:hover {
+      border: 2px solid $color-primary;
+
+      path {
+        stroke: $color-white;
+        transition: all 0.15s linear;
+      }
+
+      .profile {
+        &__tab-img {
+          background: $color-primary;
+        }
+      }
     }
   }
 }
@@ -384,6 +410,7 @@ export default {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
+    margin-bottom: 15px;
   }
 
   &__btns {
@@ -392,6 +419,10 @@ export default {
 
     &-discardBtn {
       margin-right: 16px;
+    }
+
+    .SaveBtn {
+      min-width: 120px;
     }
   }
 }

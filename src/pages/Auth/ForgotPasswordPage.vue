@@ -1,5 +1,5 @@
 <template>
-  <form action="#" class="login">
+  <form class="login" @submit.prevent>
     <h1 class="login__name">Reset password</h1>
 
     <BaseInput
