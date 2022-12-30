@@ -133,15 +133,29 @@
           </div>
 
           <div class="account__input">
-            <BaseInput label="First name" placeholder="Jane"></BaseInput>
-            <BaseInput label="Last name" placeholder="Robertson"></BaseInput>
+            <BaseInput
+              label="First name"
+              placeholder="Jane"
+              :value="formData.firstName"
+              @onInput="(value) => changeField('firstName', value)"
+            ></BaseInput>
+            <BaseInput
+              label="Last name"
+              placeholder="Robertson"
+              :value="formData.lastName"
+              @onInput="(value) => changeField('lastName', value)"
+            ></BaseInput>
             <BaseInput
               label="Email"
               placeholder="jane.robertson@example.com"
+              :value="formData.email"
+              @onInput="(value) => changeField('email', value)"
             ></BaseInput>
             <BaseInput
               label="Phone number"
               placeholder="(217) 555-0113"
+              :value="formData.phoneNumber"
+              @onInput="(value) => changeField('phoneNumber', value)"
             ></BaseInput>
           </div>
 
@@ -151,43 +165,35 @@
               <BaseCheckbox
                 label="New deals"
                 :checked="formData.emailNotifications.newDeals"
-                @onChange="(value) => changeCheckboxField('newDeals', value)"
+                @onChange="(value) => changeField('newDeals', value)"
               />
 
               <BaseCheckbox
                 label="New restaurants"
                 :checked="formData.emailNotifications.newRestaurants"
-                @onChange="
-                  (value) => changeCheckboxField('newRestaurants', value)
-                "
+                @onChange="(value) => changeField('newRestaurants', value)"
               />
 
               <BaseCheckbox
                 label="Order statuses"
                 :checked="formData.emailNotifications.orderStatuses"
-                @onChange="
-                  (value) => changeCheckboxField('orderStatuses', value)
-                "
+                @onChange="(value) => changeField('orderStatuses', value)"
               />
 
               <BaseCheckbox
                 label="Password changes"
                 :checked="formData.emailNotifications.passwordChanges"
-                @onChange="
-                  (value) => changeCheckboxField('passwordChanges', value)
-                "
+                @onChange="(value) => changeField('passwordChanges', value)"
               />
               <BaseCheckbox
                 label="Special offers"
                 :checked="formData.emailNotifications.specialOffers"
-                @onChange="
-                  (value) => changeCheckboxField('specialOffers', value)
-                "
+                @onChange="(value) => changeField('specialOffers', value)"
               />
               <BaseCheckbox
                 label="Newsletter"
                 :checked="formData.emailNotifications.newsLetter"
-                @onChange="(value) => changeCheckboxField('newsLetter', value)"
+                @onChange="(value) => changeField('newsLetter', value)"
               />
             </div>
           </div>
@@ -202,7 +208,10 @@
               <BaseButton disabled="disabled" class="account__btns-discardBtn"
                 >Discard changes</BaseButton
               >
-              <BaseButton class="SaveBtn" @onClick="saveChangeClick"
+              <BaseButton
+                class="SaveBtn"
+                @onClick="saveChangeClick"
+                :loading="isLoading"
                 >Save changes</BaseButton
               >
             </div>
@@ -218,6 +227,7 @@ export default {
   name: "ProfilePage",
   data() {
     return {
+      isLoading: false,
       formData: {
         firstName: "",
         lastName: "",
@@ -235,11 +245,25 @@ export default {
     };
   },
   methods: {
-    changeCheckboxField(propertyName, value) {
+    changeField(propertyName, value) {
+      // if (this.errors[propertyName] !== "") {
+      //   this.errors[propertyName] = "";
+      // }
+
+      this.formData[propertyName] = value;
       this.formData.emailNotifications[propertyName] = value;
     },
     saveChangeClick() {
-      console.log(this.formData);
+      // console.log(this.formData);
+      this.isLoading = true;
+      setTimeout(() => {
+        // this.errors.firstName = "* This firstName is not valid!";
+        // this.errors.lastName = "* This lastName is not valid!";
+        // this.errors.email = "* This email is not valid!";
+        // this.errors.phoneNumber = "* This phoneNumber is not valid!";
+
+        this.isLoading = false;
+      }, 2500);
     },
   },
 };
