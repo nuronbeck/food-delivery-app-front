@@ -1,11 +1,11 @@
 <template>
   <div class="base-checkbox__wrapper">
     <div :class="`base-checkbox__checkbox ${checked ? 'isChecked' : ''}`" @click="toggleCheckbox">
-        <font-awesome-icon class="base-checkbox__icon" icon="fa-solid fa-check" />
+      <font-awesome-icon class="base-checkbox__icon" icon="fa-solid fa-check" />
     </div>
 
     <div v-if="label" class="base-checkbox__label" @click="toggleCheckbox">
-        {{ label }}
+      {{ label }}
     </div>
   </div>
 </template>
@@ -24,8 +24,8 @@ export default {
     }
   },
   methods: {
-    toggleCheckbox () {
-        this.$emit('onChange', !this.checked)
+    toggleCheckbox() {
+      this.$emit('onChange', !this.checked)
     }
   }
 };
@@ -33,48 +33,50 @@ export default {
 
 <style lang="scss">
 .base-checkbox {
-    &__wrapper {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        gap: 0 12px;
-    }
+  &__wrapper {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0 12px;
+  }
 
-    &__label {
-        color: $color-dark;
-        font-family: $base-font;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 20px;
-        letter-spacing: 0.1px;
-    }
-    
-    &__icon {
-        color: $color-white;
-        display: none;
-    }
+  &__label {
+    color: $color-dark;
+    font-family: $base-font;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+  }
 
-    &__checkbox {
-        width: 20px;
-        height: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid $color-primary;
-        border-radius: 4px;
+  &__icon {
+    color: $color-white;
+    display: none;
+  }
 
-        &.isChecked {
-            background-color: $color-primary;
+  &__checkbox {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid $color-grey-light;
+    border-radius: 4px;
 
-            .base-checkbox__icon {
-                display: block;
-            }
-        }
+    &.isChecked {
+      background-color: $color-primary;
+      border: 2px solid $color-primary;
+
+      .base-checkbox__icon {
+        display: block;
+      }
     }
+  }
 
-    &__label, &__checkbox {
-        &:hover {
-            cursor: pointer;
-        }
+  &__label,
+  &__checkbox {
+    &:hover {
+      cursor: pointer;
     }
+  }
 }
 </style>

@@ -1,23 +1,54 @@
 <template>
   <div class="login">
     <h1 class="login__name">Login</h1>
+    <!-- ========Base inputs========= -->
+    <BaseInput
+      label="Email"
+      type="email"
+      placeholder="name@example.com"
+      :value="formData.email"
+      :error="errors.email"
+      @onInput="(value) => changeField('email', value)"
+    />
 
-    <BaseInput label="Email" type="email" placeholder="name@example.com" :value="formData.email" :error="errors.email"
-      @onInput="(value) => changeField('email', value)" />
-
-    <BaseInput label="Password" type="password" placeholder="min.8 characters" :value="formData.password"
-      :showPassword="showPassword" :error="errors.password" @onPasswordToggle="showPasswordClick"
-      @onInput="(value) => changeField('password', value)" />
-      
-
-    <BaseButton variant="primary" class="login__btn" @onClick="login" :loading="isLoading">
+    <BaseInput
+      class="login__baseInput"
+      label="Password"
+      type="password"
+      placeholder="min.8 characters"
+      :value="formData.password"
+      :showPassword="showPassword"
+      :error="errors.password"
+      @onPasswordToggle="showPasswordClick"
+      @onInput="(value) => changeField('password', value)"
+    />
+    <!-- ============Base checkbox========= -->
+    <BaseCheckbox
+      class="login__baseCheckbox"
+      label="Keep me logged in"
+      :checked="formData.loginSaveInfo.keepMeLogin"
+      @onChange="(value) => changeField('keepMeLogin', value)"
+    />
+    <!-- ===========Base button========== -->
+    <BaseButton
+      variant="primary"
+      class="login__baseBtn"
+      @onClick="login"
+      :loading="isLoading"
+    >
       Login
     </BaseButton>
 
-    <router-link to="/auth/forgot-password" class="login__forgotLink">Forgot password</router-link>
+    <router-link to="/auth/forgot-password" class="login__forgotLink"
+      >Forgot password</router-link
+    >
 
     <div class="login__sign">
-      <p>Don`t have an account?<router-link to="/auth/sign" class="login__link"> Sign up</router-link></p>
+      <p>
+        Don`t have an account?<router-link to="/auth/sign" class="login__link">
+          Sign up</router-link
+        >
+      </p>
     </div>
   </div>
 </template>
@@ -30,58 +61,71 @@ export default {
       isLoading: false,
       showPassword: false,
       formData: {
-        email: '',
-        password: '',
+        email: "",
+        password: "",
+        loginSaveInfo: {
+          keepMeLogin: false,
+        },
       },
       errors: {
-        email: '',
-        password: '',
-      }
-    }
+        email: "",
+        password: "",
+      },
+    };
   },
   methods: {
     showPasswordClick() {
-      this.showPassword = !this.showPassword
+      this.showPassword = !this.showPassword;
     },
     changeField(propertyName, value) {
-      if (this.errors[propertyName] !== '') {
-        this.errors[propertyName] = ''
+      if (this.errors[propertyName] !== "") {
+        this.errors[propertyName] = "";
       }
 
-      this.formData[propertyName] = value
+      this.formData[propertyName] = value;
+      this.formData.loginSaveInfo[propertyName] = value;
     },
     login() {
+      // console.log(this.formData);
       this.isLoading = true;
 
       setTimeout(() => {
-        this.errors.email= '* This email is not valid!'
-        this.errors.password= '* Password should contain at least one character!'
+        this.errors.email = "* This email is not valid!";
+        this.errors.password =
+          "* Password should contain at least one character!";
 
         this.isLoading = false;
       }, 2500);
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="scss">
 /* FORM*/
 .login {
-  max-width: 350px;
-  width: 100%;
-
+  display: flex;
+  flex-direction: column;
+  padding: 70px 200px 0 200px;
   &__name {
     width: 100%;
     font-size: 32px;
     line-height: 82px;
     font-family: $base-font;
-    font-style: normal;
     font-weight: 700;
     letter-spacing: 0.1px;
     color: $color-dark;
   }
 
-  &__btn {
+  &__baseInput {
+    margin-bottom: 28px !important;
+  }
+
+  &__baseCheckbox {
+    margin-bottom: 40px;
+  }
+
+  &__baseBtn {
     width: 100%;
     margin-bottom: 35px;
   }
@@ -99,6 +143,7 @@ export default {
     color: $color-primary;
     border: 0;
     background-color: $color-white;
+
     &:hover {
       color: $color-primary;
     }

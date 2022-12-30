@@ -1,9 +1,12 @@
 <template>
   <div class="card">
-    <div class="card__image" :style="{
-      'background-image':
-        'url(' + require('@/assets/product/food4.jpg') + ')',
-    }">
+    <div
+      class="card__image"
+      :style="{
+        'background-image':
+          'url(' + require('@/assets/product/food4.jpg') + ')',
+      }"
+    >
       <span v-if="featured" class="card__featured">{{ featured }}</span>
     </div>
     <div class="card__body">
@@ -74,13 +77,7 @@ export default {
   &__image {
     position: relative;
     height: 160px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    z-index: -1;
-    border-radius: 16px;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+    border-radius: 16px 16px 0 0;
   }
 
   &__featured {
@@ -113,18 +110,18 @@ export default {
   }
 
   &__title {
+    color: $color-dark;
     font-family: $base-font;
     font-size: 18px;
     line-height: 24px;
     margin-bottom: 6px;
-    color: $color-dark;
   }
-
 
   &__count {
     position: relative;
-
+    cursor: pointer;
     &-counter {
+      color: $color-white;
       position: absolute;
       top: -12px;
       right: 0;
@@ -132,7 +129,6 @@ export default {
       font-size: 10px;
       line-height: 1;
       font-weight: bold;
-      color: $color-white;
       background-color: $color-primary;
       padding: 3px;
       min-width: 14px;
@@ -141,17 +137,16 @@ export default {
     }
   }
 
-
   &__text {
     margin-bottom: 14px;
 
     p {
+      color: $color-grey;
       font-family: $base-font;
       font-weight: 600;
       font-size: 12px;
       line-height: 16px;
       margin-left: 7px;
-      color: $color-grey;
     }
   }
 
@@ -166,6 +161,7 @@ export default {
   }
 
   &__action {
+    color: $color-grey-dark;
     cursor: pointer;
     font-family: $base-font;
     font-weight: 600;
@@ -174,7 +170,6 @@ export default {
     padding: 4px 10px;
     background: $color-grey-lightest;
     border-radius: 100px;
-    color: $color-grey-dark;
 
     img {
       margin-right: 8px;

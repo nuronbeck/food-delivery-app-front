@@ -3,21 +3,37 @@
     <div class="container">
       <!-- ========Deals page========== -->
       <div class="deals__list">
-        <DealCard v-for="(dealCard, index) in dealsList" :key="`dealCard__${index}`" :variant="dealCard.variant"
-          :title="dealCard.title" :offer="dealCard.offer" :tag="dealCard.tag" />
+        <DealCard
+          v-for="(dealCard, index) in dealsList"
+          :key="`dealCard__${index}`"
+          :variant="dealCard.variant"
+          :title="dealCard.title"
+          :offer="dealCard.offer"
+          :tag="dealCard.tag"
+        />
       </div>
       <!-- ===========Category page=========== -->
       <div class="category__list">
-        <CategoryCard v-for="(categoryCard, index) in categoryList" :key="`categoryCard__${index}`"
-          :title="categoryCard.title" />
+        <CategoryCard
+          v-for="(categoryCard, index) in categoryList"
+          :key="`categoryCard__${index}`"
+          :title="categoryCard.title"
+        />
       </div>
 
       <!-- ============Product card=========== -->
 
       <div class="products__list">
-        <ProductCard v-for="(productCard, index) in productList" :key="`productCard__${index}`"
-          :featured="productCard.featured" :title="productCard.title" :minTime="productCard.minTime"
-          :minSum="productCard.minSum" :cardAction="productCard.cardAction" :counter="productCard.counter" />
+        <ProductCard
+          v-for="(productCard, index) in productList"
+          :key="`productCard__${index}`"
+          :featured="productCard.featured"
+          :title="productCard.title"
+          :minTime="productCard.minTime"
+          :minSum="productCard.minSum"
+          :cardAction="productCard.cardAction"
+          :counter="productCard.counter"
+        />
       </div>
     </div>
   </section>
@@ -34,7 +50,7 @@ export default {
     return {
       dealsList,
       categoryList,
-      productList
+      productList,
     };
   },
 };
@@ -68,14 +84,11 @@ export default {
   }
 }
 
-
-
 @media screen and (max-width: $breakpoint-md) {
   .deals {
     &__list {
       grid-template-columns: 1fr;
     }
-
   }
 
   .category {

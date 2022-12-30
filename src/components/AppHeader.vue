@@ -2,27 +2,24 @@
   <header class="header">
     <div class="container">
       <div class="header__wrapper">
-        <div class="header__left">
+        <div class="header__logo">
           <router-link to="/">
-            <img class="logo" src="@/assets/header/main_logo.svg">
+            <img src="@/assets/header/main_logo.svg">
           </router-link>
         </div>
-        <div class="menu">
-          <a class="menu__link" href="#">My orders</a>
-          <a class="menu__shopping" href="#">
+        <div class="header__menu">
+          <a class="header__menu-link" href="#">My orders</a>
+          <a class="header__menu-card" href="#">
             <img src="@/assets/header/shopping bag.svg" />
-            <span class="menu__shopping-counter">4</span>
+            <span class="header__menu-counter">4</span>
           </a>
-
           <router-link v-if="isLoggedIn" to="/profile">
-            <img class="menu__user" src="@/assets/header/useravatar.svg" />
+            <img class="header__menu-userImg" src="@/assets/header/useravatar.svg" />
           </router-link>
-
           <BaseButton v-if="!isLoggedIn" variant="primary" @onClick="login">
             Login
           </BaseButton>
-
-          <!-- <img class="menu__icon" src="@/assets/header/menu.svg" /> -->
+          <!-- <img class="header__menu-icon" src="@/assets/header/menu.svg" /> -->
         </div>
       </div>
     </div>
@@ -60,40 +57,40 @@ export default {
     justify-content: space-between;
   }
 
-  &__left {
+  &__logo {
     display: flex;
     align-items: center;
-  }
-}
 
-.logo {
-  cursor: pointer;
-}
-
-.menu {
-  display: flex;
-  align-items: center;
-
-  &__link {
-    font-family: $base-font;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 20px;
-    margin: 0 28px;
-    color: $color-dark;
-
-    &:hover {
-      transition: 0.5s;
-      color: $color-primary;
+    img {
+      cursor: pointer;
     }
   }
 
-  &__shopping {
-    background-color: $color-primary-light;
-    padding: 12px;
-    border-radius: 16px;
-    position: relative;
-    margin-right: 11px;
+  &__menu {
+    display: flex;
+    align-items: center;
+
+    &-link {
+      font-family: $base-font;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 20px;
+      margin: 0 28px;
+      color: $color-dark;
+
+      &:hover {
+        transition: 0.5s;
+        color: $color-primary;
+      }
+    }
+
+    &-card {
+      background-color: $color-primary-light;
+      padding: 12px;
+      border-radius: 16px;
+      position: relative;
+      margin-right: 11px;
+    }
 
     &-counter {
       position: absolute;
@@ -104,80 +101,67 @@ export default {
       background-color: $color-primary;
       color: $color-white;
     }
-  }
 
-  &__user {
-    border: 2px solid $color-grey-lightest;
-    border-radius: 16px;
-    padding: 2px;
+    &-userImg {
+      border: 2px solid $color-grey-lightest;
+      border-radius: 16px;
+      padding: 2px;
 
-    &:hover {
-      border: 2px solid $color-primary;
+      &:hover {
+        border: 2px solid $color-primary;
+      }
     }
-  }
 
-  &__icon {
-    display: none;
+    &-icon {
+      display: none;
+    }
   }
 }
 
-/* Here you can define styles how to change on mobile  */
+// =========Mobile breakpoint==========
 @media screen and (max-width: $breakpoint-md) {
-  .logo {
-    padding-left: 15px;
-  }
 
-  .search-form {
-    display: none;
-  }
-
-  .menu {
-    position: relative;
-
-    &__link {
-      display: none;
+  .header {
+    &__logo {
+      img {
+        padding-left: 15px;
+      }
     }
 
-    &__shopping {
-      border: 2px solid $color-primary-light;
-    }
+    &__menu {
+      position: relative;
+      justify-content: end;
 
-    &__shopping {
-      :hover {
-        border: 2px solid $color-primary;
+      &-link {
+        display: none;
       }
 
-      &__user {
-        margin-right: 32px;
-      }
+      &-card {
+        border: 2px solid $color-primary-light;
 
-      :hover {
-        border: 2px solid $color-primary;
-      }
-
-      &__divider {
-        &-vertical {
-          position: absolute;
-          right: 65px;
-          top: 10;
-          border: 1px solid $color-grey-lightest;
-          height: 32px;
-          color: $color-grey;
-        }
-      }
-
-      &__icon {
-        cursor: pointer;
-        display: block;
-        background: $color-grey-lightest;
-        border-radius: 16px;
-        padding: 14px;
-        border: 2px solid $color-grey-lightest;
-
-        :hover {
+        &:hover {
           border: 2px solid $color-primary;
         }
       }
+
+      &-userImg {
+        &:hover {
+          border: 2px solid $color-primary;
+        }
+      }
+
+      // &-icon {
+      //   cursor: pointer;
+      //   display: block;
+      //   background: $color-grey-lightest;
+      //   border-radius: 16px;
+      //   padding: 14px;
+      //   border: 2px solid $color-grey-lightest;
+
+      //   &:hover {
+      //     border: 2px solid $color-primary;
+      //   }
+      // }
     }
   }
 }

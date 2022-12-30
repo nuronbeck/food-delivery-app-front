@@ -46,7 +46,6 @@
     &_text {
       font-family: $base-font;
       font-weight: 400;
-      font-style: normal;
       font-size: 14px;
       margin-bottom: 40px;
       line-height: 20px;
@@ -75,12 +74,6 @@
   }
 }
 
-/*BLOCK_LIFT-SIDE*/
-.block_left-side {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 
 

@@ -1,11 +1,11 @@
 <template>
-  <div class="login_containers">
+  <div class="login__containers">
     <div class="header-wrappers">
       <router-link to="/" class="header-left">
         <img class="logo" src="@/assets/header/main_logo.svg" />
       </router-link>
     </div>
-    <div class="block_left-side">
+    <div class="left">
       <router-view></router-view>
     </div>
   </div>
@@ -18,6 +18,7 @@ export default {
 </script>
 
 <style lang="scss">
+
 .header-wrappers {
   margin: 30px 0 20px 30px;
 }

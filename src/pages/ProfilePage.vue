@@ -5,13 +5,27 @@
         <h3 class="profile__name">Settings</h3>
         <a class="profile__tab" href="#">
           <div class="profile__tab-img">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path stroke="#83859C"
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke="#83859C"
                 d="M16.6666 17.5V15.8333C16.6666 14.9493 16.3155 14.1014 15.6903 13.4763C15.0652 12.8512 14.2174 12.5 13.3333 12.5H6.66665C5.78259 12.5 4.93474 12.8512 4.30962 13.4763C3.6845 14.1014 3.33331 14.9493 3.33331 15.8333V17.5"
-                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
               <path
                 d="M9.99996 9.16667C11.8409 9.16667 13.3333 7.67428 13.3333 5.83333C13.3333 3.99238 11.8409 2.5 9.99996 2.5C8.15901 2.5 6.66663 3.99238 6.66663 5.83333C6.66663 7.67428 8.15901 9.16667 9.99996 9.16667Z"
-                stroke="#83859C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                stroke="#83859C"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
             </svg>
           </div>
           <div class="profile__tab-content">
@@ -22,13 +36,27 @@
 
         <a class="profile__tab" href="#">
           <div class="profile__tab-img">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path
                 d="M17.5 8.33333C17.5 14.1667 10 19.1667 10 19.1667C10 19.1667 2.5 14.1667 2.5 8.33333C2.5 6.3442 3.29018 4.43655 4.6967 3.03003C6.10322 1.6235 8.01088 0.833328 10 0.833328C11.9891 0.833328 13.8968 1.6235 15.3033 3.03003C16.7098 4.43655 17.5 6.3442 17.5 8.33333Z"
-                stroke="#83859C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                stroke="#83859C"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
               <path
                 d="M10 10.8333C11.3807 10.8333 12.5 9.71404 12.5 8.33333C12.5 6.95262 11.3807 5.83333 10 5.83333C8.61929 5.83333 7.5 6.95262 7.5 8.33333C7.5 9.71404 8.61929 10.8333 10 10.8333Z"
-                stroke="#83859C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                stroke="#83859C"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
             </svg>
           </div>
           <div class="profile__tab-content">
@@ -39,12 +67,27 @@
 
         <a class="profile__tab" href="#">
           <div class="profile__tab-img">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path
                 d="M17.5 3.33334H2.49998C1.5795 3.33334 0.833313 4.07953 0.833313 5V15C0.833313 15.9205 1.5795 16.6667 2.49998 16.6667H17.5C18.4205 16.6667 19.1666 15.9205 19.1666 15V5C19.1666 4.07953 18.4205 3.33334 17.5 3.33334Z"
-                stroke="#83859C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-              <path d="M0.833313 8.33334H19.1666" stroke="#83859C" stroke-width="1.5" stroke-linecap="round"
-                stroke-linejoin="round" />
+                stroke="#83859C"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M0.833313 8.33334H19.1666"
+                stroke="#83859C"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
             </svg>
           </div>
           <div class="profile__tab-content">
@@ -55,10 +98,20 @@
 
         <a class="profile__tab" href="#">
           <div class="profile__tab-img">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path
                 d="M9.99998 18.3333C9.99998 18.3333 16.6666 15 16.6666 10V4.16667L9.99998 1.66667L3.33331 4.16667V10C3.33331 15 9.99998 18.3333 9.99998 18.3333Z"
-                stroke="#83859C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                stroke="#83859C"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
             </svg>
           </div>
           <div class="profile__tab-content">
@@ -71,23 +124,29 @@
       <div class="account">
         <h3 class="profile__name">Account</h3>
         <div class="account__info">
-          <h2 class="account__info--title">Personal information</h2>
-          <p class="account__info--text">Avatar</p>
+          <h2 class="account__title">Personal information</h2>
+          <p class="account__text">Avatar</p>
           <div class="account__action">
-            <img class="action-img" src="@/assets/profile/girl.svg" />
+            <img class="account__img" src="@/assets/profile/girl.svg" />
             <BaseButton variant="primary-outline">Change</BaseButton>
             <BaseButton variant="none">Remove</BaseButton>
           </div>
 
-          <div class="accout__input">
+          <div class="account__input">
             <BaseInput label="First name" placeholder="Jane"></BaseInput>
             <BaseInput label="Last name" placeholder="Robertson"></BaseInput>
-            <BaseInput label="Email" placeholder="jane.robertson@example.com"></BaseInput>
-            <BaseInput label="Phone number" placeholder="(217) 555-0113"></BaseInput>
+            <BaseInput
+              label="Email"
+              placeholder="jane.robertson@example.com"
+            ></BaseInput>
+            <BaseInput
+              label="Phone number"
+              placeholder="(217) 555-0113"
+            ></BaseInput>
           </div>
 
           <div class="account__checkbox">
-            <h3 class="account__info--title">Email notifications</h3>
+            <h3 class="account__title">Email notifications</h3>
             <div class="profile-notifications__wrapper">
               <BaseCheckbox
                 label="New deals"
@@ -98,24 +157,32 @@
               <BaseCheckbox
                 label="New restaurants"
                 :checked="formData.emailNotifications.newRestaurants"
-                @onChange="(value) => changeCheckboxField('newRestaurants', value)"
+                @onChange="
+                  (value) => changeCheckboxField('newRestaurants', value)
+                "
               />
 
               <BaseCheckbox
                 label="Order statuses"
                 :checked="formData.emailNotifications.orderStatuses"
-                @onChange="(value) => changeCheckboxField('orderStatuses', value)"
+                @onChange="
+                  (value) => changeCheckboxField('orderStatuses', value)
+                "
               />
 
               <BaseCheckbox
                 label="Password changes"
                 :checked="formData.emailNotifications.passwordChanges"
-                @onChange="(value) => changeCheckboxField('passwordChanges', value)"
+                @onChange="
+                  (value) => changeCheckboxField('passwordChanges', value)
+                "
               />
               <BaseCheckbox
                 label="Special offers"
                 :checked="formData.emailNotifications.specialOffers"
-                @onChange="(value) => changeCheckboxField('specialOffers', value)"
+                @onChange="
+                  (value) => changeCheckboxField('specialOffers', value)
+                "
               />
               <BaseCheckbox
                 label="Newsletter"
@@ -128,10 +195,16 @@
           <div class="profile-form-divider"></div>
 
           <div class="account__btns">
-            <BaseButton class="dangerBtn" variant="danger-outline">Log out</BaseButton>
+            <BaseButton class="account__btns-dangerBtn" variant="danger-outline"
+              >Log out</BaseButton
+            >
             <div>
-              <BaseButton disabled="disabled" class="DiscardBtn">Discard changes</BaseButton>
-              <BaseButton class="SaveBtn" @onClick="saveChangeClick">Save changes</BaseButton>
+              <BaseButton disabled="disabled" class="account__btns-discardBtn"
+                >Discard changes</BaseButton
+              >
+              <BaseButton class="SaveBtn" @onClick="saveChangeClick"
+                >Save changes</BaseButton
+              >
             </div>
           </div>
         </div>
@@ -141,16 +214,15 @@
 </template>
 
 <script>
-
 export default {
   name: "ProfilePage",
   data() {
     return {
       formData: {
-        firstName: '',
-        lastName: '',
-        email: '',
-        phoneNumber: '',
+        firstName: "",
+        lastName: "",
+        email: "",
+        phoneNumber: "",
         emailNotifications: {
           newDeals: false,
           newRestaurants: false,
@@ -158,18 +230,18 @@ export default {
           passwordChanges: false,
           specialOffers: false,
           newsLetter: false,
-        }
-      }
+        },
+      },
     };
   },
   methods: {
-    changeCheckboxField(propertyName, value){
+    changeCheckboxField(propertyName, value) {
       this.formData.emailNotifications[propertyName] = value;
     },
-    saveChangeClick(){
+    saveChangeClick() {
       console.log(this.formData);
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -204,7 +276,7 @@ export default {
       border-radius: 12px;
       padding: 10px;
       margin-right: 12px;
-      transition: all .15s linear;
+      transition: all 0.15s linear;
     }
 
     &:hover {
@@ -214,7 +286,7 @@ export default {
 
       path {
         stroke: $color-white;
-        transition: all .15s linear;
+        transition: all 0.15s linear;
       }
 
       .profile {
@@ -241,37 +313,35 @@ export default {
       letter-spacing: 0.2px;
       color: $color-grey-dark;
     }
-
   }
-
 }
 
 .account {
   &__info {
-    background: #ffffff;
+    background: $color-white;
     border: 1px solid $color-grey-lightest;
     border-radius: 16px;
     padding: 16px;
     margin-bottom: 24px;
+  }
 
-    &--title {
-      font-family: $base-font;
-      font-weight: 700;
-      font-size: 18px;
-      line-height: 24px;
-      letter-spacing: 0.1px;
-      margin-bottom: 16px;
-      color: #2b2b43;
-    }
+  &__title {
+    font-family: $base-font;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.1px;
+    margin-bottom: 16px;
+    color: $color-dark;
+  }
 
-    &--text {
-      font-family: $base-font;
-      font-weight: 600;
-      font-size: 12px;
-      line-height: 16px;
-      margin-bottom: 8px;
-      color: $color-grey-dark;
-    }
+  &__text {
+    font-family: $base-font;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    margin-bottom: 8px;
+    color: $color-grey-dark;
   }
 
   &__action {
@@ -279,18 +349,27 @@ export default {
     align-items: center;
     margin-bottom: 16px;
   }
-}
 
-.action-img {
-  cursor: pointer;
-  border-radius: 12px;
-  margin-right: 24px;
-}
+  &__img {
+    cursor: pointer;
+    border-radius: 12px;
+    margin-right: 24px;
+  }
 
-.accout__input {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+  &__input {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  &__btns {
+    display: flex;
+    justify-content: space-between;
+
+    &-discardBtn {
+      margin-right: 16px;
+    }
+  }
 }
 
 .profile-notifications {
@@ -310,44 +389,41 @@ export default {
   background-color: $color-grey-light;
 }
 
-.account__btns {
-  display: flex;
-  justify-content: space-between;
-}
-
-.DiscardBtn {
-  margin-right: 16px;
-}
-
 /* Here you can define styles how to change on mobile  */
 @media screen and (max-width: 768px) {
   .profile {
     grid-template-columns: 1fr;
   }
 
-  .accout__input {
-    grid-template-columns: 1fr;
+  .account {
+    &__input {
+      grid-template-columns: 1fr;
+    }
+
+    &__btns {
+      flex-direction: column;
+
+      div {
+        &:nth-child(2) {
+          display: flex;
+          justify-content: space-between;
+        }
+
+        button {
+          width: 100%;
+        }
+      }
+
+      &-dangerBtn {
+        margin-bottom: 40px;
+      }
+    }
   }
 
-  .checkboxs {
-    grid-template-columns: 1fr;
-  }
-
-  .account__btns {
-    flex-direction: column;
-  }
-
-  .account__btns div:nth-child(2) {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .account__btns div button {
-    width: 100%;
-  }
-
-  .dangerBtn {
-    margin-bottom: 40px;
+  .profile-notifications {
+    &__wrapper {
+      grid-template-columns: 1fr;
+    }
   }
 }
 </style>

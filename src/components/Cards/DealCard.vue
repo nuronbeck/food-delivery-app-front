@@ -88,7 +88,6 @@ export default {
 
   &__offer {
     font-family: $base-font;
-    font-style: normal;
     font-weight: 800;
     font-size: 40px;
     line-height: 56px;
