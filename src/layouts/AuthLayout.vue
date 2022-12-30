@@ -7,7 +7,10 @@
         <h2>Strengthen the Guci`an bond</h2>
       </div>
       <div class="loginPage__right_text">
-        <p>Connecting Alumni and students of Government engineering college Idukki to a next level</p>
+        <p>
+          Connecting Alumni and students of Government engineering college
+          Idukki to a next level
+        </p>
       </div>
       <div class="loginPage__right_circle">
         <span></span>
@@ -40,7 +43,6 @@
       margin-bottom: 16px;
       line-height: 42px;
       color: $color-white;
-
     }
 
     &_text {
@@ -74,31 +76,12 @@
   }
 }
 
-
-
-
-
 @media screen and (max-width: 768px) {
-  .container {
-    padding: 0 15px;
-  }
-
-  .header__menu {
-    margin: 15px 0;
-    width: 100%;
-  }
-
-  .header__navbar {
-    display: block;
-  }
-
-  .login_container {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-  }
-
-  .block_right-side {
-    display: none;
+  .loginPage {
+    grid-template-columns: 1fr;
+    &__right {
+      display: none;
+    }
   }
 }
 </style>

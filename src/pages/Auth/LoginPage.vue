@@ -1,6 +1,9 @@
 <template>
   <div class="login">
     <h1 class="login__name">Login</h1>
+    <p class="login__text">
+      Sign in with your data that you entered during your registration.
+    </p>
     <!-- ========Base inputs========= -->
     <BaseInput
       label="Email"
@@ -104,17 +107,21 @@ export default {
 <style lang="scss">
 /* FORM*/
 .login {
-  display: flex;
-  flex-direction: column;
-  padding: 70px 200px 0 200px;
+  width: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
   &__name {
-    width: 100%;
+    color: $color-dark;
     font-size: 32px;
     line-height: 82px;
     font-family: $base-font;
     font-weight: 700;
     letter-spacing: 0.1px;
-    color: $color-dark;
+  }
+  &__text {
+    display: none;
   }
 
   &__baseInput {
@@ -131,36 +138,54 @@ export default {
   }
 
   &__forgotLink {
-    margin-bottom: 100px;
-    width: 100%;
+    color: $color-primary;
     display: block;
     font-family: $base-font;
-    font-style: normal;
     font-weight: 700;
     font-size: 14px;
     line-height: 20px;
     text-align: center;
-    color: $color-primary;
-    border: 0;
-    background-color: $color-white;
-
+    margin-bottom: 110px;
     &:hover {
       color: $color-primary;
     }
   }
 
   &__sign {
+    color: $color-dark;
     font-family: $base-font;
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
-    color: $color-dark;
     text-align: center;
   }
 
   &__link {
     font-size: 14px;
     color: $color-primary;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .login {
+    transform: translateX(-50%) translateY(-40%);
+    width: 95%;
+    &__name {
+      font-size: 60px;
+    }
+    &__text {
+      display: block;
+      color: $color-grey-dark;
+      font-family: $base-font;
+      font-weight: 400;
+      font-size: 14px;
+      margin-bottom: 45px;
+      line-height: 20px;
+      letter-spacing: 0.1px;
+    }
+    &__link {
+      padding-bottom: 32px;
+    }
   }
 }
 </style>

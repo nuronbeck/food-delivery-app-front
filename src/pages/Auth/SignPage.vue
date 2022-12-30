@@ -5,9 +5,13 @@
     <BaseInput label="First Name" placeholder="First Name" />
     <BaseInput label="List Name" placeholder="List Name" />
     <BaseInput label="Password" placeholder="min. 8 characters" />
-    <BaseInput label="Repeat Password" placeholder="min. 8 characters" />
+    <BaseInput
+      class="login__baseInput"
+      label="Repeat Password"
+      placeholder="min. 8 characters"
+    />
 
-    <BaseButton variant="primary" class="login__btn"> Register </BaseButton>
+    <BaseButton variant="primary" class="login__baseBtn"> Register </BaseButton>
     <p class="login__sign">
       Do you want to out ?
       <router-link to="/auth/login" class="login__link"> Login </router-link>
