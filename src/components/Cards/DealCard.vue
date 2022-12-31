@@ -36,92 +36,104 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .deal-card {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--primary-light);
+  background: $color-primary-light;
   border-radius: 16px;
   padding-right: 24px;
+
+  &__bg-primary {
+    background-color: $color-primary-light;
+  }
+
+  &__bg-secondary {
+    background-color: $color-secondary-light;
+  }
+
+  &__offer {
+    color: $color-primary;
+  }
+
+  &__bg-primary {
+    color: $color-primary;
+  }
+
+  &__bg-secondary {
+    color: $color-secondary;
+  }
+
+  &__offer {
+    color: $color-secondary;
+  }
+
+  &__image {
+    img {
+      width: 100%;
+      background-size: cover;
+    }
+  }
+
+  &__title {
+    font-family: $base-font;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0.1px;
+    color: #2b2b43;
+  }
+
+  &__offer {
+    font-family: $base-font;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 56px;
+    letter-spacing: 0.1px;
+    padding-bottom: 36px;
+  }
+
+  &__tag {
+    font-family: $base-font;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    color: $color-grey;
+  }
 }
 
-.deal-card__bg-primary {
-  background-color: var(--primary-light);
-}
 
-.deal-card__bg-secondary {
-  background-color: var(--secondary-light);
-}
 
-.deal-card__bg-primary .deal-card__offer {
-  color: var(--primary);
-}
-
-.deal-card__bg-secondary .deal-card__offer {
-  color: var(--secondary);
-}
-
-.deal-card__image img {
-  width: 100%;
-  background-size: cover;
-}
-
-.deal-card__title {
-  font-family: "Nunito", sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 28px;
-  letter-spacing: 0.1px;
-  color: #2b2b43;
-}
-
-.deal-card__offer {
-  font-family: "Nunito", sans-serif;
-  font-style: normal;
-  font-weight: 800;
-  font-size: 40px;
-  line-height: 56px;
-  letter-spacing: 0.1px;
-  padding-bottom: 36px;
-}
-
-.deal-card__tag {
-  font-family: "Nunito", sans-serif;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 20px;
-  letter-spacing: 0.1px;
-  color: var(--grey);
-}
 
 @media screen and (max-width: 768px) {
   .deal-card {
     flex-direction: column-reverse;
-  }
 
-  .deal-card__content {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    padding: 20px;
-    justify-content: space-between;
-  }
+    &__content {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      width: 100%;
+      padding: 20px;
+    }
 
-  .deal-card__title {
-    padding-bottom: 60px;
-  }
+    &__title {
+      padding-bottom: 60px;
+    }
 
-  .deal-card__tag {
-    padding: 2px 0 0 132px;
-  }
+    &__tag {
+      padding: 2px 0 0 132px;
+    }
 
-  .deal-card__offer {
-    position: absolute;
-    top: 52px;
-    left: 16px;
+    &__offer {
+      position: absolute;
+      top: 52px;
+      left: 16px;
+    }
   }
 }
 </style>

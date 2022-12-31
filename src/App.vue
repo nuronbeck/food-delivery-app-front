@@ -1,10 +1,12 @@
 <template>
-  <div id="app">
+  <div id="app" class="app">
+    <main>
     <router-view />
+  </main>
   </div>
 </template>
 
-<style>
+<style lang="scss">
 /* ============NOrmalize css ================== */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css');
 
@@ -30,7 +32,17 @@
   --breakpoint-mobile: 768px;
   --breakpoint-desktop: 1110px;
 }
-
+body{
+  -webkit-fill-available: 100%;
+}
+.app{
+  display: flex;
+}
+main{
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+}
 *,
 *::before,
 *::after {
@@ -46,11 +58,8 @@
   width: 100%;
   margin: 0 auto;
   max-width: var(--breakpoint-desktop);
+  padding: 0 15px;
 }
 
-@media screen and (max-width: 768px) {
-  .container {
-    padding: 0 15px;
-  }
-}
+
 </style>

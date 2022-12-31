@@ -1,77 +1,81 @@
 <template>
-  <div class="login">
-    <h1 class="login__name">Login</h1>
-    <p class="login__text">
-      Sign in with your data that you entered during your registration.
-    </p>
-    <!-- ========Base inputs========= -->
+  <form class="signUp" @submit.prevent>
+    <h1 class="signUp__name">Sign Up</h1>
+    <div class="signUp__userInfo">
+      <BaseInput
+        label="First Name"
+        placeholder="First Name"
+        :value="formData.firstName"
+        :error="errors.firstName"
+        @onInput="(value) => changeField('firstName', value)"
+      />
+      <BaseInput
+        label="Last Name"
+        placeholder="Last Name"
+        :value="formData.lastName"
+        :error="errors.lastName"
+        @onInput="(value) => changeField('lastName', value)"
+      />
+    </div>
     <BaseInput
       label="Email"
-      type="email"
       placeholder="name@example.com"
       :value="formData.email"
       :error="errors.email"
       @onInput="(value) => changeField('email', value)"
     />
-
     <BaseInput
-      class="login__baseInput"
+      label="Phone number"
+      placeholder="+998 (99) 324-42-91"
+      :value="formData.phoneNumber"
+      :error="errors.phoneNumber"
+      @onInput="(value) => changeField('phoneNumber', value)"
+    />
+    <BaseInput
+      class="signUp__baseInput"
       label="Password"
-      type="password"
-      placeholder="min.8 characters"
+      placeholder="min. 8 characters"
       :value="formData.password"
       :showPassword="showPassword"
       :error="errors.password"
       @onPasswordToggle="showPasswordClick"
       @onInput="(value) => changeField('password', value)"
     />
-    <!-- ============Base checkbox========= -->
-    <BaseCheckbox
-      class="login__baseCheckbox"
-      label="Keep me logged in"
-      :checked="formData.loginSaveInfo.keepMeLogin"
-      @onChange="(value) => changeField('keepMeLogin', value)"
-    />
-    <!-- ===========Base button========== -->
+
     <BaseButton
       variant="primary"
-      class="login__baseBtn"
-      @onClick="login"
+      class="signUp__baseBtn"
+      @onClick="register"
       :loading="isLoading"
     >
-      Login
+      Register
     </BaseButton>
-
-    <router-link to="/auth/forgot-password" class="login__forgotLink"
-      >Forgot password</router-link
-    >
-
-    <div class="login__subText">
-      <p>
-        Don`t have an account?<router-link to="/auth/sign" class="login__link">
-          Sign up</router-link
-        >
-      </p>
-    </div>
-  </div>
+    <p class="signUp__text">
+      Do you want to out ?
+      <router-link to="/auth/login" class="signUp__link"> Login </router-link>
+    </p>
+  </form>
 </template>
 
 <script>
 export default {
-  name: "LoginPage",
+  name: "SignPage",
   data() {
     return {
       isLoading: false,
       showPassword: false,
       formData: {
+        firstName: "",
+        lastName: "",
         email: "",
+        phoneNumber: "",
         password: "",
-        loginSaveInfo: {
-          keepMeLogin: false,
-        },
       },
       errors: {
+        firstName: "",
+        lastName: "",
         email: "",
+        phoneNumber: "",
         password: "",
       },
     };
@@ -86,13 +90,13 @@ export default {
       }
 
       this.formData[propertyName] = value;
-      this.formData.loginSaveInfo[propertyName] = value;
     },
-    login() {
-      // console.log(this.formData);
+    register() {
       this.isLoading = true;
 
       setTimeout(() => {
+        this.errors.firstName = "* This firstname is not valid!";
+        this.errors.lastName = "*This lastName is not valid!";
         this.errors.email = "* This email is not valid!";
         this.errors.password =
           "* Password should contain at least one character!";
@@ -104,15 +108,14 @@ export default {
 };
 </script>
 
+
 <style lang="scss">
-/* FORM*/
-.login {
-  width: 50%;
+.signUp {
+  width: 60%;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
-
   &__name {
     color: $color-dark;
     font-size: 32px;
@@ -121,38 +124,19 @@ export default {
     font-weight: 700;
     letter-spacing: 0.1px;
   }
-  &__text {
-    display: none;
+  &__userInfo {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 10px;
   }
-
   &__baseInput {
     margin-bottom: 28px !important;
   }
-
-  &__baseCheckbox {
-    margin-bottom: 40px;
-  }
-
   &__baseBtn {
     width: 100%;
     margin-bottom: 35px;
   }
-
-  &__forgotLink {
-    color: $color-primary;
-    display: block;
-    font-family: $base-font;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 20px;
-    text-align: center;
-    margin-bottom: 110px;
-    &:hover {
-      color: $color-primary;
-    }
-  }
-
-  &__subText {
+  &__text {
     color: $color-dark;
     font-family: $base-font;
     font-weight: 400;
@@ -160,7 +144,6 @@ export default {
     line-height: 20px;
     text-align: center;
   }
-
   &__link {
     font-size: 14px;
     color: $color-primary;
@@ -168,28 +151,8 @@ export default {
 }
 
 @media screen and (max-width: 768px) {
-  .login {
-    transform: translateX(-50%) translateY(-40%);
+  .signUp {
     width: 95%;
-
-    &__name {
-      font-size: 60px;
-    }
-
-    &__text {
-      display: block;
-      color: $color-grey-dark;
-      font-family: $base-font;
-      font-weight: 400;
-      font-size: 14px;
-      margin-bottom: 45px;
-      line-height: 20px;
-      letter-spacing: 0.1px;
-    }
-
-    &__link {
-      padding-bottom: 32px;
-    }
   }
 }
 </style>
