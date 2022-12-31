@@ -1,7 +1,10 @@
 <template>
-  <div class="auth_form">
-    <h1 class="login_name">Login</h1>
-
+  <div class="login">
+    <h1 class="login__name">Login</h1>
+    <p class="login__text">
+      Sign in with your data that you entered during your registration.
+    </p>
+    <!-- ========Base inputs========= -->
     <BaseInput
       label="Email"
       type="email"
@@ -12,6 +15,7 @@
     />
 
     <BaseInput
+      class="login__baseInput"
       label="Password"
       type="password"
       placeholder="min.8 characters"
@@ -21,20 +25,33 @@
       @onPasswordToggle="showPasswordClick"
       @onInput="(value) => changeField('password', value)"
     />
-
-    <div class="chackbox">
-      <input class="chackbox_sign" type="checkbox" name="checkbox" />
-      <div class="chackbox_text">Keep me logged in</div>
-    </div>
-
-    <BaseButton variant="primary" class="button_login" @onClick="login">
+    <!-- ============Base checkbox========= -->
+    <BaseCheckbox
+      class="login__baseCheckbox"
+      label="Keep me logged in"
+      :checked="formData.loginSaveInfo.keepMeLogin"
+      @onChange="(value) => changeField('keepMeLogin', value)"
+    />
+    <!-- ===========Base button========== -->
+    <BaseButton
+      variant="primary"
+      class="login__baseBtn"
+      @onClick="login"
+      :loading="isLoading"
+    >
       Login
     </BaseButton>
 
-    <router-link to="/auth/forgot-password" class="button_forgot">Forgot password</router-link> 
+    <router-link to="/auth/forgot-password" class="login__forgotLink"
+      >Forgot password</router-link
+    >
 
-    <div class="sign">
-      <p>Don`t have an account?<a href="#" class="sign_inner"> Sign up</a></p>
+    <div class="login__subText">
+      <p>
+        Don`t have an account?<router-link to="/auth/sign" class="login__link">
+          Sign up</router-link
+        >
+      </p>
     </div>
   </div>
 </template>
@@ -42,145 +59,137 @@
 <script>
 export default {
   name: "LoginPage",
-  data(){
+  data() {
     return {
+      isLoading: false,
       showPassword: false,
       formData: {
-        email: '',
-        password: '',
+        email: "",
+        password: "",
+        loginSaveInfo: {
+          keepMeLogin: false,
+        },
       },
       errors: {
-        email: '',
-        password: '',
-      }
-    }
+        email: "",
+        password: "",
+      },
+    };
   },
   methods: {
-    showPasswordClick () {
-      this.showPassword = !this.showPassword
+    showPasswordClick() {
+      this.showPassword = !this.showPassword;
     },
-    changeField(propertyName, value){
-      if(this.errors[propertyName] !== ''){
-        this.errors[propertyName] = ''
+    changeField(propertyName, value) {
+      if (this.errors[propertyName] !== "") {
+        this.errors[propertyName] = "";
       }
 
-      this.formData[propertyName] = value
+      this.formData[propertyName] = value;
+      this.formData.loginSaveInfo[propertyName] = value;
     },
-    login(){
-      // setTimeout(() => {
-      //   this.errors.email= '* This email is not valid!'
-      //   this.errors.password= '* Password should contain at least one character!'
-      // }, 2500);
-    }
-  }
+    login() {
+      // console.log(this.formData);
+      this.isLoading = true;
+
+      setTimeout(() => {
+        this.errors.email = "* This email is not valid!";
+        this.errors.password =
+          "* Password should contain at least one character!";
+
+        this.isLoading = false;
+      }, 2500);
+    },
+  },
 };
 </script>
 
-<style>
+<style lang="scss">
 /* FORM*/
-.auth_form {
-  max-width: 350px;
-  width: 100%;
+.login {
+  width: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+
+  &__name {
+    color: $color-dark;
+    font-size: 32px;
+    line-height: 82px;
+    font-family: $base-font;
+    font-weight: 700;
+    letter-spacing: 0.1px;
+  }
+  &__text {
+    display: none;
+  }
+
+  &__baseInput {
+    margin-bottom: 28px !important;
+  }
+
+  &__baseCheckbox {
+    margin-bottom: 40px;
+  }
+
+  &__baseBtn {
+    width: 100%;
+    margin-bottom: 35px;
+  }
+
+  &__forgotLink {
+    color: $color-primary;
+    display: block;
+    font-family: $base-font;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    margin-bottom: 110px;
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  &__subText {
+    color: $color-dark;
+    font-family: $base-font;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+  }
+
+  &__link {
+    font-size: 14px;
+    color: $color-primary;
+  }
 }
 
-.login_name {
-  width: 100%;
-  font-size: 32px;
-  line-height: 82px;
-  font-family: "Nunito";
-  font-style: normal;
-  font-weight: 700;
-  letter-spacing: 0.1px;
+@media screen and (max-width: 768px) {
+  .login {
+    transform: translateX(-50%) translateY(-40%);
+    width: 95%;
 
-  color: var(--dark);
-}
+    &__name {
+      font-size: 60px;
+    }
 
-.login_label {
-  margin-bottom: 5px;
-  width: 100%;
-  display: block;
-  font-family: "Nunito";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 16px;
+    &__text {
+      display: block;
+      color: $color-grey-dark;
+      font-family: $base-font;
+      font-weight: 400;
+      font-size: 14px;
+      margin-bottom: 45px;
+      line-height: 20px;
+      letter-spacing: 0.1px;
+    }
 
-  color: var(--black);
-}
-
-.login_input {
-  width: 100%;
-  margin-bottom: 30px;
-  padding-left: 10px;
-  height: 44px;
-  display: block;
-  border: 1px solid var(--grey-light);
-  border-radius: 8px;
-}
-
-.chackbox {
-  margin-bottom: 40px;
-  display: flex;
-  align-items: center;
-}
-
-.chackbox_sign {
-  margin-right: 12px;
-  width: 20px;
-  height: 20px;
-
-  border: 2px solid var(--grey-light);
-  border-radius: 4px;
-}
-
-.chackbox_text {
-  font-family: "Nunito";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: 0.1px;
-
-  color: var(--dark);
-}
-
-.button_login {
-  width: 100%;
-  margin-bottom: 35px;
-}
-
-.button_forgot {
-  margin-bottom: 100px;
-  width: 100%;
-  display: block;
-  font-family: "Nunito";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 20px;
-  text-align: center;
-  color: var(--primary);
-
-  border: 0;
-  background-color: var(--white);
-}
-
-.button_forgot:hover {
-  color: var(--primary);
-}
-
-.sign {
-  font-family: "Nunito";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
-  color: var(--black);
-  text-align: center;
-}
-
-.sign_inner {
-  font-size: 14px;
-  color: var(--primary);
+    &__link {
+      padding-bottom: 32px;
+    }
+  }
 }
 </style>

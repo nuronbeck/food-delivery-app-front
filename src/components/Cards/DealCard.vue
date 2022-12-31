@@ -46,15 +46,15 @@ export default {
   padding-right: 24px;
 
   &__bg-primary {
-    background-color:  $color-primary-light;
+    background-color: $color-primary-light;
   }
 
   &__bg-secondary {
-    background-color:  $color-secondary-light;
+    background-color: $color-secondary-light;
   }
 
   &__offer {
-    color:  $color-primary;
+    color: $color-primary;
   }
 
   &__bg-primary {
@@ -77,7 +77,7 @@ export default {
   }
 
   &__title {
-    font-family: "Nunito", sans-serif;
+    font-family: $base-font;
     font-style: normal;
     font-weight: 600;
     font-size: 20px;
@@ -87,8 +87,7 @@ export default {
   }
 
   &__offer {
-    font-family: "Nunito", sans-serif;
-    font-style: normal;
+    font-family: $base-font;
     font-weight: 800;
     font-size: 40px;
     line-height: 56px;
@@ -97,7 +96,7 @@ export default {
   }
 
   &__tag {
-    font-family: "Nunito", sans-serif;
+    font-family: $base-font;
     font-weight: 400;
     font-size: 15px;
     line-height: 20px;
@@ -116,10 +115,10 @@ export default {
     &__content {
       position: relative;
       display: flex;
+      justify-content: space-between;
       flex-direction: row;
       width: 100%;
       padding: 20px;
-      justify-content: space-between;
     }
 
     &__title {

@@ -1,24 +1,27 @@
 <template>
   <div class="card">
-    <div class="card__image" :style="{
-      'background-image':
-        'url(' + require('@/assets/product/food4.jpg') + ')',
-    }">
+    <div
+      class="card__image"
+      :style="{
+        'background-image':
+          'url(' + require('@/assets/product/food4.jpg') + ')',
+      }"
+    >
       <span v-if="featured" class="card__featured">{{ featured }}</span>
     </div>
     <div class="card__body">
       <div>
         <div class="card__title">{{ title }}</div>
-        <div class="card__shopping-counter">
+        <div class="card__count">
           <img src="@/assets/product/icons/shopping.svg" />
-          <span v-if="counter" class="card__counter">{{ counter }}</span>
+          <span v-if="counter" class="card__count-counter">{{ counter }}</span>
         </div>
       </div>
       <div class="card__text">
         <img src="@/assets/product/icons/clock.svg" />
-        <p>{{ text1 }}</p>
-        <span class="card__tag--dot">{{ cardTextDot }}</span>
-        <p>{{ text2 }}</p>
+        <p>{{ minTime }}</p>
+        <span class="card__tag-dot">{{ cardTextDot }}</span>
+        <p>{{ minSum }}</p>
       </div>
       <div>
         <div class="card__action">
@@ -46,11 +49,11 @@ export default {
       type: Number,
       default: 0,
     },
-    text1: {
+    minTime: {
       type: String,
       default: "",
     },
-    text2: {
+    minSum: {
       type: String,
       default: "",
     },
@@ -74,13 +77,8 @@ export default {
   &__image {
     position: relative;
     height: 160px;
-    background-repeat: no-repeat;
+    border-radius: 16px 16px 0 0;
     background-size: cover;
-    background-position: center;
-    z-index: -1;
-    border-radius: 16px;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
   }
 
   &__featured {
@@ -89,10 +87,10 @@ export default {
     right: 0;
     display: inline-block;
     padding: 8px 16px;
-    font-family: "Nunito", sans-serif;
+    font-family: $base-font;
     font-weight: bold;
     font-size: 11px;
-    color: var(--white);
+    color: $color-white;
     text-transform: uppercase;
     border-radius: 0 16px;
     background-color: $color-primary;
@@ -113,64 +111,63 @@ export default {
   }
 
   &__title {
-    font-family: "Nunito", sans-serif;
+    color: $color-dark;
+    font-family: $base-font;
     font-size: 18px;
     line-height: 24px;
-    color: $color-dark;
     margin-bottom: 6px;
   }
 
-  &__shopping {
+  &__count {
+    position: relative;
+    cursor: pointer;
     &-counter {
-      position: relative;
-
+      color: $color-white;
+      position: absolute;
+      top: -12px;
+      right: 0;
+      font-family: $base-font;
+      font-size: 10px;
+      line-height: 1;
+      font-weight: bold;
+      background-color: $color-primary;
+      padding: 3px;
+      min-width: 14px;
+      text-align: center;
+      border-radius: 6px;
     }
-  }
-
-  &__counter {
-    position: absolute;
-    top: -12px;
-    right: 0;
-    font-family: "Nunito";
-    font-size: 10px;
-    line-height: 1;
-    font-weight: bold;
-    color: var(--white);
-    background-color: $color-primary;
-    padding: 3px;
-    min-width: 14px;
-    text-align: center;
-    border-radius: 6px;
   }
 
   &__text {
     margin-bottom: 14px;
 
     p {
-      font-family: "Nunito";
+      color: $color-grey;
+      font-family: $base-font;
       font-weight: 600;
       font-size: 12px;
       line-height: 16px;
       margin-left: 7px;
-      color: $color-grey;
     }
   }
 
-  &__tag--dot {
-    width: 3px;
-    height: 3px;
-    background-color: var(--primary);
-    border-radius: 50%;
-    margin-left: 8px;
+  &__tag {
+    &-dot {
+      width: 3px;
+      height: 3px;
+      background-color: $color-primary;
+      border-radius: 50%;
+      margin-left: 8px;
+    }
   }
 
   &__action {
+    color: $color-grey-dark;
     cursor: pointer;
-    font-family: "Nunito", sans-serif;
+    font-family: $base-font;
     font-weight: 600;
     font-size: 12px;
     line-height: 16px;
-    color: $color-grey-dark;
     padding: 4px 10px;
     background: $color-grey-lightest;
     border-radius: 100px;
