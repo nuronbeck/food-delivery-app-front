@@ -58,6 +58,8 @@
 </template>
 
 <script>
+import client from "../../api";
+
 export default {
   name: "SignPage",
   data() {
@@ -94,15 +96,26 @@ export default {
     register() {
       this.isLoading = true;
 
-      setTimeout(() => {
-        this.errors.firstName = "* This firstname is not valid!";
-        this.errors.lastName = "*This lastName is not valid!";
-        this.errors.email = "* This email is not valid!";
-        this.errors.password =
-          "* Password should contain at least one character!";
+      // setTimeout(() => {
+      //   this.errors.firstName = "* This firstname is not valid!";
+      //   this.errors.lastName = "*This lastName is not valid!";
+      //   this.errors.email = "* This email is not valid!";
+      //   this.errors.password =
+      //     "* Password should contain at least one character!";
 
-        this.isLoading = false;
-      }, 2500);
+      //   this.isLoading = false;
+      // }, 2500);
+
+        client.post('/api/auth/sign-up', this.formData)
+        .then(response => {
+          console.log(response);
+        })
+        .catch(error => {
+          console.log(error);
+        })
+        .finally(() => {
+          this.isLoading = false;
+        })
     },
   },
 };

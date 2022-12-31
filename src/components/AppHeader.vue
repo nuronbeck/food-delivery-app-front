@@ -9,13 +9,16 @@
         </div>
         <div class="header__menu">
           <a class="header__menu-link" href="#">My orders</a>
+
           <a class="header__menu-card" href="#">
             <img src="@/assets/header/shopping bag.svg" />
             <span class="header__menu-counter">4</span>
           </a>
+
           <router-link v-if="isLoggedIn" to="/profile">
             <img class="header__menu-userImg" src="@/assets/header/useravatar.svg" />
           </router-link>
+
           <BaseButton v-if="!isLoggedIn" variant="primary" @onClick="login">
             Login
           </BaseButton>
@@ -36,7 +39,7 @@ export default {
   },
   methods: {
     login() {
-      this.isLoggedIn = true
+      this.$router.push('/auth/login');
     }
   }
 };
