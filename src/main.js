@@ -6,7 +6,6 @@ import DealCard from "./components/Cards/DealCard"
 import CategoryCard from "./components/Cards/CategoryCard"
 import ProductCard from "./components/Cards/ProductCard"
 import BaseInput from "./components/BaseInput"  
-import LogoBlock from "./components/LogoBlock"
 import BaseCheckbox from "./components/BaseCheckbox"
 import BaseSpinner from './components/Spinners/BaseSpinner'
 
@@ -27,7 +26,6 @@ Vue.component('DealCard', DealCard)
 Vue.component('CategoryCard', CategoryCard)
 Vue.component('ProductCard', ProductCard)
 Vue.component('BaseInput', BaseInput)
-Vue.component('LogoBlock', LogoBlock)
 Vue.component('BaseSpinner', BaseSpinner)
 
 new Vue({

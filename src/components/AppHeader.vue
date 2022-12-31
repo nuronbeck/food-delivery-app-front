@@ -119,7 +119,7 @@ export default {
 }
 
 // =========Mobile breakpoint==========
-@media screen and (max-width: $breakpoint-md) {
+@media screen and ( max-width: 768px) {
 
   .header {
     &__menu {

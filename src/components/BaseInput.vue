@@ -83,7 +83,7 @@ export default {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr auto;
-    border: 1px solid $color-grey-light;
+    border: 1px solid $color-grey;
     border-radius: 8px;
     box-sizing: border-box;
     overflow: hidden;
@@ -91,16 +91,19 @@ export default {
     &.has-error {
       border: 1px solid $color-error;
     }
+    &:hover{
+      border: 1px solid  $color-dark;
+    }
   }
 
   &__input {
+    color: $color-dark;
     width: 100%;
     height: 44px;
     border: none;
     outline: none;
     padding: 12px 4px 12px 12px;
     letter-spacing: 0.1px;
-    color: $color-dark;
     font-family: $base-font;
     font-weight: 400;
     font-size: 14px;

@@ -159,7 +159,7 @@
 
             <BaseInput
               label="Phone number"
-              placeholder="(217) 555-0113"
+              placeholder="+998 (99) 324-42-91"
               :value="formData.phoneNumber"
               :error="errors.phoneNumber"
               @onInput="(value) => changeField('phoneNumber', value)"

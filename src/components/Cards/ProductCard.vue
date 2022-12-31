@@ -78,6 +78,7 @@ export default {
     position: relative;
     height: 160px;
     border-radius: 16px 16px 0 0;
+    background-size: cover;
   }
 
   &__featured {

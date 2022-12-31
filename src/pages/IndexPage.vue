@@ -84,7 +84,7 @@ export default {
   }
 }
 
-@media screen and (max-width: $breakpoint-md) {
+@media screen and ( max-width: 768px) {
   .deals {
     &__list {
       grid-template-columns: 1fr;

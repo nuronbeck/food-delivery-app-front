@@ -1,18 +1,25 @@
 <template>
-  <div class="loginPage">
-    <LogoBlock />
+  <div class="authLayout">
+    <div class="authLayout__main">
+      <router-link to="/" class="authLayout__main-wrapper">
+        <img src="@/assets/header/main_logo.svg" />
+      </router-link>
+      <div>
+        <router-view></router-view>
+      </div>
+    </div>
 
-    <div class="loginPage__right">
-      <div class="loginPage__right_title">
+    <div class="authLayout__right">
+      <div class="authLayout__right_title">
         <h2>Strengthen the Guci`an bond</h2>
       </div>
-      <div class="loginPage__right_text">
+      <div class="authLayout__right_text">
         <p>
           Connecting Alumni and students of Government engineering college
           Idukki to a next level
         </p>
       </div>
-      <div class="loginPage__right_circle">
+      <div class="authLayout__right_circle">
         <span></span>
         <span class="active"></span>
         <span></span>
@@ -23,12 +30,18 @@
 </template>
 
 <style lang="scss">
-/* DEFAULT*/
-.loginPage {
+.authLayout {
   height: 100vh;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-
+  &__main {
+    position: relative;
+    &-wrapper {
+    img {
+      margin: 30px 0 0 30px;
+    }
+  }
+  }
   &__right {
     display: flex;
     flex-direction: column;
@@ -77,11 +90,18 @@
 }
 
 @media screen and (max-width: 768px) {
-  .loginPage {
+  .authLayout {
     grid-template-columns: 1fr;
     &__right {
       display: none;
     }
+    &__main {
+    &-wrapper {
+    img {
+      margin: 15px 0 0 15px;
+    }
+  }
+  }
   }
 }
 </style>

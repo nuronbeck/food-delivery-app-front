@@ -46,7 +46,7 @@
       >Forgot password</router-link
     >
 
-    <div class="login__sign">
+    <div class="login__subText">
       <p>
         Don`t have an account?<router-link to="/auth/sign" class="login__link">
           Sign up</router-link
@@ -152,7 +152,7 @@ export default {
     }
   }
 
-  &__sign {
+  &__subText {
     color: $color-dark;
     font-family: $base-font;
     font-weight: 400;
