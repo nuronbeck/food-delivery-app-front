@@ -4,7 +4,7 @@
       class="card__image"
       :style="{
         'background-image':
-          'url(' + require('@/assets/product/food4.jpg') + ')',
+          'url(' + image + ')',
       }"
     >
       <span v-if="featured" class="card__featured">{{ featured }}</span>
@@ -23,10 +23,13 @@
         <span class="card__tag-dot">{{ cardTextDot }}</span>
         <p>{{ minSum }}</p>
       </div>
-      <div>
-        <div class="card__action">
-          <img src="@/assets/product/icons/burger.svg" />
-          {{ cardAction }}
+      <div class="card__tags">
+        <div
+          class="card__tag"
+          v-for="tag in tags" :key="`productTag__${tag}`"
+        >
+          <img src="@/assets/product/icons/burger.svg" v-if="false"/>
+          {{tag}}
         </div>
       </div>
     </div>
@@ -37,6 +40,10 @@
 export default {
   name: "ProductCard",
   props: {
+    image: {
+      type: String,
+      default: 'https://i.pinimg.com/originals/ae/8a/c2/ae8ac2fa217d23aadcc913989fcc34a2.png'
+    },
     featured: {
       type: String,
       default: "",
@@ -61,9 +68,9 @@ export default {
       type: String,
       default: "",
     },
-    cardAction: {
-      type: String,
-      default: "",
+    tags: {
+      type: Array,
+      default: () => [],
     },
   },
 };
@@ -161,7 +168,13 @@ export default {
     }
   }
 
-  &__action {
+  &__tags {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 6px;
+  }
+ 
+  &__tag {
     color: $color-grey-dark;
     cursor: pointer;
     font-family: $base-font;
