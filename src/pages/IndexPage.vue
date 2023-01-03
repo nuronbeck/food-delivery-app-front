@@ -12,7 +12,7 @@
           :tag="dealCard.tag"
         />
       </div>
-      <!-- ===========Category page=========== -->
+      <!-- ===========Category page= ========== -->
       <div class="category__list">
         <CategoryCard
           v-for="(categoryCard, index) in categoryList"
