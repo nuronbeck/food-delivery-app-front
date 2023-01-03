@@ -9,7 +9,7 @@ import ProductCardSkeleton from "./components/Skeletons/ProductCardSkeleton"
 import BaseInput from "./components/BaseInput"  
 import BaseCheckbox from "./components/BaseCheckbox"
 import BaseSpinner from './components/Spinners/BaseSpinner'
-import BaseNotification from './components/Notification/BaseNotification'
+import BaseAlert from './components/Notification/BaseAlert'
 
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -33,7 +33,7 @@ Vue.component('ProductCard', ProductCard);
 Vue.component('ProductCardSkeleton', ProductCardSkeleton);
 Vue.component('BaseInput', BaseInput);
 Vue.component('BaseSpinner', BaseSpinner);
-Vue.component('BaseNotification', BaseNotification);
+Vue.component('BaseAlert', BaseAlert);
 
 new Vue({
   router,
