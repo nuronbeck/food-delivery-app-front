@@ -1,6 +1,6 @@
 <template>
-  <div :class="`alert alert__${variant}`">
-    <span class="alert__message">{{ message }}</span>
+  <div :class="`base-alert base-alert__${variant}`">
+    <span class="base-alert__message">{{ message }}</span>
   </div>
 </template>
 
@@ -21,7 +21,7 @@ export default {
 </script>
 
 <style lang="scss">
-.alert {
+.base-alert {
   padding: 16px 20px;
   width: 100%;
   border-radius: 4px;
