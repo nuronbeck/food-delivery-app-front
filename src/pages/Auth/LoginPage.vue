@@ -126,7 +126,7 @@ export default {
   }
 
   &__baseInput {
-    margin-bottom: 28px !important;
+    margin-bottom: 28px !important;   
   }
 
   &__baseCheckbox {

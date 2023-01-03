@@ -1,5 +1,5 @@
 <template>
-  <button :class="'btn btn-' + variant" :disabled="disabled" @click="handleClick">
+  <button :class="'base-btn base-btn-' + variant" :disabled="disabled" @click="handleClick">
     <BaseSpinner v-if="loading" />
     <slot v-else />
   </button>
@@ -31,7 +31,7 @@ export default {
 </script>
 
 <style lang="scss">
-.btn {
+.base-btn {
   cursor: pointer;
   font-size: 14px;
   line-height: 20px;
@@ -94,7 +94,5 @@ export default {
     box-shadow: none;
     color: $color-grey;
   }
-
-
 }
 </style>

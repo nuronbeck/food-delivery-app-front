@@ -12,7 +12,7 @@
           :tag="dealCard.tag"
         />
       </div>
-      <!-- ===========Category page=========== -->
+      <!-- ===========Category page= ========== -->
       <div class="category__list">
         <CategoryCard
           v-for="(categoryCard, index) in categoryList"
@@ -22,17 +22,23 @@
       </div>
 
       <!-- ============Product card=========== -->
+      <div class="products__list" v-if="isLoading">
+        <ProductCardSkeleton
+          v-for="(_, index) in Array.from({ length: 6 }).fill(0)"
+          :key="`productSkeleton__${index}`"
+        />
+      </div>
 
-      <div class="products__list">
+      <div class="products__list" v-if="!isLoading">
         <ProductCard
-          v-for="(productCard, index) in productList"
-          :key="`productCard__${index}`"
-          :featured="productCard.featured"
-          :title="productCard.title"
-          :minTime="productCard.minTime"
-          :minSum="productCard.minSum"
-          :cardAction="productCard.cardAction"
-          :counter="productCard.counter"
+          v-for="(product) in productList"
+          :key="`productCard__${product.id}`"
+          :image="product.image"
+          :featured="product.featured"
+          :title="product.name"
+          :minTime="product.deliveryTime"
+          :minSum="product.minimalOrder"
+          :tags="product.tags"
         />
       </div>
     </div>
@@ -42,17 +48,35 @@
 <script>
 import dealsList from "../data/dealsList";
 import categoryList from "../data/categoryList";
-import productList from "../data/productList";
+
+import client from "../api"
 
 export default {
   name: "IndexPage",
   data() {
     return {
+      isLoading: false,
       dealsList,
       categoryList,
-      productList,
+      productList: [],
     };
   },
+  methods: {
+    loadData(){
+      this.isLoading = true
+
+      client.get('/api/products')
+      .then((response) => {
+        this.productList = response.data.data;
+      })
+      .finally(() => {
+        this.isLoading = false
+      })
+    }
+  },
+  mounted(){
+    this.loadData();
+  }
 };
 </script>
 

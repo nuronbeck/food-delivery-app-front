@@ -60,6 +60,7 @@
 <script>
 import client from "../../api";
 
+
 export default {
   name: "SignPage",
   data() {
@@ -90,28 +91,17 @@ export default {
       if (this.errors[propertyName] !== "") {
         this.errors[propertyName] = "";
       }
-
       this.formData[propertyName] = value;
     },
     register() {
       this.isLoading = true;
-
-      // setTimeout(() => {
-      //   this.errors.firstName = "* This firstname is not valid!";
-      //   this.errors.lastName = "*This lastName is not valid!";
-      //   this.errors.email = "* This email is not valid!";
-      //   this.errors.password =
-      //     "* Password should contain at least one character!";
-
-      //   this.isLoading = false;
-      // }, 2500);
 
         client.post('/api/auth/sign-up', this.formData)
         .then(response => {
           console.log(response);
         })
         .catch(error => {
-          console.log(error);
+         this.formData[propertyName] = response.data.errors;
         })
         .finally(() => {
           this.isLoading = false;
