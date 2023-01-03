@@ -1,6 +1,7 @@
 <template>
   <form class="signUp" @submit.prevent>
     <h1 class="signUp__name">Sign Up</h1>
+    <BaseNotification />
     <div class="signUp__userInfo">
       <BaseInput
         label="First Name"
@@ -60,8 +61,8 @@
 <script>
 import client from "../../api";
 
-
 export default {
+
   name: "SignPage",
   data() {
     return {
@@ -83,6 +84,7 @@ export default {
       },
     };
   },
+
   methods: {
     showPasswordClick() {
       this.showPassword = !this.showPassword;
@@ -98,10 +100,11 @@ export default {
 
         client.post('/api/auth/sign-up', this.formData)
         .then(response => {
-          console.log(response);
+       this.formData[propertyName] = response.data.data.errors;
+      console.log(response);
         })
         .catch(error => {
-         this.formData[propertyName] = response.data.errors;
+          console.log(error);
         })
         .finally(() => {
           this.isLoading = false;
@@ -122,8 +125,8 @@ export default {
   &__name {
     color: $color-dark;
     font-size: 32px;
-    line-height: 82px;
     font-family: $base-font;
+    margin-bottom: 40px;
     font-weight: 700;
     letter-spacing: 0.1px;
   }
