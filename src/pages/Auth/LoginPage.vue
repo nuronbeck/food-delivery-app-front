@@ -7,14 +7,14 @@
 
     <BaseAlert
       v-if="!!serverError"
-      class="signUp__alert"
+      class="login__alert"
       variant="danger"
       :message="serverError"
     />
 
     <BaseAlert
       v-if="!!serverSuccess"
-      class="signUp__alert"
+      class="login__alert"
       variant="success"
       :message="serverSuccess"
     />
@@ -65,7 +65,8 @@
 </template>
 
 <script>
-import client from "../../api";
+// import client from "../../api";
+import { mapActions } from 'vuex';
 
 export default {
   name: "LoginPage",
@@ -86,6 +87,9 @@ export default {
     };
   },
   methods: {
+    ...mapActions({
+      loginAction: 'auth/login'
+    }),
     showPasswordClick() {
       this.showPassword = !this.showPassword;
     },
@@ -95,38 +99,63 @@ export default {
       }
       this.formData[propertyName] = value;
     },
-    login() {
+    // login() {
+    //   this.isLoading = true;
+
+    //   client
+    //     .post("/api/auth/login", this.formData)
+    //     .then((response) => {
+    //       this.serverError = "";
+    //       this.serverSuccess = response.data.message;
+
+    //       this.formData.email = "";
+    //       this.formData.password = "";
+
+    //       localStorage.setItem("foodDeliveryAppToken", response.data.token);
+    //       this.$router.push("/profile");
+    //     })
+    //     .catch((error) => {
+    //       const serverError = error.response.data;
+
+    //       this.serverError = serverError.message;
+
+    //       if (serverError.errors.email) {
+    //         this.errors.email = serverError.errors.email;
+    //       }
+
+    //       if (serverError.errors.password) {
+    //         this.errors.password = serverError.errors.password;
+    //       }
+    //     })
+    //     .finally(() => {
+    //       this.isLoading = false;
+    //     });
+    // },
+
+    login(){
       this.isLoading = true;
 
-      client
-        .post("/api/auth/login", this.formData)
-        .then((response) => {
-          this.serverError = "";
-          this.serverSuccess = response.data.message;
+      this.loginAction(this.formData)
+      .then(() => {
+        this.$router.push("/");
+      })
+      .catch((error) => {
+        const serverError = error.response.data;
 
-          this.formData.email = "";
-          this.formData.password = "";
+        this.serverError = serverError.message;
 
-          // localStorage.setItem("foodDeliveryAppToken", response.data.token);
-          // this.$router.push("/profile");
-        })
-        .catch((error) => {
-          const serverError = error.response.data;
+        if (serverError.errors.email) {
+          this.errors.email = serverError.errors.email;
+        }
 
-          this.alertMessage = serverError.message;
-
-          if (serverError.errors.email) {
-            this.errors.email = serverError.errors.email;
-          }
-
-          if (serverError.errors.password) {
-            this.errors.password = serverError.errors.password;
-          }
-        })
-        .finally(() => {
-          this.isLoading = false;
-        });
-    },
+        if (serverError.errors.password) {
+          this.errors.password = serverError.errors.password;
+        }
+      })
+      .finally(() => {
+        this.isLoading = false;
+      })
+    }
   },
 };
 </script>
@@ -139,6 +168,10 @@ export default {
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
+
+  &__alert {
+    margin-bottom: 16px;
+  }
 
   &__name {
     color: $color-dark;

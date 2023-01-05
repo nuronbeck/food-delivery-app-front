@@ -208,7 +208,7 @@
           <div class="profile-form-divider"></div>
 
           <div class="account__btns">
-            <BaseButton class="account__btns-dangerBtn" variant="danger-outline"
+            <BaseButton class="account__btns-dangerBtn" variant="danger-outline" @onClick="logout"
               >Log out</BaseButton
             >
             <div>
@@ -230,6 +230,8 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
+
 export default {
   name: "ProfilePage",
   data() {
@@ -258,6 +260,9 @@ export default {
     };
   },
   methods: {
+    ...mapMutations({
+      logoutUser: 'auth/logout'
+    }),
     changeField(propertyName, value) {
       if (this.errors[propertyName] !== "") {
         this.errors[propertyName] = "";
@@ -278,6 +283,10 @@ export default {
         this.isLoading = false;
       }, 2500);
     },
+    logout(){
+      this.logoutUser();
+      this.$router.push('/')
+    }
   },
 };
 </script>
