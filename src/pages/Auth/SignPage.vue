@@ -77,7 +77,6 @@
 import client from "../../api";
 
 export default {
-
   name: "SignPage",
   data() {
     return {
@@ -111,57 +110,58 @@ export default {
         this.errors[propertyName] = "";
       }
       this.formData[propertyName] = value;
+      this.formData.loginSaveInfo[propertyName] = value;
     },
     register() {
       this.isLoading = true;
 
-      client.post('/api/auth/sign-up', this.formData)
-      .then(response => {
-        this.serverError = '';
-        this.serverSuccess = response.data.message;
+      client
+        .post("/api/auth/sign-up", this.formData)
+        .then((response) => {
+          this.serverError = "";
+          this.serverSuccess = response.data.message;
 
-        this.formData.firstName = ''
-        this.formData.lastName = ''
-        this.formData.email = ''
-        this.formData.phoneNumber = ''
-        this.formData.password = ''
+          this.formData.firstName = "";
+          this.formData.lastName = "";
+          this.formData.email = "";
+          this.formData.phoneNumber = "";
+          this.formData.password = "";
 
-        localStorage.setItem('foodDeliveryAppToken', response.data.token);
-        this.$router.push('/profile')
-      })
-      .catch(error => {
-        const serverError = error.response.data;
+          localStorage.setItem("foodDeliveryAppToken", response.data.token);
+          this.$router.push("/profile");
+        })
+        .catch((error) => {
+          const serverError = error.response.data;
 
-        this.alertMessage = serverError.message;
+          this.alertMessage = serverError.message;
 
-        if(serverError.errors.firstName){
-          this.errors.firstName = serverError.errors.firstName;
-        }
+          if (serverError.errors.firstName) {
+            this.errors.firstName = serverError.errors.firstName;
+          }
 
-        if(serverError.errors.lastName){
-          this.errors.lastName = serverError.errors.lastName;
-        }
+          if (serverError.errors.lastName) {
+            this.errors.lastName = serverError.errors.lastName;
+          }
 
-        if(serverError.errors.email){
-          this.errors.email = serverError.errors.email;
-        }
+          if (serverError.errors.email) {
+            this.errors.email = serverError.errors.email;
+          }
 
-        if(serverError.errors.phoneNumber){
-          this.errors.phoneNumber = serverError.errors.phoneNumber;
-        }
+          if (serverError.errors.phoneNumber) {
+            this.errors.phoneNumber = serverError.errors.phoneNumber;
+          }
 
-        if(serverError.errors.password){
-          this.errors.password = serverError.errors.password;
-        }
-      })
-      .finally(() => {
-        this.isLoading = false;
-      })
+          if (serverError.errors.password) {
+            this.errors.password = serverError.errors.password;
+          }
+        })
+        .finally(() => {
+          this.isLoading = false;
+        });
     },
   },
 };
 </script>
-
 
 <style lang="scss">
 .signUp {
