@@ -93,9 +93,7 @@ export default {
       if (this.errors[propertyName] !== "") {
         this.errors[propertyName] = "";
       }
-
       this.formData[propertyName] = value;
-      this.formData.loginSaveInfo[propertyName] = value;
     },
     login() {
       this.isLoading = true;
@@ -109,7 +107,8 @@ export default {
           this.formData.email = "";
           this.formData.password = "";
 
-          localStorage.setItem("foodDeliveryAppToken", response.data.token);
+          // localStorage.setItem("foodDeliveryAppToken", response.data.token);
+          // this.$router.push("/profile");
         })
         .catch((error) => {
           const serverError = error.response.data;

@@ -110,6 +110,7 @@ export default {
         this.errors[propertyName] = "";
       }
       this.formData[propertyName] = value;
+      this.formData.loginSaveInfo[propertyName] = value;
     },
     register() {
       this.isLoading = true;
