@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import Vuex from 'vuex'
 import App from './App.vue'
 import router from './router'
 import BaseButton from "./components/BaseButton"
@@ -11,6 +12,9 @@ import BaseCheckbox from "./components/BaseCheckbox"
 import BaseSpinner from './components/Spinners/BaseSpinner'
 import BaseAlert from './components/Notification/BaseAlert'
 
+import 'es6-promise/auto'
+import store from './store/index'
+
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
@@ -21,8 +25,8 @@ library.add(faCheck);
 library.add(faExclamation);
 library.add(faXmark);
 
-
 Vue.config.productionTip = false;
+Vue.use(Vuex);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.component('BaseButton', BaseButton);
@@ -37,5 +41,6 @@ Vue.component('BaseAlert', BaseAlert);
 
 new Vue({
   router,
+  store,
   render: h => h(App)
 }).$mount('#app')

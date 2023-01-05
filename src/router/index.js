@@ -1,15 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router';
-// Layouts
-import MainLayout from '../layouts/MainLayout'
-import AuthLayout from '../layouts/AuthLayout'
-
-// Pages
-import IndexPage from '../pages/IndexPage'
-import LoginPage from '../pages/Auth/LoginPage'
-import ForgotPasswordPage from '../pages/Auth/ForgotPasswordPage'
-import SignPage from '../pages/Auth/SignPage'
-import ProfilePage from '../pages/ProfilePage'
 
 Vue.use(VueRouter)
 
@@ -17,34 +7,34 @@ const routes = [
   {
     path: '/auth',
     name: 'AuthLayout',
-    component: AuthLayout,
+    component: () => import('../layouts/AuthLayout'),
     children: [
       {
         path: 'login',
-        component: LoginPage
+        component: () => import('../pages/Auth/LoginPage')
       },
       {
         path: 'forgot-password',
-        component: ForgotPasswordPage
+        component: () => import('../pages/Auth/ForgotPasswordPage')
       },
       {
         path: 'sign',
-        component: SignPage
+        component: () => import('../pages/Auth/SignPage')
       },
     ]
   },
   {
     path: '/',
     name: 'MainLayout',
-    component: MainLayout,
+    component: () => import('../layouts/MainLayout'),
     children: [
       {
         path: '',
-        component: IndexPage
+        component: () => import('../pages/IndexPage')
       },
       {
         path: 'profile',
-        component: ProfilePage
+        component: () => import('../pages/ProfilePage')
       }
     ]
   },

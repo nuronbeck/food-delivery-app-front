@@ -4,6 +4,20 @@
     <p class="login__text">
       Sign in with your data that you entered during your registration.
     </p>
+
+    <BaseAlert
+      v-if="!!serverError"
+      class="login__alert"
+      variant="danger"
+      :message="serverError"
+    />
+
+    <BaseAlert
+      v-if="!!serverSuccess"
+      class="login__alert"
+      variant="success"
+      :message="serverSuccess"
+    />
     <!-- ========Base inputs========= -->
     <BaseInput
       label="Email"
@@ -25,13 +39,7 @@
       @onPasswordToggle="showPasswordClick"
       @onInput="(value) => changeField('password', value)"
     />
-    <!-- ============Base checkbox========= -->
-    <BaseCheckbox
-      class="login__baseCheckbox"
-      label="Keep me logged in"
-      :checked="formData.loginSaveInfo.keepMeLogin"
-      @onChange="(value) => changeField('keepMeLogin', value)"
-    />
+
     <!-- ===========Base button========== -->
     <BaseButton
       variant="primary"
@@ -57,18 +65,20 @@
 </template>
 
 <script>
+// import client from "../../api";
+import { mapActions } from 'vuex';
+
 export default {
   name: "LoginPage",
   data() {
     return {
       isLoading: false,
       showPassword: false,
+      serverError: "",
+      serverSuccess: "",
       formData: {
         email: "",
         password: "",
-        loginSaveInfo: {
-          keepMeLogin: false,
-        },
       },
       errors: {
         email: "",
@@ -77,6 +87,9 @@ export default {
     };
   },
   methods: {
+    ...mapActions({
+      loginAction: 'auth/login'
+    }),
     showPasswordClick() {
       this.showPassword = !this.showPassword;
     },
@@ -84,22 +97,65 @@ export default {
       if (this.errors[propertyName] !== "") {
         this.errors[propertyName] = "";
       }
-
       this.formData[propertyName] = value;
-      this.formData.loginSaveInfo[propertyName] = value;
     },
-    login() {
-      // console.log(this.formData);
+    // login() {
+    //   this.isLoading = true;
+
+    //   client
+    //     .post("/api/auth/login", this.formData)
+    //     .then((response) => {
+    //       this.serverError = "";
+    //       this.serverSuccess = response.data.message;
+
+    //       this.formData.email = "";
+    //       this.formData.password = "";
+
+    //       localStorage.setItem("foodDeliveryAppToken", response.data.token);
+    //       this.$router.push("/profile");
+    //     })
+    //     .catch((error) => {
+    //       const serverError = error.response.data;
+
+    //       this.serverError = serverError.message;
+
+    //       if (serverError.errors.email) {
+    //         this.errors.email = serverError.errors.email;
+    //       }
+
+    //       if (serverError.errors.password) {
+    //         this.errors.password = serverError.errors.password;
+    //       }
+    //     })
+    //     .finally(() => {
+    //       this.isLoading = false;
+    //     });
+    // },
+
+    login(){
       this.isLoading = true;
 
-      setTimeout(() => {
-        this.errors.email = "* This email is not valid!";
-        this.errors.password =
-          "* Password should contain at least one character!";
+      this.loginAction(this.formData)
+      .then(() => {
+        this.$router.push("/");
+      })
+      .catch((error) => {
+        const serverError = error.response.data;
 
+        this.serverError = serverError.message;
+
+        if (serverError.errors.email) {
+          this.errors.email = serverError.errors.email;
+        }
+
+        if (serverError.errors.password) {
+          this.errors.password = serverError.errors.password;
+        }
+      })
+      .finally(() => {
         this.isLoading = false;
-      }, 2500);
-    },
+      })
+    }
   },
 };
 </script>
@@ -112,6 +168,10 @@ export default {
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
+
+  &__alert {
+    margin-bottom: 16px;
+  }
 
   &__name {
     color: $color-dark;
@@ -126,7 +186,7 @@ export default {
   }
 
   &__baseInput {
-    margin-bottom: 28px !important;   
+    margin-bottom: 28px !important;
   }
 
   &__baseCheckbox {

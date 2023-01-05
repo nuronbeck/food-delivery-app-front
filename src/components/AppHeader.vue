@@ -8,9 +8,9 @@
           </router-link>
         </div>
         <div class="header__menu">
-          <a class="header__menu-link" href="#">My orders</a>
+          <a v-if="isLoggedIn" class="header__menu-link" href="#">My orders</a>
 
-          <a class="header__menu-card" href="#">
+          <a v-if="isLoggedIn" class="header__menu-card" href="#">
             <img src="@/assets/header/shopping bag.svg" />
             <span class="header__menu-counter">4</span>
           </a>
@@ -30,12 +30,14 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   name: "AppHeader",
-  data() {
-    return {
-      isLoggedIn: false,
-    }
+  computed: {
+    ...mapGetters({
+      isLoggedIn: 'auth/isAuth'
+    }),
   },
   methods: {
     login() {
