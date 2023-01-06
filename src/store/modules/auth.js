@@ -7,11 +7,26 @@ export default {
   },
 
   actions: {
+    checkAuth(ctx){
+      return client.post("/api/auth", {}, {
+        headers: {
+          Authorization: localStorage.getItem('foodDeliveryAppToken')
+        }
+      })
+      .then((response) => {
+        ctx.commit('setAuthentication', true)
+        localStorage.setItem("foodDeliveryAppToken", response.data.token);
+
+        return response
+      })
+    },
     login (ctx, payload) {
       return client.post("/api/auth/login", payload)
       .then((response) => {
         ctx.commit('setAuthentication', true)
         localStorage.setItem("foodDeliveryAppToken", response.data.token);
+
+        return response
       })
     }
   },
@@ -23,6 +38,7 @@ export default {
     
     logout(state){
       state.isAuthenticated = false
+      localStorage.removeItem("foodDeliveryAppToken");
     }
   },
 
