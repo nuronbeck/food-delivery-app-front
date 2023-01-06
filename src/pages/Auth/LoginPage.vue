@@ -65,7 +65,6 @@
 </template>
 
 <script>
-// import client from "../../api";
 import { mapActions } from 'vuex';
 
 export default {
@@ -99,44 +98,18 @@ export default {
       }
       this.formData[propertyName] = value;
     },
-    // login() {
-    //   this.isLoading = true;
-
-    //   client
-    //     .post("/api/auth/login", this.formData)
-    //     .then((response) => {
-    //       this.serverError = "";
-    //       this.serverSuccess = response.data.message;
-
-    //       this.formData.email = "";
-    //       this.formData.password = "";
-
-    //       localStorage.setItem("foodDeliveryAppToken", response.data.token);
-    //       this.$router.push("/profile");
-    //     })
-    //     .catch((error) => {
-    //       const serverError = error.response.data;
-
-    //       this.serverError = serverError.message;
-
-    //       if (serverError.errors.email) {
-    //         this.errors.email = serverError.errors.email;
-    //       }
-
-    //       if (serverError.errors.password) {
-    //         this.errors.password = serverError.errors.password;
-    //       }
-    //     })
-    //     .finally(() => {
-    //       this.isLoading = false;
-    //     });
-    // },
-
     login(){
       this.isLoading = true;
 
       this.loginAction(this.formData)
-      .then(() => {
+      .then((response) => {
+        this.serverError = "";
+        this.serverSuccess = response.data.message;
+
+        this.formData.email = "";
+        this.formData.password = "";
+
+        localStorage.setItem("foodDeliveryAppToken", response.data.token);
         this.$router.push("/");
       })
       .catch((error) => {
