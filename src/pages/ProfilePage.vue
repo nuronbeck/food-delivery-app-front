@@ -122,7 +122,7 @@
       </div>
 
       <div class="account">
-        <h3 class="profile__name">Account</h3>
+        <h3 class="profile__name">Account</h3> 
         <div class="account__info">
           <h2 class="account__title">Personal information</h2>
           <p class="account__text">Avatar</p>
@@ -136,15 +136,15 @@
             <BaseInput
               label="First name"
               placeholder="Jane"
-              :value="formData.firstName"
-              :error="errors.firstName"
+              :value="userData.firstName"
+              :error="errors.firstName"             
               @onInput="(value) => changeField('firstName', value)"
             />
 
             <BaseInput
               label="Last name"
               placeholder="Robertson"
-              :value="formData.lastName"
+              :value="userData.lastName"
               :error="errors.lastName"
               @onInput="(value) => changeField('lastName', value)"
             />
@@ -152,7 +152,7 @@
             <BaseInput
               label="Email"
               placeholder="jane.robertson@example.com"
-              :value="formData.email"
+              :value="userData.email"
               :error="errors.email"
               @onInput="(value) => changeField('email', value)"
             />
@@ -160,7 +160,7 @@
             <BaseInput
               label="Phone number"
               placeholder="+998 (99) 324-42-91"
-              :value="formData.phoneNumber"
+              :value="userData.phoneNumber"
               :error="errors.phoneNumber"
               @onInput="(value) => changeField('phoneNumber', value)"
             />
@@ -230,7 +230,7 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex';
+import { mapMutations, mapGetters } from 'vuex';
 
 export default {
   name: "ProfilePage",
@@ -259,10 +259,22 @@ export default {
       }
     };
   },
+  computed: {
+  ...mapGetters({
+    userData: 'user/getUser'
+  })
+},
+mounted() {
+  this.getAuthData()
+},
   methods: {
     ...mapMutations({
       logoutUser: 'auth/logout'
     }),
+    async getAuthData() {
+      await this.$store.dispatch('user/getUserInfo')
+      console.log(this.userData) 
+    },
     changeField(propertyName, value) {
       if (this.errors[propertyName] !== "") {
         this.errors[propertyName] = "";
