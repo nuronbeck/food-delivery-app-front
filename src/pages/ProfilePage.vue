@@ -122,14 +122,28 @@
       </div>
 
       <div class="account">
-        <h3 class="profile__name">Account</h3>
+        <h3 class="profile__name">Account</h3> 
         <div class="account__info">
           <h2 class="account__title">Personal information</h2>
           <p class="account__text">Avatar</p>
           <div class="account__action">
             <img class="account__img" src="@/assets/profile/girl.svg" />
-            <BaseButton variant="primary-outline">Change</BaseButton>
-            <BaseButton variant="none">Remove</BaseButton>
+            
+            <BaseButton
+              v-if="isEditing"
+              class="account__btns-discardBtn"
+              @onClick="cancelEditing"
+            >
+              Cancel
+            </BaseButton>
+
+            <BaseButton
+              v-else 
+              variant="primary-outline"
+              @onClick="isEditing = true"
+            >
+              Change
+            </BaseButton>
           </div>
 
           <div class="account__input">
@@ -138,6 +152,7 @@
               placeholder="Jane"
               :value="formData.firstName"
               :error="errors.firstName"
+              :disabled="!isEditing || isLoading"
               @onInput="(value) => changeField('firstName', value)"
             />
 
@@ -146,6 +161,7 @@
               placeholder="Robertson"
               :value="formData.lastName"
               :error="errors.lastName"
+              :disabled="!isEditing || isLoading"
               @onInput="(value) => changeField('lastName', value)"
             />
 
@@ -154,6 +170,7 @@
               placeholder="jane.robertson@example.com"
               :value="formData.email"
               :error="errors.email"
+              :disabled="!isEditing || isLoading"
               @onInput="(value) => changeField('email', value)"
             />
 
@@ -162,6 +179,7 @@
               placeholder="+998 (99) 324-42-91"
               :value="formData.phoneNumber"
               :error="errors.phoneNumber"
+              :disabled="!isEditing || isLoading"
               @onInput="(value) => changeField('phoneNumber', value)"
             />
           </div>
@@ -212,10 +230,8 @@
               >Log out</BaseButton
             >
             <div>
-              <BaseButton disabled="disabled" class="account__btns-discardBtn"
-                >Discard changes</BaseButton
-              >
               <BaseButton
+                v-if="isEditing"
                 class="SaveBtn"
                 @onClick="saveChangeClick"
                 :loading="isLoading"
@@ -230,12 +246,13 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex';
+import { mapMutations, mapGetters } from 'vuex';
 
 export default {
   name: "ProfilePage",
   data() {
     return {
+      isEditing: false,
       isLoading: false,
       formData: {
         firstName: "",
@@ -259,10 +276,28 @@ export default {
       }
     };
   },
+  computed: {
+    ...mapGetters({
+      userData: 'user/userData'
+    })
+  },
+  mounted() {
+    this.initPage();
+  },
   methods: {
     ...mapMutations({
       logoutUser: 'auth/logout'
     }),
+    initPage(){
+      this.formData.firstName = this.userData.firstName
+      this.formData.lastName = this.userData.lastName
+      this.formData.email = this.userData.email
+      this.formData.phoneNumber = this.userData.phoneNumber
+    },
+    cancelEditing(){
+      this.isEditing = false
+      this.initPage();
+    },
     changeField(propertyName, value) {
       if (this.errors[propertyName] !== "") {
         this.errors[propertyName] = "";
@@ -275,12 +310,8 @@ export default {
       this.isLoading = true;
 
       setTimeout(() => {
-        this.errors.firstName = "* This firstName is not valid!";
-        this.errors.lastName = "* This lastName is not valid!";
-        this.errors.email = "* This email is not valid!";
-        this.errors.phoneNumber = "* This phoneNumber is not valid!";
-
         this.isLoading = false;
+        this.isEditing = false;
       }, 2500);
     },
     logout(){
