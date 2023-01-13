@@ -1,25 +1,16 @@
-import client from "../../api";
-
 export default {
   namespaced: true,
   state: {
-    userData: null
+    userData: {
+      id: null,
+      email: null,
+      firstName: null,
+      lastName: null,
+      phoneNumber: null
+    }
   },
 
   actions: {
-    getUserInfo(ctx){
-      return client.post("/api/auth", {}, {
-        headers: {
-          Authorization: localStorage.getItem('foodDeliveryAppToken')
-        }
-      })
-      .then((response) => {
-        ctx.commit('setUserData', response.data.user)
-        localStorage.setItem("foodDeliveryAppToken", response.data.token);
-
-        return response
-      })
-    },
   },
 
   mutations: {
@@ -30,7 +21,7 @@ export default {
   },
 
   getters: {
-    getUser(state) {
+    userData(state) {
       return state.userData
     }
   },

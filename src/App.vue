@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapMutations } from 'vuex';
 
 export default {
   name: 'App',
@@ -26,9 +26,24 @@ export default {
       checkAuth: 'auth/checkAuth'
     }),
 
+    ...mapMutations({
+      setUserData: 'user/setUserData'
+    }),
+
     setupApplication(){
       if(localStorage.getItem('foodDeliveryAppToken')){
         this.checkAuth()
+        .then(response => {
+          const { data: { user: { id, firstName, lastName, email, phoneNumber } = {} } = {} } = response;
+
+          this.setUserData({
+            id,
+            firstName,
+            lastName,
+            email,
+            phoneNumber
+          })
+        })
         .finally(() => {
           this.isAppLoading = false
         })
