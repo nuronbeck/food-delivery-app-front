@@ -5,7 +5,7 @@
     <div :class="`base-input__wrapper ${!!error ? 'has-error' : ''}`">
       <input class="base-input__input" :value="value"
         :type="type === 'password' ? showPassword ? 'text' : 'password' : type" :placeholder="placeholder"
-        @input="handleInputChange" required />
+        @input="handleInputChange" required :disabled="disabled"/>
 
       <div v-if="type === 'password'" class="base-input__append">
         <button v-if="showPassword" class="base-input__password-toggle" @click="togglePasswordShow">
@@ -44,6 +44,10 @@ export default {
       default: "",
     },
     showPassword: {
+      type: Boolean,
+      default: false,
+    },
+    disabled: {
       type: Boolean,
       default: false,
     },
@@ -108,6 +112,10 @@ export default {
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
+    
+    &:disabled {
+      color: $color-grey !important;
+    }
   }
 
   &__append {
