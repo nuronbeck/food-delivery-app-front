@@ -35,7 +35,7 @@ const routes = [
       {
         path: "profile",
         name: "ProfilePage",
-        component: () => import("../pages/ProfilePage"),
+        component: () => import("../pages/ProfilePage.vue"),
         children: [
           {
             path: "",
@@ -51,7 +51,7 @@ const routes = [
           },
           {
             path: "security",
-            component: () => import("../pages/Profile/SecurityPage"),
+            component: () => import("../pages/Profile/SecurityPage.vue"),
           },
         ],
       },

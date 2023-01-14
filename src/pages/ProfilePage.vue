@@ -3,7 +3,7 @@
     <div class="profile">
       <div class="profile__tabs">
         <h3 class="profile__name">Settings</h3>
-        <a class="profile__tab active" href="#">
+        <router-link class="profile__tab active" to="/profile/account">
           <div class="profile__tab-img">
             <svg
               width="20"
@@ -32,9 +32,9 @@
             <h2 class="profile__tab-title">Account</h2>
             <p class="profile__tab-text">Personal information</p>
           </div>
-        </a>
+        </router-link>
 
-        <a class="profile__tab" href="#">
+        <router-link class="profile__tab" to="./Profile/AddressPage.vue">
           <div class="profile__tab-img">
             <svg
               width="20"
@@ -63,9 +63,9 @@
             <h2 class="profile__tab-title">Address</h2>
             <p class="profile__tab-text">Shippings addresses</p>
           </div>
-        </a>
+        </router-link>
 
-        <a class="profile__tab" href="#">
+        <router-link class="profile__tab" to="./Profile/PaymentPage.vue">
           <div class="profile__tab-img">
             <svg
               width="20"
@@ -94,9 +94,9 @@
             <h2 class="profile__tab-title">Payment method</h2>
             <p class="profile__tab-text">Connected credit cards</p>
           </div>
-        </a>
+        </router-link>
 
-        <a class="profile__tab" href="#">
+        <router-link class="profile__tab" to="./Profile/SecurityPage.vue">
           <div class="profile__tab-img">
             <svg
               width="20"
@@ -118,7 +118,7 @@
             <h2 class="profile__tab-title">Security</h2>
             <p class="profile__tab-text">Password, 2FA</p>
           </div>
-        </a>
+        </router-link>
       </div>
 
       <div class="account">
