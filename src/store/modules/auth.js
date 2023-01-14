@@ -3,7 +3,8 @@ import client from "../../api";
 export default {
   namespaced: true,
   state: {
-    isAuthenticated: false
+    isAuthenticated: false,
+    // userData: null
   },
 
   actions: {
@@ -14,6 +15,7 @@ export default {
         }
       })
       .then((response) => {
+        // ctx.commit('setUserData', response.data.user)
         ctx.commit('setAuthentication', true)
         localStorage.setItem("foodDeliveryAppToken", response.data.token);
 
@@ -32,6 +34,10 @@ export default {
   },
 
   mutations: {
+    // setUserData(state, userData) {
+    //   state.userData = userData
+    // },
+
     setAuthentication(state, value){
       state.isAuthenticated = value
     },
@@ -45,6 +51,9 @@ export default {
   getters: {
     isAuth(state) {
       return state.isAuthenticated
-    }
+    },
+    // getUser(state) {
+    //   return state.userData
+    // }
   },
 }

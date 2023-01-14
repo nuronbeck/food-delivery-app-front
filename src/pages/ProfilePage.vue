@@ -121,20 +121,13 @@
         </a>
       </div>
 
-      <div class="account">
-        <router-view></router-view>
-      </div>
-    </div>
-  </div>
-</template>
-
-<script>
-import { mapMutations } from "vuex";
+Hello Goodbye from the merge of profileTest and develop.
 
 export default {
   name: "ProfilePage",
   data() {
     return {
+      isEditing: false,
       isLoading: false,
       formData: {
         firstName: "",
@@ -158,10 +151,28 @@ export default {
       },
     };
   },
+  computed: {
+    ...mapGetters({
+      userData: 'user/userData'
+    })
+  },
+  mounted() {
+    this.initPage();
+  },
   methods: {
     ...mapMutations({
       logoutUser: "auth/logout",
     }),
+    initPage(){
+      this.formData.firstName = this.userData.firstName
+      this.formData.lastName = this.userData.lastName
+      this.formData.email = this.userData.email
+      this.formData.phoneNumber = this.userData.phoneNumber
+    },
+    cancelEditing(){
+      this.isEditing = false
+      this.initPage();
+    },
     changeField(propertyName, value) {
       if (this.errors[propertyName] !== "") {
         this.errors[propertyName] = "";
@@ -174,12 +185,8 @@ export default {
       this.isLoading = true;
 
       setTimeout(() => {
-        this.errors.firstName = "* This firstName is not valid!";
-        this.errors.lastName = "* This lastName is not valid!";
-        this.errors.email = "* This email is not valid!";
-        this.errors.phoneNumber = "* This phoneNumber is not valid!";
-
         this.isLoading = false;
+        this.isEditing = false;
       }, 2500);
     },
     logout() {
