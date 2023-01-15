@@ -3,7 +3,7 @@
     <div class="profile">
       <div class="profile__tabs">
         <h3 class="profile__name">Settings</h3>
-        <a class="profile__tab active" href="#">
+        <router-link class="profile__tab" to="/profile" exact-active-class="active">
           <div class="profile__tab-img">
             <svg
               width="20"
@@ -32,9 +32,9 @@
             <h2 class="profile__tab-title">Account</h2>
             <p class="profile__tab-text">Personal information</p>
           </div>
-        </a>
+        </router-link>
 
-        <a class="profile__tab" href="#">
+        <router-link class="profile__tab" to="/profile/address" exact-active-class="active">
           <div class="profile__tab-img">
             <svg
               width="20"
@@ -63,9 +63,9 @@
             <h2 class="profile__tab-title">Address</h2>
             <p class="profile__tab-text">Shippings addresses</p>
           </div>
-        </a>
+        </router-link>
 
-        <a class="profile__tab" href="#">
+        <router-link class="profile__tab" to="/profile/payment-methods" exact-active-class="active">
           <div class="profile__tab-img">
             <svg
               width="20"
@@ -94,9 +94,9 @@
             <h2 class="profile__tab-title">Payment method</h2>
             <p class="profile__tab-text">Connected credit cards</p>
           </div>
-        </a>
+        </router-link>
 
-        <a class="profile__tab" href="#">
+        <router-link class="profile__tab" to="/profile/security" exact-active-class="active">
           <div class="profile__tab-img">
             <svg
               width="20"
@@ -116,137 +116,20 @@
           </div>
           <div class="profile__tab-content">
             <h2 class="profile__tab-title">Security</h2>
-            <p class="profile__tab-text">Password, 2FA</p>
+            <p class="profile__tab-text">Password</p>
           </div>
-        </a>
+        </router-link>
       </div>
 
       <div class="account">
-        <h3 class="profile__name">Account</h3> 
-        <div class="account__info">
-          <h2 class="account__title">Personal information</h2>
-          <p class="account__text">Avatar</p>
-          <div class="account__action">
-            <img class="account__img" src="@/assets/profile/girl.svg" />
-            
-            <BaseButton
-              v-if="isEditing"
-              class="account__btns-discardBtn"
-              @onClick="cancelEditing"
-            >
-              Cancel
-            </BaseButton>
-
-            <BaseButton
-              v-else 
-              variant="primary-outline"
-              @onClick="isEditing = true"
-            >
-              Change
-            </BaseButton>
-          </div>
-
-          <div class="account__input">
-            <BaseInput
-              label="First name"
-              placeholder="Jane"
-              :value="formData.firstName"
-              :error="errors.firstName"
-              :disabled="!isEditing || isLoading"
-              @onInput="(value) => changeField('firstName', value)"
-            />
-
-            <BaseInput
-              label="Last name"
-              placeholder="Robertson"
-              :value="formData.lastName"
-              :error="errors.lastName"
-              :disabled="!isEditing || isLoading"
-              @onInput="(value) => changeField('lastName', value)"
-            />
-
-            <BaseInput
-              label="Email"
-              placeholder="jane.robertson@example.com"
-              :value="formData.email"
-              :error="errors.email"
-              :disabled="!isEditing || isLoading"
-              @onInput="(value) => changeField('email', value)"
-            />
-
-            <BaseInput
-              label="Phone number"
-              placeholder="+998 (99) 324-42-91"
-              :value="formData.phoneNumber"
-              :error="errors.phoneNumber"
-              :disabled="!isEditing || isLoading"
-              @onInput="(value) => changeField('phoneNumber', value)"
-            />
-          </div>
-
-          <div class="account__checkbox">
-            <h3 class="account__title">Email notifications</h3>
-            <div class="profile-notifications__wrapper">
-              <BaseCheckbox
-                label="New deals"
-                :checked="formData.emailNotifications.newDeals"
-                @onChange="(value) => changeField('newDeals', value)"
-              />
-
-              <BaseCheckbox
-                label="New restaurants"
-                :checked="formData.emailNotifications.newRestaurants"
-                @onChange="(value) => changeField('newRestaurants', value)"
-              />
-
-              <BaseCheckbox
-                label="Order statuses"
-                :checked="formData.emailNotifications.orderStatuses"
-                @onChange="(value) => changeField('orderStatuses', value)"
-              />
-
-              <BaseCheckbox
-                label="Password changes"
-                :checked="formData.emailNotifications.passwordChanges"
-                @onChange="(value) => changeField('passwordChanges', value)"
-              />
-              <BaseCheckbox
-                label="Special offers"
-                :checked="formData.emailNotifications.specialOffers"
-                @onChange="(value) => changeField('specialOffers', value)"
-              />
-              <BaseCheckbox
-                label="Newsletter"
-                :checked="formData.emailNotifications.newsLetter"
-                @onChange="(value) => changeField('newsLetter', value)"
-              />
-            </div>
-          </div>
-
-          <div class="profile-form-divider"></div>
-
-          <div class="account__btns">
-            <BaseButton class="account__btns-dangerBtn" variant="danger-outline" @onClick="logout"
-              >Log out</BaseButton
-            >
-            <div>
-              <BaseButton
-                v-if="isEditing"
-                class="SaveBtn"
-                @onClick="saveChangeClick"
-                :loading="isLoading"
-                >Save changes</BaseButton
-              >
-            </div>
-          </div>
-        </div>
+        <router-view></router-view>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapMutations, mapGetters } from 'vuex';
+import { mapMutations, mapGetters } from "vuex";
 
 export default {
   name: "ProfilePage",
@@ -269,33 +152,33 @@ export default {
         },
       },
       errors: {
-        firstName: '',
-        lastName: '',
-        email: '',
-        phoneNumber: '',
-      }
+        firstName: "",
+        lastName: "",
+        email: "",
+        phoneNumber: "",
+      },
     };
   },
   computed: {
     ...mapGetters({
-      userData: 'user/userData'
-    })
+      userData: "user/userData",
+    }),
   },
   mounted() {
     this.initPage();
   },
   methods: {
     ...mapMutations({
-      logoutUser: 'auth/logout'
+      logoutUser: "auth/logout",
     }),
-    initPage(){
-      this.formData.firstName = this.userData.firstName
-      this.formData.lastName = this.userData.lastName
-      this.formData.email = this.userData.email
-      this.formData.phoneNumber = this.userData.phoneNumber
+    initPage() {
+      this.formData.firstName = this.userData.firstName;
+      this.formData.lastName = this.userData.lastName;
+      this.formData.email = this.userData.email;
+      this.formData.phoneNumber = this.userData.phoneNumber;
     },
-    cancelEditing(){
-      this.isEditing = false
+    cancelEditing() {
+      this.isEditing = false;
       this.initPage();
     },
     changeField(propertyName, value) {
@@ -314,10 +197,10 @@ export default {
         this.isEditing = false;
       }, 2500);
     },
-    logout(){
+    logout() {
       this.logoutUser();
-      this.$router.push('/')
-    }
+      this.$router.push("/");
+    },
   },
 };
 </script>
@@ -382,7 +265,7 @@ export default {
           background: $color-primary;
         }
       }
-      
+
       path {
         stroke: $color-white;
         transition: all 0.15s linear;
@@ -406,119 +289,10 @@ export default {
   }
 }
 
-.account {
-  &__info {
-    background: $color-white;
-    border: 1px solid $color-grey-lightest;
-    border-radius: 16px;
-    padding: 16px;
-    margin-bottom: 24px;
-  }
-
-  &__title {
-    font-family: $base-font;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 24px;
-    letter-spacing: 0.1px;
-    margin-bottom: 16px;
-    color: $color-dark;
-  }
-
-  &__text {
-    font-family: $base-font;
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 16px;
-    margin-bottom: 8px;
-    color: $color-grey-dark;
-  }
-
-  &__action {
-    display: flex;
-    align-items: center;
-    margin-bottom: 16px;
-  }
-
-  &__img {
-    cursor: pointer;
-    border-radius: 12px;
-    margin-right: 24px;
-  }
-
-  &__input {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    margin-bottom: 15px;
-  }
-
-  &__btns {
-    display: flex;
-    justify-content: space-between;
-
-    &-discardBtn {
-      margin-right: 16px;
-    }
-
-    .SaveBtn {
-      min-width: 120px;
-    }
-  }
-}
-
-.profile-notifications {
-  &__wrapper {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px 16px;
-    margin-bottom: 36px;
-  }
-}
-
-.profile-form-divider {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  height: 1px;
-  width: 100%;
-  background-color: $color-grey-light;
-}
-
 /* Here you can define styles how to change on mobile  */
 @media screen and (max-width: 768px) {
   .profile {
     grid-template-columns: 1fr;
-  }
-
-  .account {
-    &__input {
-      grid-template-columns: 1fr;
-    }
-
-    &__btns {
-      flex-direction: column;
-
-      div {
-        &:nth-child(2) {
-          display: flex;
-          justify-content: space-between;
-        }
-
-        button {
-          width: 100%;
-        }
-      }
-
-      &-dangerBtn {
-        margin-bottom: 40px;
-      }
-    }
-  }
-
-  .profile-notifications {
-    &__wrapper {
-      grid-template-columns: 1fr;
-    }
   }
 }
 </style>
