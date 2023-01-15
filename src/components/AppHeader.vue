@@ -4,7 +4,7 @@
       <div class="header__wrapper">
         <div class="header__logo">
           <router-link to="/">
-            <img src="@/assets/header/main_logo.svg">
+            <img src="@/assets/header/main_logo.svg" />
           </router-link>
         </div>
         <div class="header__menu">
@@ -16,7 +16,7 @@
           </a>
 
           <router-link v-if="isLoggedIn" to="/profile">
-            <img class="header__menu-userImg" src="@/assets/header/useravatar.svg" />
+            <img class="header__menu-userImg" src="@/assets/header/5173.jpg" />
           </router-link>
 
           <BaseButton v-if="!isLoggedIn" variant="primary" @onClick="login">
@@ -30,20 +30,20 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters } from "vuex";
 
 export default {
   name: "AppHeader",
   computed: {
     ...mapGetters({
-      isLoggedIn: 'auth/isAuth'
+      isLoggedIn: "auth/isAuth",
     }),
   },
   methods: {
     login() {
-      this.$router.push('/auth/login');
-    }
-  }
+      this.$router.push("/auth/login");
+    },
+  },
 };
 </script>
 
@@ -111,6 +111,8 @@ export default {
       border: 2px solid $color-grey-lightest;
       border-radius: 16px;
       padding: 2px;
+      width: 46px;
+      height: 46px;
 
       &:hover {
         border: 2px solid $color-primary;
@@ -124,8 +126,7 @@ export default {
 }
 
 // =========Mobile breakpoint==========
-@media screen and ( max-width: 768px) {
-
+@media screen and (max-width: 768px) {
   .header {
     &__menu {
       position: relative;

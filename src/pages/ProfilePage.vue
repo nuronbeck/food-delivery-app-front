@@ -3,7 +3,7 @@
     <div class="profile">
       <div class="profile__tabs">
         <h3 class="profile__name">Settings</h3>
-        <router-link class="profile__tab active" to="/profile/account">
+        <router-link class="profile__tab active" to="/profile">
           <div class="profile__tab-img">
             <svg
               width="20"
@@ -34,7 +34,7 @@
           </div>
         </router-link>
 
-        <router-link class="profile__tab" to="./Profile/AddressPage.vue">
+        <router-link class="profile__tab" to="/profile/address">
           <div class="profile__tab-img">
             <svg
               width="20"
@@ -65,7 +65,7 @@
           </div>
         </router-link>
 
-        <router-link class="profile__tab" to="./Profile/PaymentPage.vue">
+        <router-link class="profile__tab" to="/profile/payment-methods">
           <div class="profile__tab-img">
             <svg
               width="20"
@@ -96,7 +96,7 @@
           </div>
         </router-link>
 
-        <router-link class="profile__tab" to="./Profile/SecurityPage.vue">
+        <router-link class="profile__tab" to="/profile/security">
           <div class="profile__tab-img">
             <svg
               width="20"
@@ -116,7 +116,7 @@
           </div>
           <div class="profile__tab-content">
             <h2 class="profile__tab-title">Security</h2>
-            <p class="profile__tab-text">Password, 2FA</p>
+            <p class="profile__tab-text">Password</p>
           </div>
         </router-link>
       </div>
@@ -289,119 +289,10 @@ export default {
   }
 }
 
-.account {
-  &__info {
-    background: $color-white;
-    border: 1px solid $color-grey-lightest;
-    border-radius: 16px;
-    padding: 16px;
-    margin-bottom: 24px;
-  }
-
-  &__title {
-    font-family: $base-font;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 24px;
-    letter-spacing: 0.1px;
-    margin-bottom: 16px;
-    color: $color-dark;
-  }
-
-  &__text {
-    font-family: $base-font;
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 16px;
-    margin-bottom: 8px;
-    color: $color-grey-dark;
-  }
-
-  &__action {
-    display: flex;
-    align-items: center;
-    margin-bottom: 16px;
-  }
-
-  &__img {
-    cursor: pointer;
-    border-radius: 12px;
-    margin-right: 24px;
-  }
-
-  &__input {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    margin-bottom: 15px;
-  }
-
-  &__btns {
-    display: flex;
-    justify-content: space-between;
-
-    &-discardBtn {
-      margin-right: 16px;
-    }
-
-    .SaveBtn {
-      min-width: 120px;
-    }
-  }
-}
-
-.profile-notifications {
-  &__wrapper {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px 16px;
-    margin-bottom: 36px;
-  }
-}
-
-.profile-form-divider {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  height: 1px;
-  width: 100%;
-  background-color: $color-grey-light;
-}
-
 /* Here you can define styles how to change on mobile  */
 @media screen and (max-width: 768px) {
   .profile {
     grid-template-columns: 1fr;
-  }
-
-  .account {
-    &__input {
-      grid-template-columns: 1fr;
-    }
-
-    &__btns {
-      flex-direction: column;
-
-      div {
-        &:nth-child(2) {
-          display: flex;
-          justify-content: space-between;
-        }
-
-        button {
-          width: 100%;
-        }
-      }
-
-      &-dangerBtn {
-        margin-bottom: 40px;
-      }
-    }
-  }
-
-  .profile-notifications {
-    &__wrapper {
-      grid-template-columns: 1fr;
-    }
   }
 }
 </style>

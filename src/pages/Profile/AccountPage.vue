@@ -5,7 +5,7 @@
       <h2 class="account__title">Personal information</h2>
       <p class="account__text">Avatar</p>
       <div class="account__action">
-        <img class="account__img" src="@/assets/profile/girl.svg" />
+        <img class="account__img" src="@/assets/profile/boy.jpg" />
 
         <BaseButton
           v-if="isEditing"
@@ -200,3 +200,119 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.account {
+  &__info {
+    background: $color-white;
+    border: 1px solid $color-grey-lightest;
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 24px;
+    // height: 100vh;
+  }
+
+  &__title {
+    font-family: $base-font;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.1px;
+    margin-bottom: 16px;
+    color: $color-dark;
+  }
+
+  &__text {
+    font-family: $base-font;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    margin-bottom: 8px;
+    color: $color-grey-dark;
+  }
+
+  &__action {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  &__img {
+    cursor: pointer;
+    border-radius: 12px;
+    margin-right: 24px;
+    width: 76px;
+    height: 76px;
+  }
+
+  &__input {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 15px;
+  }
+
+  &__btns {
+    display: flex;
+    justify-content: space-between;
+
+    &-discardBtn {
+      margin-right: 16px;
+    }
+
+    .SaveBtn {
+      min-width: 120px;
+    }
+  }
+}
+
+.profile-notifications {
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 16px;
+    margin-bottom: 36px;
+  }
+}
+
+.profile-form-divider {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 1px;
+  width: 100%;
+  background-color: $color-grey-light;
+}
+
+@media screen and (max-width: 768px) {
+  .account {
+    &__input {
+      grid-template-columns: 1fr;
+    }
+
+    &__btns {
+      flex-direction: column;
+
+      div {
+        &:nth-child(2) {
+          display: flex;
+          justify-content: space-between;
+        }
+
+        button {
+          width: 100%;
+        }
+      }
+
+      &-dangerBtn {
+        margin-bottom: 40px;
+      }
+    }
+  }
+
+  .profile-notifications {
+    &__wrapper {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+</style>
