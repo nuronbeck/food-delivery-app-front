@@ -8,15 +8,17 @@
           </router-link>
         </div>
         <div class="header__menu">
-          <a v-if="isLoggedIn" class="header__menu-link" href="#">My orders</a>
+          <router-link v-if="isLoggedIn" class="header__menu-link" to="/my-orders" active-class="active">
+            My orders
+          </router-link>
 
-          <a v-if="isLoggedIn" class="header__menu-card" href="#">
+          <router-link v-if="isLoggedIn" class="header__menu-card" to="/cart">
             <img src="@/assets/header/shopping bag.svg" />
             <span class="header__menu-counter">4</span>
-          </a>
+          </router-link>
 
-          <router-link v-if="isLoggedIn" to="/profile">
-            <img class="header__menu-userImg" src="@/assets/header/5173.jpg" />
+          <router-link v-if="isLoggedIn" class="header__menu--profile-link" to="/profile" active-class="active">
+            <img class="header__menu--profile-image" src="@/assets/profile/blank-profile-picture.jpg" />
           </router-link>
 
           <BaseButton v-if="!isLoggedIn" variant="primary" @onClick="login">
@@ -87,6 +89,10 @@ export default {
         transition: 0.5s;
         color: $color-primary;
       }
+
+      &.active {
+        color: $color-primary;
+      }
     }
 
     &-card {
@@ -107,15 +113,31 @@ export default {
       color: $color-white;
     }
 
-    &-userImg {
-      border: 2px solid $color-grey-lightest;
-      border-radius: 16px;
-      padding: 2px;
+    &--profile-image {
+      min-width: 100%;
+      height: auto;
+    }
+
+    &--profile-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       width: 46px;
       height: 46px;
+      min-width: 46px;
+      min-height: 46px;
+      background-color: $color-grey-light;
+      outline: 2px solid $color-white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-sizing: border-box;
 
       &:hover {
-        border: 2px solid $color-primary;
+        outline: 2px solid $color-primary;
+      }
+
+      &.active {
+        outline: 2px solid $color-primary;
       }
     }
 
@@ -143,25 +165,6 @@ export default {
           border: 2px solid $color-primary;
         }
       }
-
-      &-userImg {
-        &:hover {
-          border: 2px solid $color-primary;
-        }
-      }
-
-      // &-icon {
-      //   cursor: pointer;
-      //   display: block;
-      //   background: $color-grey-lightest;
-      //   border-radius: 16px;
-      //   padding: 14px;
-      //   border: 2px solid $color-grey-lightest;
-
-      //   &:hover {
-      //     border: 2px solid $color-primary;
-      //   }
-      // }
     }
   }
 }

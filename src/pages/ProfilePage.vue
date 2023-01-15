@@ -3,7 +3,7 @@
     <div class="profile">
       <div class="profile__tabs">
         <h3 class="profile__name">Settings</h3>
-        <router-link class="profile__tab active" to="/profile">
+        <router-link class="profile__tab" to="/profile" exact-active-class="active">
           <div class="profile__tab-img">
             <svg
               width="20"
@@ -34,7 +34,7 @@
           </div>
         </router-link>
 
-        <router-link class="profile__tab" to="/profile/address">
+        <router-link class="profile__tab" to="/profile/address" exact-active-class="active">
           <div class="profile__tab-img">
             <svg
               width="20"
@@ -65,7 +65,7 @@
           </div>
         </router-link>
 
-        <router-link class="profile__tab" to="/profile/payment-methods">
+        <router-link class="profile__tab" to="/profile/payment-methods" exact-active-class="active">
           <div class="profile__tab-img">
             <svg
               width="20"
@@ -96,7 +96,7 @@
           </div>
         </router-link>
 
-        <router-link class="profile__tab" to="/profile/security">
+        <router-link class="profile__tab" to="/profile/security" exact-active-class="active">
           <div class="profile__tab-img">
             <svg
               width="20"

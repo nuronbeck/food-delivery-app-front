@@ -33,6 +33,14 @@ const routes = [
         component: () => import("../pages/IndexPage"),
       },
       {
+        path: "cart",
+        component: () => import("../pages/CartPage"),
+      },
+      {
+        path: "my-orders",
+        component: () => import("../pages/MyOrdersPage"),
+      },
+      {
         path: "profile",
         name: "ProfilePage",
         component: () => import("../pages/ProfilePage.vue"),

@@ -5,7 +5,7 @@
       <h2 class="account__title">Personal information</h2>
       <p class="account__text">Avatar</p>
       <div class="account__action">
-        <img class="account__img" src="@/assets/profile/boy.jpg" />
+        <img class="account__img" src="@/assets/profile/blank-profile-picture.jpg" />
 
         <BaseButton
           v-if="isEditing"
