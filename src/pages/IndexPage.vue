@@ -12,22 +12,12 @@
           :tag="dealCard.tag"
         />
       </div>
-
-      <div class="category__list" v-if="isLoading">
-        <CategoryCardSkeleton
-          v-for="(_, index) in Array.from({ length: 6 }).fill(0)"
-          :key="`categorySkeleton__${index}`"
-        />
-      </div>
-
-      <div class="category__list" v-if="!isLoading">
+      <!-- ===========Category page= ========== -->
+      <div class="category__list">
         <CategoryCard
           v-for="(categoryCard, index) in categoryList"
           :key="`categoryCard__${index}`"
-          :title="categoryCard.name"
-          :image="categoryCard.image"
-          :selected="categoryCard.id === selectedCategory"
-          @onClick="() => clickCategory(categoryCard)"
+          :title="categoryCard.title"
         />
       </div>
 
@@ -57,6 +47,7 @@
 
 <script>
 import dealsList from "../data/dealsList";
+import categoryList from "../data/categoryList";
 
 import client from "../api"
 
@@ -66,38 +57,21 @@ export default {
     return {
       isLoading: false,
       dealsList,
-      categoryList: [],
+      categoryList,
       productList: [],
-      selectedCategory: null
     };
   },
   methods: {
     loadData(){
       this.isLoading = true
 
-      const promise1 = client.get('/api/products')
+      client.get('/api/products')
       .then((response) => {
         this.productList = response.data.data;
       })
-
-      const promise2 = client.get('/api/categories')
-      .then(({ data: { data = [] } = {} }) => {
-        this.categoryList = data;
-      })
-
-      Promise.all([promise1, promise2])
       .finally(() => {
         this.isLoading = false
       })
-    },
-    clickCategory(categoryObject){
-      const { id } = categoryObject;
-      
-      if(this.selectedCategory === id){
-        this.selectedCategory = null
-      } else {
-        this.selectedCategory = id
-      }
     }
   },
   mounted(){

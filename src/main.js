@@ -6,7 +6,6 @@ import BaseButton from "./components/BaseButton"
 import DealCard from "./components/Cards/DealCard"
 import CategoryCard from "./components/Cards/CategoryCard"
 import ProductCard from "./components/Cards/ProductCard"
-import CategoryCardSkeleton from "./components/Skeletons/CategoryCardSkeleton"
 import ProductCardSkeleton from "./components/Skeletons/ProductCardSkeleton"
 import BaseInput from "./components/BaseInput"  
 import BaseCheckbox from "./components/BaseCheckbox"
@@ -34,7 +33,6 @@ Vue.component('BaseButton', BaseButton);
 Vue.component('BaseCheckbox', BaseCheckbox);
 Vue.component('DealCard', DealCard);
 Vue.component('CategoryCard', CategoryCard);
-Vue.component('CategoryCardSkeleton', CategoryCardSkeleton);
 Vue.component('ProductCard', ProductCard);
 Vue.component('ProductCardSkeleton', ProductCardSkeleton);
 Vue.component('BaseInput', BaseInput);
